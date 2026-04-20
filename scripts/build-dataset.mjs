@@ -205,9 +205,17 @@ async function main() {
       website: place.website || null,
       rating: place.totalScore ?? null,
       reviewCount: place.reviewsCount ?? 0,
-      priceLevel: place.priceLevel ?? null,
       openingHours: place.openingHours || null,
-      images: (place.images || []).slice(0, 4).map(img => ({ imageUrl: img.imageUrl || img.url || img })).filter(img => img.imageUrl && typeof img.imageUrl === 'string') || null,
+      images: (() => {
+        const urls = (place.imageUrls || place.images || []).slice(0, 4);
+        const mapped = urls.map(img => ({ imageUrl: img.imageUrl || img.url || img })).filter(i => typeof i.imageUrl === 'string' && i.imageUrl.startsWith('http'));
+        return mapped.length ? mapped : null;
+      })(),
+      priceLevel: (() => {
+        if (place.priceLevel != null) return place.priceLevel;
+        if (place.price) return place.price.replace(/[^$]/g, '').length || null;
+        return null;
+      })(),
       categories: place.categories || [],
       permanentlyClosed: place.permanentlyClosed || false,
       source: place.searchString || '',
