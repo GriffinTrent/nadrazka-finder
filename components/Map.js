@@ -152,16 +152,19 @@ function createMarkerIcon(isSelected, isVerified = true, size = 'medium') {
 
   return L.divIcon({
     html: `<div style="
+      width:44px;height:44px;
+      display:flex;align-items:center;justify-content:center;
+    "><div style="
       width: ${px}px; height: ${px}px;
       background: ${bg};
       border-radius: 50%;
       border: ${bord}px solid white;
       box-shadow: ${drop}${rings};
       transition: transform 0.15s;
-    "></div>`,
+    "></div></div>`,
     className: '',
-    iconSize: [px, px],
-    iconAnchor: [px / 2, px / 2],
+    iconSize: [44, 44],
+    iconAnchor: [22, 22],
   });
 }
 
@@ -263,7 +266,13 @@ export default function Map({ mapData = [], onLocationSelect = () => {}, selecte
   return (
     <div
       ref={containerRef}
-      style={{ height: '100vh', width: '100%' }}
+      tabIndex={0}
+      style={{
+        height: '100vh',
+        width: '100%',
+        outline: 'none',  // Leaflet handles its own focus ring
+      }}
+      onFocus={() => { if (mapRef.current) mapRef.current.getContainer().focus(); }}
     />
   );
 }

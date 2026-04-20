@@ -18,8 +18,21 @@ function isSafeUrl(url: string): boolean {
 
 const PRICE_LABEL: Record<number, string> = { 1: '€', 2: '€€', 3: '€€€', 4: '€€€€' };
 
+// Fix 4: Human-readable tier labels
+const TIER_LABELS: Record<number, string> = {
+  1: 'Top pick',
+  2: 'Good find',
+  3: 'Worth a visit',
+};
+
 // Czech weekday names indexed to match Date.getDay() (0=Sun)
 const CZ_DAYS = ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'];
+
+// Fix 5: Czech → English day abbreviations
+const CZ_TO_EN: Record<string, string> = {
+  'pondělí': 'Mon', 'úterý': 'Tue', 'středa': 'Wed',
+  'čtvrtek': 'Thu', 'pátek': 'Fri', 'sobota': 'Sat', 'neděle': 'Sun',
+};
 
 function getTodayHours(openingHours: Array<{ day: string; hours: string }> | null): string | null {
   if (!openingHours) return null;
@@ -39,6 +52,8 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
   const [hoursOpen, setHoursOpen] = useState(false);
   const [translatedReviews, setTranslatedReviews] = useState<Array<string | null> | null>(null);
   const [translating, setTranslating] = useState(false);
+  // Fix 1: Two-stop snap system
+  const [snapState, setSnapState] = useState<'peek' | 'full'>('peek');
 
   const translateReviews = useCallback(async () => {
     if (translatedReviews) { setTranslatedReviews(null); return; }
@@ -53,7 +68,7 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
           );
           const json = await res.json();
           return json.responseData?.translatedText ?? r.text;
-        } catch { return r.text; }
+        } catch { return null; } // Fix 6: null signals failure; don't silently show Czech as "English"
       })
     );
     setTranslatedReviews(results);
@@ -84,6 +99,8 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
 
   // Reset toggles when a new location opens
   useEffect(() => { setHoursOpen(false); setTranslatedReviews(null); setTranslating(false); }, [location?.id]);
+  // Fix 1: Snap to peek whenever a new pub is selected
+  useEffect(() => { if (location) setSnapState('peek'); }, [location?.id]);
 
   const isVisible = location !== null;
   const images = location?.images?.filter(img => isSafeUrl(img.imageUrl)) ?? [];
@@ -107,23 +124,43 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
         ref={sheetRef}
         style={{
           position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1002,
-          height: '70vh',
+          height: snapState === 'full' ? '70vh' : '120px',
           background: t.sheet,
           borderRadius: '20px 20px 0 0',
           boxShadow: darkMode ? '0 -4px 40px rgba(0,0,0,0.4)' : '0 -4px 40px rgba(15,23,42,0.15)',
           transform: isVisible ? 'translateY(0)' : 'translateY(100%)',
-          transition: 'transform 0.3s cubic-bezier(0.32,0.72,0,1)',
+          transition: 'transform 0.3s cubic-bezier(0.32,0.72,0,1), height 0.3s cubic-bezier(0.32,0.72,0,1)',
           pointerEvents: isVisible ? 'auto' : 'none',
           display: 'flex', flexDirection: 'column',
         }}
       >
-        {/* Drag handle */}
-        <div style={{ display: 'flex', justifyContent: 'center', padding: '12px 0 4px', flexShrink: 0 }}>
+        {/* Fix 1: Clickable drag handle toggles between peek and full */}
+        <div
+          onClick={() => setSnapState(s => s === 'peek' ? 'full' : 'peek')}
+          style={{ display: 'flex', justifyContent: 'center', padding: '12px 0 4px', flexShrink: 0, cursor: 'pointer' }}
+          aria-label={snapState === 'peek' ? 'Expand pub details' : 'Collapse pub details'}
+          role="button"
+          tabIndex={0}
+          onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') setSnapState(s => s === 'peek' ? 'full' : 'peek'); }}
+        >
           <div style={{ width: 36, height: 4, background: t.handle, borderRadius: 99 }} />
         </div>
 
+        {/* Fix 1: Peek summary row — visible only in peek state */}
+        {snapState === 'peek' && location && (
+          <div style={{ padding: '4px 20px 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: t.text }}>{location.name}</div>
+              <div style={{ fontSize: 12, color: t.text2, marginTop: 2 }}>
+                {location.rating != null && `★ ${location.rating.toFixed(1)}  ·  `}{location.address}
+              </div>
+            </div>
+            <span style={{ fontSize: 12, color: t.text3 }}>↑ expand</span>
+          </div>
+        )}
+
         {location && (
-          <div style={{ flex: 1, overflowY: 'auto', padding: '0 0 28px' }}>
+          <div style={{ flex: 1, overflowY: 'auto', padding: '0 0 28px', visibility: snapState === 'full' ? 'visible' : 'hidden' }}>
 
             {/* Photo gallery */}
             {images.length > 0 && (
@@ -132,21 +169,21 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                 scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch',
               }}>
                 {images.map((img, i) => (
-                  <a key={i} href={location.googleMapsUrl ?? '#'} target="_blank" rel="noopener noreferrer"
-                    style={{ flexShrink: 0, display: 'block' }}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={img.imageUrl}
-                      alt={`${location.name} photo ${i + 1}`}
-                      style={{
-                        width: i === 0 ? 200 : 130,
-                        height: 110,
-                        objectFit: 'cover',
-                        borderRadius: 12,
-                        display: 'block',
-                      }}
-                    />
-                  </a>
+                  // Fix 3: Plain img — no accidental Google Maps navigation
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={i}
+                    src={img.imageUrl}
+                    alt={`Photo of ${location.name}`}
+                    style={{
+                      flexShrink: 0,
+                      width: i === 0 ? 200 : 130,
+                      height: 110,
+                      objectFit: 'cover',
+                      borderRadius: 12,
+                      display: 'block',
+                    }}
+                  />
                 ))}
               </div>
             )}
@@ -166,7 +203,7 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                       fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999,
                       border: `1px solid ${t.border}`,
                     }}>
-                      Tier {location.tier}
+                      {TIER_LABELS[location.tier] ?? `Tier ${location.tier}`}
                     </span>
                     {location.verified ? (
                       <span style={{ background: t.badgeBlueBg, color: t.badgeBlueText, fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999 }}>
@@ -192,11 +229,12 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                   </div>
                 </div>
 
+                {/* Fix 2: 44px touch target (WCAG minimum) */}
                 <button
                   onClick={onClose}
-                  aria-label="Close"
+                  aria-label={`Close ${location?.name ?? 'panel'}`}
                   style={{
-                    flexShrink: 0, width: 32, height: 32,
+                    flexShrink: 0, width: 44, height: 44,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     background: t.closeBg, border: 'none', borderRadius: '50%',
                     fontSize: 18, color: t.closeText, cursor: 'pointer', lineHeight: 1,
@@ -292,7 +330,8 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                             color: isToday ? t.todayText : t.text2,
                             fontWeight: isToday ? 600 : 400,
                           }}>
-                            <span style={{ textTransform: 'capitalize', minWidth: 80 }}>{h.day}</span>
+                            {/* Fix 5: Show English abbreviation; isToday check still uses CZ_DAYS */}
+                            <span style={{ textTransform: 'capitalize', minWidth: 80 }}>{CZ_TO_EN[h.day.toLowerCase()] ?? h.day}</span>
                             <span>{h.hours}</span>
                           </div>
                         );
@@ -385,7 +424,11 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
               {location.reviews && location.reviews.length > 0 ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {location.reviews.slice(0, 5).map((review, i) => {
-                    const displayText = translatedReviews ? translatedReviews[i] : review.text;
+                    // Fix 6: fall back to original text if translation returned null
+                    const displayText = translatedReviews
+                      ? (translatedReviews[i] ?? review.text)
+                      : review.text;
+                    const translationFailed = translatedReviews && translatedReviews[i] === null;
                     return (
                       <div key={i} style={{ fontSize: 13 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
@@ -420,6 +463,9 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                               )
                               : displayText
                             }&rdquo;
+                            {translationFailed && (
+                              <span style={{ fontSize: 10, color: t.text3, marginLeft: 4 }}>[translation unavailable]</span>
+                            )}
                           </p>
                         )}
                       </div>

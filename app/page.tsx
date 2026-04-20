@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { useCallback, useEffect, useRef, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import type { Nadrazka } from '../lib/types';
+import { PubSearch, PubSearchButton } from '../components/PubSearch';
 
 // ---------------------------------------------------------------------------
 // SteamTrainLoader — SVG steam locomotive with CSS keyframe animations
@@ -25,12 +26,22 @@ function SteamTrainLoader() {
           0%   { opacity: 0.75; transform: translateY(0) translateX(0) scale(1); }
           100% { opacity: 0;    transform: translateY(-50px) translateX(-5px) scale(2.6); }
         }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+          to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
         .loco-body { animation: rockLoco 0.44s ease-in-out infinite; transform-origin: 108px 112px; }
         .loco-wd   { animation: wheelSpin 0.50s linear infinite; }
         .loco-ws   { animation: wheelSpin 0.65s linear infinite; }
         .loco-sp1  { animation: steamRise 1.3s ease-out infinite 0s; }
         .loco-sp2  { animation: steamRise 1.3s ease-out infinite 0.43s; }
         .loco-sp3  { animation: steamRise 1.3s ease-out infinite 0.86s; }
+        @media (prefers-reduced-motion: reduce) {
+          .loco-body, .loco-wd, .loco-ws,
+          .loco-sp1, .loco-sp2, .loco-sp3 {
+            animation: none !important;
+          }
+        }
       `}</style>
 
       {/* Wrapper — 10 px head-room above the SVG for steam puffs */}
@@ -302,13 +313,33 @@ function HomeContent() {
   const [error, setError] = useState<string | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<Nadrazka | null>(null);
   const [darkMode, setDarkMode] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
   const restoredRef = useRef(false);
 
-  // Initialise from system preference
+  // Initialise from stored preference, fall back to system preference
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    setDarkMode(mq.matches);
+    const stored = localStorage.getItem('nadrazka-dark-mode');
+    if (stored !== null) {
+      setDarkMode(stored === 'true');
+    } else {
+      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+  }, []);
+
+  // First-visit onboarding hint
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (localStorage.getItem('nadrazka-hint-shown')) return;
+    const t = setTimeout(() => {
+      setShowHint(true);
+      setTimeout(() => {
+        setShowHint(false);
+        localStorage.setItem('nadrazka-hint-shown', '1');
+      }, 4000);
+    }, 1500);
+    return () => clearTimeout(t);
   }, []);
 
   const handleLocationSelect = useCallback((loc: Nadrazka) => {
@@ -390,6 +421,19 @@ function HomeContent() {
 
           <BottomSheet location={selectedLocation} onClose={handleClose} darkMode={darkMode} />
 
+          {/* Search panel */}
+          {showSearch && (
+            <PubSearch
+              pubs={mapData}
+              onSelect={(pub) => { setSelectedLocation(pub); setShowSearch(false); }}
+              onClose={() => setShowSearch(false)}
+              darkMode={darkMode}
+            />
+          )}
+
+          {/* Search trigger button — bottom left, above zoom controls */}
+          <PubSearchButton onClick={() => setShowSearch(true)} darkMode={darkMode} />
+
           {/* Header panel — top left */}
           <div style={{ position: 'absolute', top: 20, left: 20, zIndex: 900, background: cardBg, borderRadius: 16, boxShadow: '0 2px 12px rgba(0,0,0,0.12)', padding: '14px 18px', minWidth: 200 }}>
             {/* Czech flag stripe accent */}
@@ -411,8 +455,13 @@ function HomeContent() {
 
           {/* Dark mode toggle — top right */}
           <button
-            onClick={() => setDarkMode(d => !d)}
+            onClick={() => setDarkMode(d => {
+              const next = !d;
+              localStorage.setItem('nadrazka-dark-mode', String(next));
+              return next;
+            })}
             aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             style={{
               position: 'absolute', top: 20, right: 20, zIndex: 900,
               width: 40, height: 40,
@@ -429,6 +478,19 @@ function HomeContent() {
             {darkMode ? <SunIcon /> : <MoonIcon />}
           </button>
 
+          {/* First-visit onboarding hint */}
+          {showHint && (
+            <div style={{
+              position: 'fixed', bottom: 80, left: '50%', transform: 'translateX(-50%)',
+              zIndex: 1000, background: 'rgba(15,23,42,0.85)', color: '#f1f5f9',
+              padding: '10px 20px', borderRadius: 999, fontSize: 13, fontWeight: 500,
+              pointerEvents: 'none', whiteSpace: 'nowrap',
+              animation: 'fadeInUp 0.3s ease',
+            }}>
+              Tap any marker to explore a pub
+            </div>
+          )}
+
           {/* Map legend — bottom right, above zoom controls */}
           <div style={{
             position: 'absolute', bottom: 90, right: 16, zIndex: 900,
@@ -439,7 +501,7 @@ function HomeContent() {
             display: 'flex', flexDirection: 'column', gap: 6,
           }}>
             {/* Color = verification status */}
-            <p style={{ margin: '0 0 2px', fontSize: 9, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: cardMuted }}>Status</p>
+            <p style={{ margin: '0 0 2px', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: dm ? '#94a3b8' : '#64748b' }}>Status</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
               <div style={{ width: 14, height: 14, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0 }} />
               <span style={{ fontSize: 11, color: cardText }}>Verified pub</span>
@@ -456,19 +518,19 @@ function HomeContent() {
             {/* Divider */}
             <div style={{ height: 1, background: dm ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.07)', margin: '2px 0' }} />
 
-            {/* Border = quality tier */}
-            <p style={{ margin: '0 0 2px', fontSize: 9, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: cardMuted }}>Quality</p>
+            {/* Size = quality tier */}
+            <p style={{ margin: '0 0 2px', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: dm ? '#94a3b8' : '#64748b' }}>Quality</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-              <div style={{ width: 14, height: 14, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0 }} />
-              <span style={{ fontSize: 11, color: cardText }}>Best</span>
+              <div style={{ width: 22, height: 22, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0 }} />
+              <span style={{ fontSize: 11, color: cardText }}>Most authentic</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-              <div style={{ width: 14, height: 14, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25), inset 0 0 0 1.5px rgba(0,0,0,0.75)', flexShrink: 0 }} />
-              <span style={{ fontSize: 11, color: cardText }}>Mid</span>
+              <div style={{ width: 15, height: 15, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0, marginLeft: 3.5 }} />
+              <span style={{ fontSize: 11, color: cardText }}>Authentic</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-              <div style={{ width: 14, height: 14, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(0,0,0,0.8), inset 0 0 0 2px rgba(255,255,255,0.95), inset 0 0 0 3px rgba(0,0,0,0.8)', flexShrink: 0 }} />
-              <span style={{ fontSize: 11, color: cardText }}>Low</span>
+              <div style={{ width: 10, height: 10, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0, marginLeft: 6 }} />
+              <span style={{ fontSize: 11, color: cardText }}>Unscored</span>
             </div>
           </div>
         </>
