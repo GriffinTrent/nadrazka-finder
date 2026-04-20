@@ -40,8 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# claude code session files
-.claude/
+# claude code session files (but commit skills/commands)
+.claude/*
+!.claude/commands/
 
 # apify raw scrape dumps (can be very large)
 scripts/beer-*-raw.json
