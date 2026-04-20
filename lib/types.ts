@@ -22,7 +22,9 @@ export interface Nadrazka {
   website: string | null;
   rating: number | null;
   reviewCount: number;
+  priceLevel: number | null;
   openingHours: Array<{ day: string; hours: string }> | null;
+  images: Array<{ imageUrl: string }> | null;
   categories: string[];
   permanentlyClosed: boolean;
   source: string;
