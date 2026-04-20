@@ -13,38 +13,54 @@ const TILE_ATTRIBUTION =
 
 // Keywords that signal a proper gritty station pub (score up → bigger marker)
 const POSITIVE_WORDS = [
-  // Czech
-  'kouř', 'cigaret', 'graffiti', 'levn', 'lacin', 'levné pivo', 'dobré pivo',
-  'skvělé pivo', 'výborné pivo', 'špinav', 'místní', 'stamgast', 'dělník',
+  // Czech — gritty/cheap/local signals
+  'nádražka', 'nádražní hospoda', 'kouř', 'cigaret', 'graffiti',
+  'levné pivo', 'levný piv', 'dobré pivo', 'skvělé pivo', 'výborné pivo',
+  'levn', 'lacin', 'špinav', 'místní', 'stamgast', 'dělník',
   'starý pán', 'staříc', 'starej', 'pivko', 'pivo za', 'levný', 'lokální',
+  'klobás', 'hotovk', 'guláš', 'řízek',          // simple pub food
+  'čekáte na vlak', 'před odjezdem', 'drobáku', 'korun za', // waiting for train, cheap price
   // English
-  'smoking', 'smoke', 'graffiti', 'cheap', 'cheap beer', 'good beer',
+  'smoking', 'smoke', 'graffiti', 'cheap beer', 'good beer',
   'great beer', 'locals', 'local', 'dirty', 'workers', 'old men', 'regulars',
-  'authentic', 'gritty', 'rough',
+  'authentic', 'gritty', 'rough', 'cheap',
 ];
 
 // Keywords that signal a fancy/clean place (score down → smaller marker)
 const NEGATIVE_WORDS = [
   // Czech
-  'krásn', 'nádherné', 'čisté', 'čistota', 'moderní', 'zrekonstruov',
-  'romantick', 'elegantní', 'stylové', 'stylový', 'pěkné prostředí',
-  'hezké prostředí', 'čisté záchody', 'čisté toalet',
+  'nádherné', 'čistota', 'moderní', 'zrekonstruov',
+  'romantick', 'elegantní', 'stylové', 'stylový',
+  'čisté záchody', 'čisté toalet', 'wellness', 'wine bar', 'vinotéka',
   // English
   'lovely', 'beautiful', 'clean bathroom', 'clean toilet', 'spotless',
   'modern', 'renovated', 'romantic', 'elegant', 'fancy', 'stylish',
-  'nice decor', 'family friendly', 'welcoming atmosphere',
+  'nice decor', 'welcoming atmosphere',
 ];
+
+// Classic Czech pub/bar categories that signal authentic nadražka
+const PUB_CATEGORY_BONUS = ['Hospoda', 'Hostinec', 'Pivní výčep', 'Bar', 'Sportovní bar'];
 
 /**
  * Compute authenticity score for a nadrazka.
- * Positive = gritty/local → bigger marker. Negative = clean/fancy → smaller.
+ * Higher = more gritty/local/cheap → bigger marker.
  * Returns: 'large' | 'medium' | 'small'
  */
 function getMarkerSize(nadrazka) {
   const reviews = nadrazka.reviews ?? [];
   const reviewCount = nadrazka.reviewCount ?? 0;
+  const cats = nadrazka.categories ?? [];
 
   let score = 0;
+
+  // Category bonus: classic pub types get a head start
+  if (cats.some(c => ['Hospoda', 'Hostinec', 'Pivní výčep'].includes(c))) score += 3;
+  else if (cats.some(c => ['Bar', 'Sportovní bar'].includes(c))) score += 2;
+
+  // Price level: cheaper = more authentic
+  if (nadrazka.priceLevel === 1) score += 2;
+  else if (nadrazka.priceLevel === 2) score += 1;
+  else if (nadrazka.priceLevel >= 3) score -= 1;
 
   // Review text signals
   for (const r of reviews) {
@@ -52,6 +68,8 @@ function getMarkerSize(nadrazka) {
     if (!text) continue;
     for (const kw of POSITIVE_WORDS) { if (text.includes(kw)) score += 1; }
     for (const kw of NEGATIVE_WORDS) { if (text.includes(kw)) score -= 1; }
+    // Strong signal: reviewer explicitly calls it a nádražka
+    if (text.includes('nádražka')) score += 2;
   }
 
   // Review count bonus (more reviews = more prominent)
@@ -59,8 +77,8 @@ function getMarkerSize(nadrazka) {
   else if (reviewCount >= 200) score += 2;
   else if (reviewCount >= 50)  score += 1;
 
-  if (score >= 2)  return 'large';
-  if (score <= -1) return 'small';
+  if (score >= 5)  return 'large';
+  if (score <= 1)  return 'small';
   return 'medium';
 }
 
