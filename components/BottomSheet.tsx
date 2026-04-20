@@ -10,6 +10,7 @@ function renderStars(stars: number | null): string {
 }
 
 function isSafeUrl(url: string): boolean {
+  if (url.startsWith('/images/')) return true;
   try {
     const parsed = new URL(url);
     return parsed.protocol === 'https:' || parsed.protocol === 'http:';
@@ -55,6 +56,7 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
   // Two-stop snap system — default full so content is visible immediately
   const [snapState, setSnapState] = useState<'peek' | 'full'>('full');
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const lightboxSrcRef = useRef<string | null>(null);
 
   const translateReviews = useCallback(async () => {
     if (translatedReviews) { setTranslatedReviews(null); return; }
@@ -92,13 +94,18 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
     priceBg: '#dcfce7', priceText: '#15803d',
   };
 
+  useEffect(() => { lightboxSrcRef.current = lightboxSrc; }, [lightboxSrc]);
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { if (lightboxSrc) setLightboxSrc(null); else onClose(); }
+      if (e.key === 'Escape') {
+        if (lightboxSrcRef.current) setLightboxSrc(null);
+        else onClose();
+      }
     };
     document.addEventListener('keydown', handleKey);
     return () => document.removeEventListener('keydown', handleKey);
-  }, [onClose, lightboxSrc]);
+  }, [onClose]);
 
   // Reset toggles when a new location opens
   useEffect(() => { setHoursOpen(false); setTranslatedReviews(null); setTranslating(false); setLightboxSrc(null); }, [location?.id]);

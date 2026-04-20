@@ -14,7 +14,7 @@
  *  5. Skips already-downloaded images (safe to re-run)
  */
 
-import { createWriteStream, existsSync, mkdirSync, writeFileSync, readFileSync, statSync } from 'fs';
+import { createWriteStream, existsSync, mkdirSync, writeFileSync, readFileSync, statSync, unlinkSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import https from 'https';
@@ -25,8 +25,10 @@ const DATA_PATH  = join(__dirname, '../public/data/nadrazky.json');
 const IMAGES_DIR = join(__dirname, '../public/images');
 const CONCURRENCY = 12;
 
-function download(url, dest) {
+function download(url, dest, redirectsLeft = 5) {
   return new Promise((resolve, reject) => {
+    if (!url) return reject(new Error('Missing redirect URL'));
+    if (redirectsLeft <= 0) return reject(new Error('Too many redirects'));
     const protocol = url.startsWith('https') ? https : http;
     const file = createWriteStream(dest);
     const req = protocol.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
@@ -36,10 +38,10 @@ function download(url, dest) {
         file.on('error', reject);
       } else if (res.statusCode === 301 || res.statusCode === 302) {
         file.close();
-        download(res.headers.location, dest).then(resolve).catch(reject);
+        download(res.headers.location, dest, redirectsLeft - 1).then(resolve).catch(reject);
       } else {
         file.close();
-        try { require('fs').unlinkSync(dest); } catch {}
+        try { unlinkSync(dest); } catch {}
         reject(new Error(`HTTP ${res.statusCode}`));
       }
     });
