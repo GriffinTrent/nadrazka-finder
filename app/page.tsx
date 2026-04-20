@@ -7,217 +7,140 @@ import type { Nadrazka } from '../lib/types';
 import { PubSearch, PubSearchButton } from '../components/PubSearch';
 
 // ---------------------------------------------------------------------------
-// SteamTrainLoader — SVG steam locomotive with CSS keyframe animations
+// SteamTrainLoader — static SVG steam locomotive (original artwork, project-owned)
 // ---------------------------------------------------------------------------
 function SteamTrainLoader() {
   return (
-    <>
-      <style>{`
-        @keyframes wheelSpin {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(-360deg); }
-        }
-        @keyframes rockLoco {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          30%  { transform: translateY(-0.8px) rotate(0.22deg); }
-          70%  { transform: translateY(0.45px) rotate(-0.22deg); }
-        }
-        @keyframes steamRise {
-          0%   { opacity: 0.75; transform: translateY(0) translateX(0) scale(1); }
-          100% { opacity: 0;    transform: translateY(-50px) translateX(-5px) scale(2.6); }
-        }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateX(-50%) translateY(8px); }
-          to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-        }
-        /* loco-body: transform-origin in SVG viewport coords (108,112) = wheel axle centre.
-           loco-wd/ws: fill-box makes each wheel spin around its own centre, not the SVG viewport centre. */
-        .loco-body { animation: rockLoco 0.44s ease-in-out infinite; transform-origin: 108px 112px; }
-        .loco-wd   { animation: wheelSpin 0.50s linear infinite; transform-origin: 50% 50%; transform-box: fill-box; }
-        .loco-ws   { animation: wheelSpin 0.65s linear infinite; transform-origin: 50% 50%; transform-box: fill-box; }
-        .loco-sp1  { animation: steamRise 1.3s ease-out infinite 0s; }
-        .loco-sp2  { animation: steamRise 1.3s ease-out infinite 0.43s; }
-        .loco-sp3  { animation: steamRise 1.3s ease-out infinite 0.86s; }
-        @media (prefers-reduced-motion: reduce) {
-          .loco-body, .loco-wd, .loco-ws,
-          .loco-sp1, .loco-sp2, .loco-sp3 {
-            animation: none !important;
-          }
-        }
-      `}</style>
+    <div style={{ position: 'relative', width: 240, height: 140 }}>
+      {/* Static steam puffs */}
+      <div style={{ position:'absolute', top:10, left:26, width:22, height:22, borderRadius:'50%', background:'rgba(255,255,255,0.6)', filter:'blur(7px)' }} />
+      <div style={{ position:'absolute', top:4,  left:34, width:16, height:16, borderRadius:'50%', background:'rgba(220,230,240,0.5)', filter:'blur(5px)' }} />
+      <div style={{ position:'absolute', top:14, left:20, width:18, height:18, borderRadius:'50%', background:'rgba(200,215,228,0.45)', filter:'blur(9px)' }} />
 
-      {/* Wrapper — 10 px head-room above the SVG for steam puffs */}
-      <div style={{ position: 'relative', width: 240, height: 140 }}>
+      <svg viewBox="0 0 240 130" width="240" height="130"
+        style={{ position:'absolute', bottom:0, left:0 }} fill="none" xmlns="http://www.w3.org/2000/svg">
 
-        {/* Steam puffs — chimney opening at SVG (40, 20); SVG sits at bottom:0 of 140px wrapper
-            so wrapper y = (140-130) + 20 = 30. Centre each puff on wrapper (40, 30):
-              sp1 20×20 → top=20, left=30   sp2 16×16 → top=22, left=35   sp3 24×24 → top=18, left=28 */}
-        <div className="loco-sp1" style={{ position:'absolute', top:20, left:30, width:20, height:20, borderRadius:'50%', background:'rgba(255,255,255,0.65)', filter:'blur(6px)' }} />
-        <div className="loco-sp2" style={{ position:'absolute', top:22, left:35, width:16, height:16, borderRadius:'50%', background:'rgba(225,232,240,0.58)', filter:'blur(5px)' }} />
-        <div className="loco-sp3" style={{ position:'absolute', top:18, left:28, width:24, height:24, borderRadius:'50%', background:'rgba(208,218,228,0.48)', filter:'blur(8px)' }} />
+        {/* Track */}
+        {[5,23,41,59,77,95,113,131,149,167,185,203,221].map(x => (
+          <rect key={x} x={x - 5} y="115" width="10" height="5" rx="1" fill="#7c6647" opacity="0.48" />
+        ))}
+        <rect x="0" y="111" width="240" height="3" rx="1.5" fill="#5a6672" />
+        <rect x="0" y="117" width="240" height="2" rx="1"   fill="#48535e" opacity="0.4" />
 
-        <svg viewBox="0 0 240 130" width="240" height="130"
-          style={{ position:'absolute', bottom:0, left:0 }} fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Tender */}
+        <rect x="162" y="66" width="60" height="40" rx="4" fill="#0D4A8A" />
+        <rect x="166" y="70" width="52" height="22" rx="2" fill="#1565C0" />
+        <ellipse cx="179" cy="77" rx="7.5" ry="3.5" fill="#0f1a28" />
+        <ellipse cx="194" cy="75" rx="7"   ry="3"   fill="#0f1a28" />
+        <ellipse cx="208" cy="78" rx="5.5" ry="2.8" fill="#0f1a28" />
+        <rect x="167" y="103" width="13" height="5" rx="1.5" fill="#0D4A8A" />
+        <rect x="198" y="103" width="13" height="5" rx="1.5" fill="#0D4A8A" />
+        {/* Tender wheels */}
+        {[174,204].map(cx => (
+          <g key={cx} transform={`translate(${cx},112)`}>
+            <circle r="9" fill="#14202e" stroke="#344256" strokeWidth="2"/>
+            <line x1="0" y1="-7" x2="0" y2="7"   stroke="#B8D4EE" strokeWidth="1.2"/>
+            <line x1="-7" y1="0" x2="7" y2="0"   stroke="#B8D4EE" strokeWidth="1.2"/>
+            <line x1="-5" y1="-5" x2="5" y2="5"  stroke="#B8D4EE" strokeWidth="1.2"/>
+            <line x1="5" y1="-5"  x2="-5" y2="5" stroke="#B8D4EE" strokeWidth="1.2"/>
+            <circle r="2.2" fill="#1565C0"/>
+          </g>
+        ))}
+        <rect x="156" y="91" width="9" height="4" rx="2" fill="#4a5e72" />
 
-          {/* ── Track ── */}
-          {[5,23,41,59,77,95,113,131,149,167,185,203,221].map(x => (
-            <rect key={x} x={x - 5} y="115" width="10" height="5" rx="1" fill="#7c6647" opacity="0.48" />
-          ))}
-          <rect x="0" y="111" width="240" height="3" rx="1.5" fill="#5a6672" />
-          <rect x="0" y="117" width="240" height="2" rx="1"   fill="#48535e" opacity="0.4" />
+        {/* Cab */}
+        <rect x="136" y="46" width="28" height="60" rx="3" fill="#0D4A8A" />
+        <rect x="132" y="40" width="36" height="9"  rx="4" fill="#0f172a" />
+        <rect x="149" y="53" width="11" height="13" rx="2.5" fill="#16304a" stroke="#3a5570" strokeWidth="1.5"/>
+        <line x1="154" y1="53" x2="154" y2="66" stroke="#3a5570" strokeWidth="1"/>
+        <rect x="140" y="54" width="8"  height="10" rx="2" fill="#14283e" stroke="#2d4260" strokeWidth="1.2"/>
+        <rect x="140" y="74" width="14" height="22" rx="2" fill="#1e3248" />
+        <ellipse cx="147" cy="83" rx="5" ry="5.5" fill="#0f172a" />
 
-          {/* ── Everything rocks as one unit ── */}
-          <g className="loco-body">
+        {/* Boiler barrel */}
+        <rect x="50" y="59" width="90" height="37" fill="#1565C0" />
+        <rect x="50" y="59" width="90" height="7"  fill="#2196F3" />
+        <rect x="50" y="89" width="90" height="7"  fill="#0A3060" />
+        <rect x="48" y="59" width="4"  height="37" fill="#0D4A8A" />
+        {[68,88,108,128].map(x => (
+          <rect key={x} x={x} y="59" width="2.5" height="37" fill="#2e4862" />
+        ))}
 
-            {/* ━━━ TENDER ━━━ */}
-            <rect x="162" y="66" width="60" height="40" rx="4"  fill="#0D4A8A" />
-            <rect x="166" y="70" width="52" height="22" rx="2"  fill="#1565C0" />
-            <ellipse cx="179" cy="77" rx="7.5" ry="3.5" fill="#0f1a28" />
-            <ellipse cx="194" cy="75" rx="7"   ry="3"   fill="#0f1a28" />
-            <ellipse cx="208" cy="78" rx="5.5" ry="2.8" fill="#0f1a28" />
-            <circle cx="213" cy="70" r="4" fill="#14202e" stroke="#253548" strokeWidth="1.2" />
-            <rect x="167" y="103" width="13" height="5" rx="1.5" fill="#0D4A8A" />
-            <rect x="198" y="103" width="13" height="5" rx="1.5" fill="#0D4A8A" />
-            <g transform="translate(174,112)" className="loco-ws">
-              <circle r="9" fill="#14202e" stroke="#344256" strokeWidth="2"/>
-              <line x1="0" y1="-7" x2="0" y2="7"   stroke="#B8D4EE" strokeWidth="1.2"/>
-              <line x1="-7" y1="0" x2="7" y2="0"   stroke="#B8D4EE" strokeWidth="1.2"/>
-              <line x1="-5" y1="-5" x2="5" y2="5"  stroke="#B8D4EE" strokeWidth="1.2"/>
-              <line x1="5" y1="-5"  x2="-5" y2="5" stroke="#B8D4EE" strokeWidth="1.2"/>
-              <circle r="2.2" fill="#1565C0"/>
-            </g>
-            <g transform="translate(204,112)" className="loco-ws">
-              <circle r="9" fill="#14202e" stroke="#344256" strokeWidth="2"/>
-              <line x1="0" y1="-7" x2="0" y2="7"   stroke="#B8D4EE" strokeWidth="1.2"/>
-              <line x1="-7" y1="0" x2="7" y2="0"   stroke="#B8D4EE" strokeWidth="1.2"/>
-              <line x1="-5" y1="-5" x2="5" y2="5"  stroke="#B8D4EE" strokeWidth="1.2"/>
-              <line x1="5" y1="-5"  x2="-5" y2="5" stroke="#B8D4EE" strokeWidth="1.2"/>
-              <circle r="2.2" fill="#1565C0"/>
-            </g>
-            <rect x="156" y="91" width="9" height="4" rx="2" fill="#4a5e72" />
+        {/* Sand dome */}
+        <rect x="72" y="58" width="12" height="4" fill="#0D4A8A" />
+        <rect x="73" y="50" width="10" height="10" rx="5" fill="#0D4A8A" />
+        <ellipse cx="78" cy="50" rx="6" ry="2.5" fill="#0f1e30" />
 
-            {/* ━━━ CAB ━━━ */}
-            <rect x="136" y="46" width="28" height="60" rx="3"  fill="#0D4A8A" />
-            <rect x="132" y="40" width="36" height="9"  rx="4"  fill="#0f172a" />
-            <rect x="149" y="53" width="11" height="13" rx="2.5" fill="#16304a" stroke="#3a5570" strokeWidth="1.5"/>
-            <line x1="154" y1="53" x2="154" y2="66" stroke="#3a5570" strokeWidth="1"/>
-            <rect x="140" y="54" width="8"  height="10" rx="2"   fill="#14283e" stroke="#2d4260" strokeWidth="1.2"/>
-            <rect x="140" y="74" width="14" height="22" rx="2"   fill="#1e3248" />
-            <ellipse cx="147" cy="83" rx="5" ry="5.5" fill="#0f172a" />
-            <ellipse cx="147" cy="87" rx="3.5" ry="2.5" fill="#ea580c" opacity="0.18" />
+        {/* Steam dome */}
+        <rect x="88" y="58" width="24" height="4" fill="#0D4A8A" />
+        <rect x="90" y="44" width="20" height="16" rx="7" fill="#0D4A8A" />
+        <ellipse cx="100" cy="44" rx="11" ry="4" fill="#0f1e30" />
+        <rect x="98" y="36" width="4"  height="10" rx="2" fill="#0D4A8A" />
+        <rect x="94" y="34" width="12" height="4"  rx="2" fill="#344256" />
 
-            {/* ━━━ BOILER BARREL ━━━ */}
-            <rect x="50" y="59" width="90" height="37" fill="#1565C0" />
-            <rect x="50" y="59" width="90" height="7"  fill="#2196F3" />
-            <rect x="50" y="89" width="90" height="7"  fill="#0A3060" />
-            <rect x="48" y="59" width="4"  height="37" fill="#0D4A8A" />
-            {[68,88,108,128].map(x => (
-              <rect key={x} x={x} y="59" width="2.5" height="37" fill="#2e4862" />
-            ))}
+        {/* Chimney */}
+        <rect x="31" y="58" width="18" height="4" fill="#0D4A8A" />
+        <rect x="33" y="26" width="14" height="34" rx="2" fill="#0f1e30" />
+        <rect x="27" y="20" width="26" height="9"  rx="4.5" fill="#0d1a28" />
+        <ellipse cx="40" cy="20" rx="10" ry="3.5" fill="#08111c" />
 
-            {/* ━━━ SAND DOME (forward) ━━━ */}
-            <rect x="72" y="58" width="12" height="4" rx="0" fill="#0D4A8A" />
-            <rect x="73" y="50" width="10" height="10" rx="5" fill="#0D4A8A" />
-            <ellipse cx="78" cy="50" rx="6" ry="2.5" fill="#0f1e30" />
+        {/* Smoke box */}
+        <rect x="28" y="61" width="22" height="35" fill="#0D4A8A" />
+        <rect x="14" y="63" width="16" height="31" rx="1" fill="#14202e" />
+        <ellipse cx="25" cy="78" rx="8.5" ry="14" fill="#111c2a" stroke="#2a3c52" strokeWidth="1.5" />
+        <ellipse cx="25" cy="78" rx="5.5" ry="9"  fill="#0c1520" />
+        <circle cx="25" cy="64.5" r="1.8" fill="#2e4260" />
+        <circle cx="25" cy="91.5" r="1.8" fill="#2e4260" />
+        <rect x="14" y="94" width="36" height="4" rx="1" fill="#0D4A8A" />
 
-            {/* ━━━ STEAM DOME ━━━ */}
-            <rect x="88" y="58" width="24" height="4"  rx="0" fill="#0D4A8A" />
-            <rect x="90" y="44" width="20" height="16" rx="7" fill="#0D4A8A" />
-            <ellipse cx="100" cy="44" rx="11" ry="4"  fill="#0f1e30" />
-            <rect x="98" y="36" width="4"  height="10" rx="2" fill="#0D4A8A" />
-            <rect x="94" y="34" width="12" height="4"  rx="2" fill="#344256" />
+        {/* Headlamp */}
+        <rect x="7"  y="69" width="14" height="10" rx="2.5" fill="#14202e" />
+        <ellipse cx="13" cy="74" rx="5.5" ry="4.5" fill="#fbbf24" opacity="0.52" />
+        <ellipse cx="11" cy="73" rx="3"   ry="2.5" fill="#fde68a" opacity="0.28" />
 
-            {/* ━━━ CHIMNEY — sits on the smoke box, centred at x=40 ━━━ */}
-            <rect x="31" y="58" width="18" height="4"  fill="#0D4A8A" />
-            <rect x="33" y="26" width="14" height="34" rx="2"   fill="#0f1e30" />
-            <rect x="27" y="20" width="26" height="9"  rx="4.5" fill="#0d1a28" />
-            <ellipse cx="40" cy="20" rx="10" ry="3.5"  fill="#08111c" />
+        {/* Outside cylinder */}
+        <rect x="14" y="89" width="22" height="12" rx="3" fill="#14202e" />
+        <rect x="16" y="87" width="18" height="5"  rx="2" fill="#0D4A8A" />
+        <rect x="14" y="90" width="4"  height="4"  rx="1" fill="#0c1520" />
 
-            {/* ━━━ SMOKE BOX ━━━ */}
-            {/* Drum section (front of boiler) */}
-            <rect x="28" y="61" width="22" height="35" fill="#0D4A8A" />
-            {/* Front face — narrower to suggest depth */}
-            <rect x="14" y="63" width="16" height="31" rx="1" fill="#14202e" />
-            {/* Circular door motif */}
-            <ellipse cx="25" cy="78" rx="8.5" ry="14" fill="#111c2a" stroke="#2a3c52" strokeWidth="1.5" />
-            <ellipse cx="25" cy="78" rx="5.5" ry="9"   fill="#0c1520" />
-            <circle cx="25" cy="64.5" r="1.8" fill="#2e4260" />
-            <circle cx="25" cy="91.5" r="1.8" fill="#2e4260" />
-            {/* Smoke box bottom saddle */}
-            <rect x="14" y="94" width="36" height="4" rx="1" fill="#0D4A8A" />
+        {/* Drive wheels */}
+        <g transform="translate(44,112)">
+          <circle r="10" fill="#14202e" stroke="#253548" strokeWidth="2.2"/>
+          <line x1="0"    y1="-7.5" x2="0"    y2="7.5"  stroke="#B8D4EE" strokeWidth="1.4"/>
+          <line x1="-7.5" y1="0"    x2="7.5"  y2="0"    stroke="#B8D4EE" strokeWidth="1.4"/>
+          <line x1="-5.3" y1="-5.3" x2="5.3"  y2="5.3"  stroke="#B8D4EE" strokeWidth="1.4"/>
+          <line x1="5.3"  y1="-5.3" x2="-5.3" y2="5.3"  stroke="#B8D4EE" strokeWidth="1.4"/>
+          <circle r="2.5" fill="#1f3248" stroke="#344256" strokeWidth="1"/>
+        </g>
+        {[78,110,140].map(cx => (
+          <g key={cx} transform={`translate(${cx},112)`}>
+            <circle r="14" fill="#14202e" stroke="#253e58" strokeWidth="2.5"/>
+            <line x1="0"    y1="-11"  x2="0"    y2="11"  stroke="#B8D4EE" strokeWidth="1.8"/>
+            <line x1="-11"  y1="0"    x2="11"   y2="0"   stroke="#B8D4EE" strokeWidth="1.8"/>
+            <line x1="-7.8" y1="-7.8" x2="7.8"  y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
+            <line x1="7.8"  y1="-7.8" x2="-7.8" y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
+            <circle r="3.5" fill="#1f3248" stroke="#344256" strokeWidth="1.2"/>
+            <circle cx="0" cy="-10" r="2.5" fill="#B8D4EE"/>
+          </g>
+        ))}
 
-            {/* ━━━ HEADLAMP ━━━ */}
-            <rect x="7"  y="69" width="14" height="10" rx="2.5" fill="#14202e" />
-            <ellipse cx="13" cy="74" rx="5.5" ry="4.5" fill="#fbbf24" opacity="0.52" />
-            <ellipse cx="11" cy="73" rx="3"   ry="2.5" fill="#fde68a" opacity="0.28" />
+        {/* Connecting rods */}
+        <rect x="78"  y="103" width="64" height="4" rx="2"   fill="#5A7A9A" />
+        <rect x="34"  y="104" width="46" height="3" rx="1.5" fill="#5A7A9A" />
 
-            {/* ━━━ OUTSIDE CYLINDER ━━━ */}
-            <rect x="14" y="89" width="22" height="12" rx="3" fill="#14202e" />
-            <rect x="16" y="87" width="18" height="5"  rx="2" fill="#0D4A8A" />
-            <rect x="14" y="90" width="4"  height="4"  rx="1" fill="#0c1520" />
+        {/* Running plate */}
+        <rect x="14" y="97" width="136" height="5" rx="2" fill="#0D4A8A" />
+        <path d="M64  97 Q78  82 92  97" fill="none" stroke="#2e4862" strokeWidth="2.2"/>
+        <path d="M96  97 Q110 82 124 97" fill="none" stroke="#2e4862" strokeWidth="2.2"/>
+        <path d="M126 97 Q140 82 154 97" fill="none" stroke="#2e4862" strokeWidth="2.2"/>
 
-            {/* ━━━ DRIVE WHEELS — drawn before running plate so plate overlaps wheel tops ━━━ */}
-            {/* Pony (leading) wheel */}
-            <g transform="translate(44,112)" className="loco-ws">
-              <circle r="10" fill="#14202e" stroke="#253548" strokeWidth="2.2"/>
-              <line x1="0"    y1="-7.5" x2="0"    y2="7.5"  stroke="#B8D4EE" strokeWidth="1.4"/>
-              <line x1="-7.5" y1="0"    x2="7.5"  y2="0"    stroke="#B8D4EE" strokeWidth="1.4"/>
-              <line x1="-5.3" y1="-5.3" x2="5.3"  y2="5.3"  stroke="#B8D4EE" strokeWidth="1.4"/>
-              <line x1="5.3"  y1="-5.3" x2="-5.3" y2="5.3"  stroke="#B8D4EE" strokeWidth="1.4"/>
-              <circle r="2.5" fill="#1f3248" stroke="#344256" strokeWidth="1"/>
-            </g>
-            {/* Drive wheel 1 */}
-            <g transform="translate(78,112)" className="loco-wd">
-              <circle r="14" fill="#14202e" stroke="#253e58" strokeWidth="2.5"/>
-              <line x1="0"    y1="-11"  x2="0"    y2="11"  stroke="#B8D4EE" strokeWidth="1.8"/>
-              <line x1="-11"  y1="0"    x2="11"   y2="0"   stroke="#B8D4EE" strokeWidth="1.8"/>
-              <line x1="-7.8" y1="-7.8" x2="7.8"  y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
-              <line x1="7.8"  y1="-7.8" x2="-7.8" y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
-              <circle r="3.5" fill="#1f3248" stroke="#344256" strokeWidth="1.2"/>
-              <circle cx="0" cy="-10" r="2.5" fill="#B8D4EE"/>
-            </g>
-            {/* Drive wheel 2 */}
-            <g transform="translate(110,112)" className="loco-wd">
-              <circle r="14" fill="#14202e" stroke="#253e58" strokeWidth="2.5"/>
-              <line x1="0"    y1="-11"  x2="0"    y2="11"  stroke="#B8D4EE" strokeWidth="1.8"/>
-              <line x1="-11"  y1="0"    x2="11"   y2="0"   stroke="#B8D4EE" strokeWidth="1.8"/>
-              <line x1="-7.8" y1="-7.8" x2="7.8"  y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
-              <line x1="7.8"  y1="-7.8" x2="-7.8" y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
-              <circle r="3.5" fill="#1f3248" stroke="#344256" strokeWidth="1.2"/>
-              <circle cx="0" cy="-10" r="2.5" fill="#B8D4EE"/>
-            </g>
-            {/* Drive wheel 3 */}
-            <g transform="translate(140,112)" className="loco-wd">
-              <circle r="14" fill="#14202e" stroke="#253e58" strokeWidth="2.5"/>
-              <line x1="0"    y1="-11"  x2="0"    y2="11"  stroke="#B8D4EE" strokeWidth="1.8"/>
-              <line x1="-11"  y1="0"    x2="11"   y2="0"   stroke="#B8D4EE" strokeWidth="1.8"/>
-              <line x1="-7.8" y1="-7.8" x2="7.8"  y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
-              <line x1="7.8"  y1="-7.8" x2="-7.8" y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
-              <circle r="3.5" fill="#1f3248" stroke="#344256" strokeWidth="1.2"/>
-              <circle cx="0" cy="-10" r="2.5" fill="#B8D4EE"/>
-            </g>
-
-            {/* Connecting rods — below running plate level */}
-            <rect x="78"  y="103" width="64" height="4" rx="2"   fill="#5A7A9A" />
-            <rect x="34"  y="104" width="46" height="3" rx="1.5" fill="#5A7A9A" />
-
-            {/* ━━━ RUNNING PLATE — drawn on top of wheel tops ━━━ */}
-            <rect x="14" y="97" width="136" height="5" rx="2" fill="#0D4A8A" />
-            {/* Splasher arches over each drive wheel */}
-            <path d="M64  97 Q78  82 92  97" fill="none" stroke="#2e4862" strokeWidth="2.2"/>
-            <path d="M96  97 Q110 82 124 97" fill="none" stroke="#2e4862" strokeWidth="2.2"/>
-            <path d="M126 97 Q140 82 154 97" fill="none" stroke="#2e4862" strokeWidth="2.2"/>
-
-            {/* ━━━ PILOT / COW-CATCHER ━━━ */}
-            <path d="M14 99 L1 112 L14 112 Z" fill="#1f3248" />
-            <line x1="4"  y1="112" x2="14" y2="100" stroke="#344256" strokeWidth="1.5"/>
-            <line x1="10" y1="112" x2="14" y2="104" stroke="#344256" strokeWidth="1.5"/>
-            <rect x="6" y="97" width="9" height="4" rx="1.5" fill="#0D4A8A" />
-
-          </g>{/* end .loco-body */}
-        </svg>
-      </div>
-    </>
+        {/* Cow-catcher */}
+        <path d="M14 99 L1 112 L14 112 Z" fill="#1f3248" />
+        <line x1="4"  y1="112" x2="14" y2="100" stroke="#344256" strokeWidth="1.5"/>
+        <line x1="10" y1="112" x2="14" y2="104" stroke="#344256" strokeWidth="1.5"/>
+        <rect x="6" y="97" width="9" height="4" rx="1.5" fill="#0D4A8A" />
+      </svg>
+    </div>
   );
 }
 
