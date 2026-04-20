@@ -70,34 +70,34 @@ function SteamTrainLoader() {
           <g className="loco-body">
 
             {/* ━━━ TENDER ━━━ */}
-            <rect x="162" y="66" width="60" height="40" rx="4"  fill="#1a2740" />
-            <rect x="166" y="70" width="52" height="22" rx="2"  fill="#223048" />
+            <rect x="162" y="66" width="60" height="40" rx="4"  fill="#0D4A8A" />
+            <rect x="166" y="70" width="52" height="22" rx="2"  fill="#1565C0" />
             <ellipse cx="179" cy="77" rx="7.5" ry="3.5" fill="#0f1a28" />
             <ellipse cx="194" cy="75" rx="7"   ry="3"   fill="#0f1a28" />
             <ellipse cx="208" cy="78" rx="5.5" ry="2.8" fill="#0f1a28" />
             <circle cx="213" cy="70" r="4" fill="#14202e" stroke="#253548" strokeWidth="1.2" />
-            <rect x="167" y="103" width="13" height="5" rx="1.5" fill="#253548" />
-            <rect x="198" y="103" width="13" height="5" rx="1.5" fill="#253548" />
+            <rect x="167" y="103" width="13" height="5" rx="1.5" fill="#0D4A8A" />
+            <rect x="198" y="103" width="13" height="5" rx="1.5" fill="#0D4A8A" />
             <g transform="translate(174,112)" className="loco-ws">
               <circle r="9" fill="#14202e" stroke="#344256" strokeWidth="2"/>
-              <line x1="0" y1="-7" x2="0" y2="7"   stroke="#7a8fa0" strokeWidth="1.2"/>
-              <line x1="-7" y1="0" x2="7" y2="0"   stroke="#7a8fa0" strokeWidth="1.2"/>
-              <line x1="-5" y1="-5" x2="5" y2="5"  stroke="#7a8fa0" strokeWidth="1.2"/>
-              <line x1="5" y1="-5"  x2="-5" y2="5" stroke="#7a8fa0" strokeWidth="1.2"/>
-              <circle r="2.2" fill="#223048"/>
+              <line x1="0" y1="-7" x2="0" y2="7"   stroke="#B8D4EE" strokeWidth="1.2"/>
+              <line x1="-7" y1="0" x2="7" y2="0"   stroke="#B8D4EE" strokeWidth="1.2"/>
+              <line x1="-5" y1="-5" x2="5" y2="5"  stroke="#B8D4EE" strokeWidth="1.2"/>
+              <line x1="5" y1="-5"  x2="-5" y2="5" stroke="#B8D4EE" strokeWidth="1.2"/>
+              <circle r="2.2" fill="#1565C0"/>
             </g>
             <g transform="translate(204,112)" className="loco-ws">
               <circle r="9" fill="#14202e" stroke="#344256" strokeWidth="2"/>
-              <line x1="0" y1="-7" x2="0" y2="7"   stroke="#7a8fa0" strokeWidth="1.2"/>
-              <line x1="-7" y1="0" x2="7" y2="0"   stroke="#7a8fa0" strokeWidth="1.2"/>
-              <line x1="-5" y1="-5" x2="5" y2="5"  stroke="#7a8fa0" strokeWidth="1.2"/>
-              <line x1="5" y1="-5"  x2="-5" y2="5" stroke="#7a8fa0" strokeWidth="1.2"/>
-              <circle r="2.2" fill="#223048"/>
+              <line x1="0" y1="-7" x2="0" y2="7"   stroke="#B8D4EE" strokeWidth="1.2"/>
+              <line x1="-7" y1="0" x2="7" y2="0"   stroke="#B8D4EE" strokeWidth="1.2"/>
+              <line x1="-5" y1="-5" x2="5" y2="5"  stroke="#B8D4EE" strokeWidth="1.2"/>
+              <line x1="5" y1="-5"  x2="-5" y2="5" stroke="#B8D4EE" strokeWidth="1.2"/>
+              <circle r="2.2" fill="#1565C0"/>
             </g>
             <rect x="156" y="91" width="9" height="4" rx="2" fill="#4a5e72" />
 
             {/* ━━━ CAB ━━━ */}
-            <rect x="136" y="46" width="28" height="60" rx="3"  fill="#1a2740" />
+            <rect x="136" y="46" width="28" height="60" rx="3"  fill="#0D4A8A" />
             <rect x="132" y="40" width="36" height="9"  rx="4"  fill="#0f172a" />
             <rect x="149" y="53" width="11" height="13" rx="2.5" fill="#16304a" stroke="#3a5570" strokeWidth="1.5"/>
             <line x1="154" y1="53" x2="154" y2="66" stroke="#3a5570" strokeWidth="1"/>
@@ -107,35 +107,35 @@ function SteamTrainLoader() {
             <ellipse cx="147" cy="87" rx="3.5" ry="2.5" fill="#ea580c" opacity="0.18" />
 
             {/* ━━━ BOILER BARREL ━━━ */}
-            <rect x="50" y="59" width="90" height="37" fill="#213550" />
-            <rect x="50" y="59" width="90" height="7"  fill="#2a4264" />
-            <rect x="50" y="89" width="90" height="7"  fill="#172840" />
-            <rect x="48" y="59" width="4"  height="37" fill="#1a2e48" />
+            <rect x="50" y="59" width="90" height="37" fill="#1565C0" />
+            <rect x="50" y="59" width="90" height="7"  fill="#2196F3" />
+            <rect x="50" y="89" width="90" height="7"  fill="#0A3060" />
+            <rect x="48" y="59" width="4"  height="37" fill="#0D4A8A" />
             {[68,88,108,128].map(x => (
               <rect key={x} x={x} y="59" width="2.5" height="37" fill="#2e4862" />
             ))}
 
             {/* ━━━ SAND DOME (forward) ━━━ */}
-            <rect x="72" y="58" width="12" height="4" rx="0" fill="#1a2e48" />
-            <rect x="73" y="50" width="10" height="10" rx="5" fill="#1a2740" />
+            <rect x="72" y="58" width="12" height="4" rx="0" fill="#0D4A8A" />
+            <rect x="73" y="50" width="10" height="10" rx="5" fill="#0D4A8A" />
             <ellipse cx="78" cy="50" rx="6" ry="2.5" fill="#0f1e30" />
 
             {/* ━━━ STEAM DOME ━━━ */}
-            <rect x="88" y="58" width="24" height="4"  rx="0" fill="#1a2e48" />
-            <rect x="90" y="44" width="20" height="16" rx="7" fill="#1a2740" />
+            <rect x="88" y="58" width="24" height="4"  rx="0" fill="#0D4A8A" />
+            <rect x="90" y="44" width="20" height="16" rx="7" fill="#0D4A8A" />
             <ellipse cx="100" cy="44" rx="11" ry="4"  fill="#0f1e30" />
-            <rect x="98" y="36" width="4"  height="10" rx="2" fill="#253548" />
+            <rect x="98" y="36" width="4"  height="10" rx="2" fill="#0D4A8A" />
             <rect x="94" y="34" width="12" height="4"  rx="2" fill="#344256" />
 
             {/* ━━━ CHIMNEY — sits on the smoke box, centred at x=40 ━━━ */}
-            <rect x="31" y="58" width="18" height="4"  fill="#1a2e48" />
+            <rect x="31" y="58" width="18" height="4"  fill="#0D4A8A" />
             <rect x="33" y="26" width="14" height="34" rx="2"   fill="#0f1e30" />
             <rect x="27" y="20" width="26" height="9"  rx="4.5" fill="#0d1a28" />
             <ellipse cx="40" cy="20" rx="10" ry="3.5"  fill="#08111c" />
 
             {/* ━━━ SMOKE BOX ━━━ */}
             {/* Drum section (front of boiler) */}
-            <rect x="28" y="61" width="22" height="35" fill="#1a2740" />
+            <rect x="28" y="61" width="22" height="35" fill="#0D4A8A" />
             {/* Front face — narrower to suggest depth */}
             <rect x="14" y="63" width="16" height="31" rx="1" fill="#14202e" />
             {/* Circular door motif */}
@@ -144,7 +144,7 @@ function SteamTrainLoader() {
             <circle cx="25" cy="64.5" r="1.8" fill="#2e4260" />
             <circle cx="25" cy="91.5" r="1.8" fill="#2e4260" />
             {/* Smoke box bottom saddle */}
-            <rect x="14" y="94" width="36" height="4" rx="1" fill="#1a2740" />
+            <rect x="14" y="94" width="36" height="4" rx="1" fill="#0D4A8A" />
 
             {/* ━━━ HEADLAMP ━━━ */}
             <rect x="7"  y="69" width="14" height="10" rx="2.5" fill="#14202e" />
@@ -153,56 +153,56 @@ function SteamTrainLoader() {
 
             {/* ━━━ OUTSIDE CYLINDER ━━━ */}
             <rect x="14" y="89" width="22" height="12" rx="3" fill="#14202e" />
-            <rect x="16" y="87" width="18" height="5"  rx="2" fill="#1a2e48" />
+            <rect x="16" y="87" width="18" height="5"  rx="2" fill="#0D4A8A" />
             <rect x="14" y="90" width="4"  height="4"  rx="1" fill="#0c1520" />
 
             {/* ━━━ DRIVE WHEELS — drawn before running plate so plate overlaps wheel tops ━━━ */}
             {/* Pony (leading) wheel */}
             <g transform="translate(44,112)" className="loco-ws">
               <circle r="10" fill="#14202e" stroke="#253548" strokeWidth="2.2"/>
-              <line x1="0"    y1="-7.5" x2="0"    y2="7.5"  stroke="#7a8fa0" strokeWidth="1.4"/>
-              <line x1="-7.5" y1="0"    x2="7.5"  y2="0"    stroke="#7a8fa0" strokeWidth="1.4"/>
-              <line x1="-5.3" y1="-5.3" x2="5.3"  y2="5.3"  stroke="#7a8fa0" strokeWidth="1.4"/>
-              <line x1="5.3"  y1="-5.3" x2="-5.3" y2="5.3"  stroke="#7a8fa0" strokeWidth="1.4"/>
+              <line x1="0"    y1="-7.5" x2="0"    y2="7.5"  stroke="#B8D4EE" strokeWidth="1.4"/>
+              <line x1="-7.5" y1="0"    x2="7.5"  y2="0"    stroke="#B8D4EE" strokeWidth="1.4"/>
+              <line x1="-5.3" y1="-5.3" x2="5.3"  y2="5.3"  stroke="#B8D4EE" strokeWidth="1.4"/>
+              <line x1="5.3"  y1="-5.3" x2="-5.3" y2="5.3"  stroke="#B8D4EE" strokeWidth="1.4"/>
               <circle r="2.5" fill="#1f3248" stroke="#344256" strokeWidth="1"/>
             </g>
             {/* Drive wheel 1 */}
             <g transform="translate(78,112)" className="loco-wd">
               <circle r="14" fill="#14202e" stroke="#253e58" strokeWidth="2.5"/>
-              <line x1="0"    y1="-11"  x2="0"    y2="11"  stroke="#7a8fa0" strokeWidth="1.8"/>
-              <line x1="-11"  y1="0"    x2="11"   y2="0"   stroke="#7a8fa0" strokeWidth="1.8"/>
-              <line x1="-7.8" y1="-7.8" x2="7.8"  y2="7.8" stroke="#7a8fa0" strokeWidth="1.8"/>
-              <line x1="7.8"  y1="-7.8" x2="-7.8" y2="7.8" stroke="#7a8fa0" strokeWidth="1.8"/>
+              <line x1="0"    y1="-11"  x2="0"    y2="11"  stroke="#B8D4EE" strokeWidth="1.8"/>
+              <line x1="-11"  y1="0"    x2="11"   y2="0"   stroke="#B8D4EE" strokeWidth="1.8"/>
+              <line x1="-7.8" y1="-7.8" x2="7.8"  y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
+              <line x1="7.8"  y1="-7.8" x2="-7.8" y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
               <circle r="3.5" fill="#1f3248" stroke="#344256" strokeWidth="1.2"/>
-              <circle cx="0" cy="-10" r="2.5" fill="#7a8fa0"/>
+              <circle cx="0" cy="-10" r="2.5" fill="#B8D4EE"/>
             </g>
             {/* Drive wheel 2 */}
             <g transform="translate(110,112)" className="loco-wd">
               <circle r="14" fill="#14202e" stroke="#253e58" strokeWidth="2.5"/>
-              <line x1="0"    y1="-11"  x2="0"    y2="11"  stroke="#7a8fa0" strokeWidth="1.8"/>
-              <line x1="-11"  y1="0"    x2="11"   y2="0"   stroke="#7a8fa0" strokeWidth="1.8"/>
-              <line x1="-7.8" y1="-7.8" x2="7.8"  y2="7.8" stroke="#7a8fa0" strokeWidth="1.8"/>
-              <line x1="7.8"  y1="-7.8" x2="-7.8" y2="7.8" stroke="#7a8fa0" strokeWidth="1.8"/>
+              <line x1="0"    y1="-11"  x2="0"    y2="11"  stroke="#B8D4EE" strokeWidth="1.8"/>
+              <line x1="-11"  y1="0"    x2="11"   y2="0"   stroke="#B8D4EE" strokeWidth="1.8"/>
+              <line x1="-7.8" y1="-7.8" x2="7.8"  y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
+              <line x1="7.8"  y1="-7.8" x2="-7.8" y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
               <circle r="3.5" fill="#1f3248" stroke="#344256" strokeWidth="1.2"/>
-              <circle cx="0" cy="-10" r="2.5" fill="#7a8fa0"/>
+              <circle cx="0" cy="-10" r="2.5" fill="#B8D4EE"/>
             </g>
             {/* Drive wheel 3 */}
             <g transform="translate(140,112)" className="loco-wd">
               <circle r="14" fill="#14202e" stroke="#253e58" strokeWidth="2.5"/>
-              <line x1="0"    y1="-11"  x2="0"    y2="11"  stroke="#7a8fa0" strokeWidth="1.8"/>
-              <line x1="-11"  y1="0"    x2="11"   y2="0"   stroke="#7a8fa0" strokeWidth="1.8"/>
-              <line x1="-7.8" y1="-7.8" x2="7.8"  y2="7.8" stroke="#7a8fa0" strokeWidth="1.8"/>
-              <line x1="7.8"  y1="-7.8" x2="-7.8" y2="7.8" stroke="#7a8fa0" strokeWidth="1.8"/>
+              <line x1="0"    y1="-11"  x2="0"    y2="11"  stroke="#B8D4EE" strokeWidth="1.8"/>
+              <line x1="-11"  y1="0"    x2="11"   y2="0"   stroke="#B8D4EE" strokeWidth="1.8"/>
+              <line x1="-7.8" y1="-7.8" x2="7.8"  y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
+              <line x1="7.8"  y1="-7.8" x2="-7.8" y2="7.8" stroke="#B8D4EE" strokeWidth="1.8"/>
               <circle r="3.5" fill="#1f3248" stroke="#344256" strokeWidth="1.2"/>
-              <circle cx="0" cy="-10" r="2.5" fill="#7a8fa0"/>
+              <circle cx="0" cy="-10" r="2.5" fill="#B8D4EE"/>
             </g>
 
             {/* Connecting rods — below running plate level */}
-            <rect x="78"  y="103" width="64" height="4" rx="2"   fill="#3a5568" />
-            <rect x="34"  y="104" width="46" height="3" rx="1.5" fill="#3a5568" />
+            <rect x="78"  y="103" width="64" height="4" rx="2"   fill="#5A7A9A" />
+            <rect x="34"  y="104" width="46" height="3" rx="1.5" fill="#5A7A9A" />
 
             {/* ━━━ RUNNING PLATE — drawn on top of wheel tops ━━━ */}
-            <rect x="14" y="97" width="136" height="5" rx="2" fill="#253548" />
+            <rect x="14" y="97" width="136" height="5" rx="2" fill="#0D4A8A" />
             {/* Splasher arches over each drive wheel */}
             <path d="M64  97 Q78  82 92  97" fill="none" stroke="#2e4862" strokeWidth="2.2"/>
             <path d="M96  97 Q110 82 124 97" fill="none" stroke="#2e4862" strokeWidth="2.2"/>
@@ -212,7 +212,7 @@ function SteamTrainLoader() {
             <path d="M14 99 L1 112 L14 112 Z" fill="#1f3248" />
             <line x1="4"  y1="112" x2="14" y2="100" stroke="#344256" strokeWidth="1.5"/>
             <line x1="10" y1="112" x2="14" y2="104" stroke="#344256" strokeWidth="1.5"/>
-            <rect x="6" y="97" width="9" height="4" rx="1.5" fill="#253548" />
+            <rect x="6" y="97" width="9" height="4" rx="1.5" fill="#0D4A8A" />
 
           </g>{/* end .loco-body */}
         </svg>
@@ -233,7 +233,7 @@ function FullScreenLoader() {
       justifyContent: 'center',
       height: '100vh',
       width: '100%',
-      background: 'linear-gradient(180deg, #bdd0e0 0%, #ccdbc6 48%, #ddd0b2 100%)',
+      background: 'linear-gradient(180deg, #C8DDF0 0%, #D8E8EC 48%, #E4DED2 100%)',
       position: 'relative',
       overflow: 'hidden',
     }}>
@@ -244,8 +244,8 @@ function FullScreenLoader() {
         preserveAspectRatio="none"
         fill="none"
       >
-        <path d="M0 155 Q80 128 170 148 Q260 112 360 136 Q440 108 530 130 Q620 102 710 126 Q800 104 900 122 Q950 112 1000 118 L1000 200 L0 200 Z" fill="#6a8860" />
-        <path d="M0 178 Q130 160 270 174 Q400 150 530 168 Q660 148 780 165 Q890 152 1000 162 L1000 200 L0 200 Z" fill="#7a9870" opacity="0.75" />
+        <path d="M0 155 Q80 128 170 148 Q260 112 360 136 Q440 108 530 130 Q620 102 710 126 Q800 104 900 122 Q950 112 1000 118 L1000 200 L0 200 Z" fill="#7A9E8A" />
+        <path d="M0 178 Q130 160 270 174 Q400 150 530 168 Q660 148 780 165 Q890 152 1000 162 L1000 200 L0 200 Z" fill="#9AB8A8" opacity="0.75" />
       </svg>
 
       <SteamTrainLoader />
@@ -254,7 +254,7 @@ function FullScreenLoader() {
         marginTop: 22,
         fontSize: 12,
         fontWeight: 600,
-        color: '#4a6070',
+        color: '#1565C0',
         letterSpacing: '0.06em',
         textTransform: 'uppercase',
       }}>
@@ -437,20 +437,14 @@ function HomeContent() {
           <PubSearchButton onClick={() => setShowSearch(true)} darkMode={darkMode} />
 
           {/* Header panel — top left */}
-          <div style={{ position: 'absolute', top: 20, left: 20, zIndex: 900, background: cardBg, borderRadius: 16, boxShadow: '0 2px 12px rgba(0,0,0,0.12)', padding: '14px 18px', minWidth: 200 }}>
-            {/* Czech flag stripe accent */}
-            <div style={{ display: 'flex', gap: 0, marginBottom: 10, borderRadius: 999, overflow: 'hidden', height: 4, width: 40 }}>
-              <div style={{ flex: 1, background: '#D7141A' }} />
-              <div style={{ flex: 1, background: '#FFFFFF', border: '0.5px solid #e2e8f0' }} />
-              <div style={{ flex: 1, background: '#11457E' }} />
-            </div>
-            <h1 style={{ fontSize: 15, fontWeight: 700, color: cardText, lineHeight: 1.2, margin: 0 }}>
-              N&#225;dražka Finder
+          <div style={{ position: 'absolute', top: 20, left: 20, zIndex: 900, background: dm ? '#0D1F33' : '#1565C0', borderRadius: 12, boxShadow: dm ? '0 2px 12px rgba(0,0,0,0.4)' : '0 2px 16px rgba(21,101,192,0.35)', padding: '12px 18px', minWidth: 190 }}>
+            <h1 style={{ fontSize: 15, fontWeight: 700, color: '#ffffff', lineHeight: 1.2, margin: 0 }}>
+              🚉 N&#225;dražka Finder
             </h1>
-            <p style={{ fontSize: 12, color: '#3b82f6', margin: '3px 0 0', fontWeight: 600 }}>
-              {mapData.length} <span style={{ color: cardSub, fontWeight: 400 }}>locations</span>
+            <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.85)', margin: '5px 0 0', fontWeight: 600 }}>
+              {mapData.length} <span style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 400 }}>locations</span>
             </p>
-            <p style={{ fontSize: 11, color: cardMuted, margin: '2px 0 0' }}>
+            <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', margin: '2px 0 0' }}>
               Czech train station pubs
             </p>
           </div>
@@ -473,7 +467,7 @@ function HomeContent() {
               borderRadius: '50%',
               boxShadow: '0 2px 12px rgba(0,0,0,0.12)',
               cursor: 'pointer',
-              color: dm ? '#f1f5f9' : '#475569',
+              color: dm ? '#f1f5f9' : '#1565C0',
               transition: 'background 0.2s',
             }}
           >
@@ -505,11 +499,11 @@ function HomeContent() {
             {/* Color = verification status */}
             <p style={{ margin: '0 0 2px', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: dm ? '#94a3b8' : '#64748b' }}>Status</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-              <div style={{ width: 14, height: 14, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0 }} />
+              <div style={{ width: 14, height: 14, background: '#1565C0', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0 }} />
               <span style={{ fontSize: 11, color: cardText }}>Verified pub</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-              <div style={{ width: 14, height: 14, background: '#F59E0B', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0 }} />
+              <div style={{ width: 14, height: 14, background: '#9CA3AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0 }} />
               <span style={{ fontSize: 11, color: cardText }}>Unverified</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
@@ -523,15 +517,15 @@ function HomeContent() {
             {/* Size = quality tier */}
             <p style={{ margin: '0 0 2px', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: dm ? '#94a3b8' : '#64748b' }}>Quality</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-              <div style={{ width: 22, height: 22, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0 }} />
+              <div style={{ width: 22, height: 22, background: '#1565C0', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0 }} />
               <span style={{ fontSize: 11, color: cardText }}>Legendary</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-              <div style={{ width: 15, height: 15, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0, marginLeft: 3.5 }} />
+              <div style={{ width: 15, height: 15, background: '#1565C0', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0, marginLeft: 3.5 }} />
               <span style={{ fontSize: 11, color: cardText }}>Good</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-              <div style={{ width: 10, height: 10, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0, marginLeft: 6 }} />
+              <div style={{ width: 10, height: 10, background: '#1565C0', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0, marginLeft: 6 }} />
               <span style={{ fontSize: 11, color: cardText }}>Serviceable</span>
             </div>
           </div>

@@ -76,18 +76,18 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
   }, [location, translatedReviews]);
 
   const t = darkMode ? {
-    sheet: '#1e293b', bg2: '#0f172a', text: '#f1f5f9', text2: '#94a3b8', text3: '#64748b',
-    border: '#334155', handle: '#475569', closeBg: '#334155', closeText: '#94a3b8',
-    linkColor: '#60a5fa', badgeBlueBg: '#1e3a5f', badgeBlueText: '#60a5fa',
-    badgeAmberBg: '#3d2c00', badgeAmberText: '#fbbf24', tierBg: '#0f172a', tierText: '#94a3b8',
-    btnBg: '#1e3a5f', btnText: '#93c5fd', hoursBg: '#0f172a', todayText: '#f1f5f9',
+    sheet: '#0D1F33', bg2: '#081524', text: '#f1f5f9', text2: '#94a3b8', text3: '#64748b',
+    border: '#1E3550', handle: '#2A4A6A', closeBg: '#1E3550', closeText: '#94a3b8',
+    linkColor: '#60a5fa', badgeBlueBg: '#1E3A60', badgeBlueText: '#60a5fa',
+    badgeAmberBg: '#1E2A38', badgeAmberText: '#9CA3AF', tierBg: '#081524', tierText: '#94a3b8',
+    btnBg: '#37A83A', btnText: '#ffffff', hoursBg: '#081524', todayText: '#f1f5f9',
     priceBg: '#14532d', priceText: '#86efac',
   } : {
-    sheet: '#ffffff', bg2: '#f8fafc', text: '#0f172a', text2: '#475569', text3: '#94a3b8',
-    border: '#f1f5f9', handle: '#e2e8f0', closeBg: '#f1f5f9', closeText: '#64748b',
-    linkColor: '#2563eb', badgeBlueBg: '#eff6ff', badgeBlueText: '#1d4ed8',
-    badgeAmberBg: '#fffbeb', badgeAmberText: '#d97706', tierBg: '#f8fafc', tierText: '#64748b',
-    btnBg: '#1d4ed8', btnText: '#ffffff', hoursBg: '#f8fafc', todayText: '#0f172a',
+    sheet: '#ffffff', bg2: '#F5F8FC', text: '#1A2A3A', text2: '#475569', text3: '#94a3b8',
+    border: '#E8EEF4', handle: '#C8D8E8', closeBg: '#F0F5FA', closeText: '#64748b',
+    linkColor: '#1565C0', badgeBlueBg: '#E8F0FB', badgeBlueText: '#1565C0',
+    badgeAmberBg: '#F3F4F6', badgeAmberText: '#6B7280', tierBg: '#F5F8FC', tierText: '#64748b',
+    btnBg: '#37A83A', btnText: '#ffffff', hoursBg: '#F5F8FC', todayText: '#1A2A3A',
     priceBg: '#dcfce7', priceText: '#15803d',
   };
 
@@ -135,6 +135,21 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
           display: 'flex', flexDirection: 'column',
         }}
       >
+        {/* Close button — fixed top-right of sheet, always visible */}
+        {isVisible && (
+          <button
+            onClick={onClose}
+            aria-label={`Close ${location?.name ?? 'panel'}`}
+            style={{
+              position: 'absolute', top: 12, right: 14, zIndex: 10,
+              width: 32, height: 32,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: t.closeBg, border: 'none', borderRadius: '50%',
+              fontSize: 16, color: t.closeText, cursor: 'pointer', lineHeight: 1,
+            }}
+          >&#215;</button>
+        )}
+
         {/* Fix 1: Clickable drag handle toggles between peek and full */}
         <div
           onClick={() => setSnapState(s => s === 'peek' ? 'full' : 'peek')}
@@ -176,6 +191,7 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                     key={i}
                     src={img.imageUrl}
                     alt={`Photo of ${location.name}`}
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     style={{
                       flexShrink: 0,
                       width: i === 0 ? 200 : 130,
@@ -190,57 +206,43 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
             )}
 
             <div style={{ padding: '0 20px' }}>
-              {/* Header: name + close */}
-              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 10 }}>
-                <div style={{ flex: 1, paddingRight: 12 }}>
-                  <h2 style={{ fontSize: 20, fontWeight: 700, color: t.text, lineHeight: 1.2, margin: 0 }}>
-                    {location.name}
-                  </h2>
+              {/* Header: name */}
+              <div style={{ marginBottom: 10, paddingRight: 44 }}>
+                <h2 style={{ fontSize: 20, fontWeight: 700, color: t.text, lineHeight: 1.2, margin: 0 }}>
+                  {location.name}
+                </h2>
 
-                  {/* Badges row */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
-                    <span style={{
-                      background: darkMode ? '#1e293b' : '#f1f5f9', color: t.text3,
-                      fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999,
-                      border: `1px solid ${t.border}`,
-                    }}>
-                      {TIER_LABELS[location.tier] ?? `Tier ${location.tier}`}
+                {/* Badges row */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
+                  <span style={{
+                    background: darkMode ? '#1A2A3A' : '#f1f5f9', color: t.text3,
+                    fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999,
+                    border: `1px solid ${t.border}`,
+                  }}>
+                    {TIER_LABELS[location.tier] ?? `Tier ${location.tier}`}
+                  </span>
+                  {location.verified ? (
+                    <span style={{ background: t.badgeBlueBg, color: t.badgeBlueText, fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999 }}>
+                      Verified
                     </span>
-                    {location.verified ? (
-                      <span style={{ background: t.badgeBlueBg, color: t.badgeBlueText, fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999 }}>
-                        Verified
-                      </span>
-                    ) : (
-                      <span style={{ background: t.badgeAmberBg, color: t.badgeAmberText, fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999 }}>
-                        Unverified
-                      </span>
-                    )}
-                    {location.rating != null && (
-                      <span style={{ fontSize: 13, color: t.text2, display: 'flex', alignItems: 'center', gap: 4 }}>
-                        <span style={{ color: '#f59e0b' }}>&#9733;</span>
-                        <strong style={{ color: t.text }}>{location.rating.toFixed(1)}</strong>
-                        <span style={{ color: t.text3 }}>({location.reviewCount})</span>
-                      </span>
-                    )}
-                    {location.priceLevel != null && PRICE_LABEL[location.priceLevel] && (
-                      <span style={{ background: t.priceBg, color: t.priceText, fontSize: 11, fontWeight: 700, padding: '3px 9px', borderRadius: 999 }}>
-                        {PRICE_LABEL[location.priceLevel]}
-                      </span>
-                    )}
-                  </div>
+                  ) : (
+                    <span style={{ background: t.badgeAmberBg, color: t.badgeAmberText, fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999 }}>
+                      Unverified
+                    </span>
+                  )}
+                  {location.rating != null && (
+                    <span style={{ fontSize: 13, color: t.text2, display: 'flex', alignItems: 'center', gap: 4 }}>
+                      <span style={{ color: '#f59e0b' }}>&#9733;</span>
+                      <strong style={{ color: t.text }}>{location.rating.toFixed(1)}</strong>
+                      <span style={{ color: t.text3 }}>({location.reviewCount})</span>
+                    </span>
+                  )}
+                  {location.priceLevel != null && PRICE_LABEL[location.priceLevel] && (
+                    <span style={{ background: t.priceBg, color: t.priceText, fontSize: 11, fontWeight: 700, padding: '3px 9px', borderRadius: 999 }}>
+                      {PRICE_LABEL[location.priceLevel]}
+                    </span>
+                  )}
                 </div>
-
-                {/* Fix 2: 44px touch target (WCAG minimum) */}
-                <button
-                  onClick={onClose}
-                  aria-label={`Close ${location?.name ?? 'panel'}`}
-                  style={{
-                    flexShrink: 0, width: 44, height: 44,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: t.closeBg, border: 'none', borderRadius: '50%',
-                    fontSize: 18, color: t.closeText, cursor: 'pointer', lineHeight: 1,
-                  }}
-                >&#215;</button>
               </div>
 
               {/* Divider */}

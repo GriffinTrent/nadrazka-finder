@@ -136,7 +136,7 @@ const SIZES = { large: 26, medium: 18, small: 14 };
 // Shadow list is front-to-back, so: front=1px black, mid=2px white, back=3px black
 // produces three concentric bands: black | white | black visible from border edge inward.
 function createMarkerIcon(isSelected, isVerified = true, size = 'medium') {
-  const bg   = isSelected ? '#FBBF24' : (isVerified ? '#1E40AF' : '#F59E0B');
+  const bg   = isSelected ? '#FBBF24' : (isVerified ? '#1565C0' : '#9CA3AF');
   const px   = isSelected ? Math.round(SIZES[size] * 1.35) : SIZES[size];
   const bord = size === 'large' ? 3 : 2;
   const drop = `0 2px ${size === 'large' ? 10 : 6}px rgba(0,0,0,${size === 'large' ? 0.45 : 0.3})`;

@@ -8,6 +8,7 @@ import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { execFileSync } from 'child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = join(__dirname, '../public/data/nadrazky.json');
@@ -237,6 +238,11 @@ async function main() {
 
   writeFileSync(OUTPUT_PATH, JSON.stringify(nadrazky, null, 2));
   console.log(`Written to ${OUTPUT_PATH}`);
+
+  // Immediately download images before Google signed URLs expire
+  console.log('\nDownloading images to public/images/ ...');
+  const downloadScript = join(__dirname, 'download-images.mjs');
+  execFileSync(process.execPath, [downloadScript], { stdio: 'inherit' });
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
