@@ -39,4 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-.vercel
+
+# claude code session files
+.claude/
+
+# apify raw scrape dumps (can be very large)
+scripts/beer-*-raw.json

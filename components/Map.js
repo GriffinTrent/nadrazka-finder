@@ -12,18 +12,23 @@ const TILE_ATTRIBUTION =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
 
 // Keywords that signal a proper gritty station pub (score up → bigger marker)
+// Note: 'nádražka' is NOT listed here — it has its own dedicated +2 in getMarkerSize()
+// to avoid double-counting. 'graffiti' appears only once (removed duplicate).
 const POSITIVE_WORDS = [
   // Czech — gritty/cheap/local signals
-  'nádražka', 'nádražní hospoda', 'kouř', 'cigaret', 'graffiti',
+  'nádražní hospoda', 'kouř', 'cigaret', 'graffiti',
   'levné pivo', 'levný piv', 'dobré pivo', 'skvělé pivo', 'výborné pivo',
   'levn', 'lacin', 'špinav', 'místní', 'stamgast', 'dělník',
   'starý pán', 'staříc', 'starej', 'pivko', 'pivo za', 'levný', 'lokální',
-  'klobás', 'hotovk', 'guláš', 'řízek',          // simple pub food
-  'čekáte na vlak', 'před odjezdem', 'drobáku', 'korun za', // waiting for train, cheap price
+  'klobás', 'hotovk', 'guláš', 'řízek',
+  'čekáte na vlak', 'před odjezdem', 'drobáku', 'korun za',
+  'klasic', 'staromódní',                  // classic/old-fashioned Czech signals
+  'oldschool', 'oldskool',                 // borrowed English — common in Czech reviews too
   // English
-  'smoking', 'smoke', 'graffiti', 'cheap beer', 'good beer',
+  'smoking', 'smoke', 'cheap beer', 'good beer',
   'great beer', 'locals', 'local', 'dirty', 'workers', 'old men', 'regulars',
-  'authentic', 'gritty', 'rough', 'cheap',
+  'authentic', 'gritty', 'rough', 'cheap', 'classic',
+  'old school', 'old-school',
 ];
 
 // Keywords that signal a fancy/clean place (score down → smaller marker)
@@ -38,8 +43,9 @@ const NEGATIVE_WORDS = [
   'nice decor', 'welcoming atmosphere',
 ];
 
-// Classic Czech pub/bar categories that signal authentic nadražka
-const PUB_CATEGORY_BONUS = ['Hospoda', 'Hostinec', 'Pivní výčep', 'Bar', 'Sportovní bar'];
+// Classic Czech pub/bar categories — split by score tier so both arrays are actually used
+const TOP_PUB_CATEGORIES  = ['Hospoda', 'Hostinec', 'Pivní výčep'];
+const GOOD_PUB_CATEGORIES = ['Bar', 'Sportovní bar'];
 
 /**
  * Compute authenticity score for a nadrazka.
@@ -54,8 +60,8 @@ function getMarkerSize(nadrazka) {
   let score = 0;
 
   // Category bonus: classic pub types get a head start
-  if (cats.some(c => ['Hospoda', 'Hostinec', 'Pivní výčep'].includes(c))) score += 3;
-  else if (cats.some(c => ['Bar', 'Sportovní bar'].includes(c))) score += 2;
+  if (cats.some(c => TOP_PUB_CATEGORIES.includes(c)))       score += 3;
+  else if (cats.some(c => GOOD_PUB_CATEGORIES.includes(c))) score += 2;
 
   // Price level: cheaper = more authentic
   if (nadrazka.priceLevel === 1) score += 2;
@@ -82,22 +88,37 @@ function getMarkerSize(nadrazka) {
   return 'medium';
 }
 
-const SIZES = { large: 26, medium: 18, small: 11 };
+const SIZES = { large: 26, medium: 18, small: 14 };
 
-// Custom circle marker — cleaner than the default pin icon
-// isSelected: currently open (bright yellow + enlarged)
-// isVerified: verified pub (blue) vs unverified (amber)
-// size: 'large' | 'medium' | 'small'
+// Quality tier ring patterns (inset box-shadows, applied when not selected):
+//   large  → solid white border, no rings  (best pubs)
+//   medium → white border + 1 black inset ring
+//   small  → white border + 2 black inset rings (separated by a white gap)
+//
+// Shadow list is front-to-back, so: front=1px black, mid=2px white, back=3px black
+// produces three concentric bands: black | white | black visible from border edge inward.
 function createMarkerIcon(isSelected, isVerified = true, size = 'medium') {
-  const bg = isSelected ? '#FBBF24' : (isVerified ? '#1E40AF' : '#F59E0B');
-  const px = isSelected ? Math.round(SIZES[size] * 1.35) : SIZES[size];
+  const bg   = isSelected ? '#FBBF24' : (isVerified ? '#1E40AF' : '#F59E0B');
+  const px   = isSelected ? Math.round(SIZES[size] * 1.35) : SIZES[size];
+  const bord = size === 'large' ? 3 : 2;
+  const drop = `0 2px ${size === 'large' ? 10 : 6}px rgba(0,0,0,${size === 'large' ? 0.45 : 0.3})`;
+
+  let rings = '';
+  if (!isSelected) {
+    if (size === 'medium') {
+      rings = `, inset 0 0 0 1.5px rgba(0,0,0,0.75)`;
+    } else if (size === 'small') {
+      rings = `, inset 0 0 0 1px rgba(0,0,0,0.8), inset 0 0 0 2px rgba(255,255,255,0.95), inset 0 0 0 3px rgba(0,0,0,0.8)`;
+    }
+  }
+
   return L.divIcon({
     html: `<div style="
       width: ${px}px; height: ${px}px;
       background: ${bg};
       border-radius: 50%;
-      border: ${size === 'large' ? 3 : 2}px solid white;
-      box-shadow: 0 2px ${size === 'large' ? 10 : 6}px rgba(0,0,0,${size === 'large' ? 0.45 : 0.3});
+      border: ${bord}px solid white;
+      box-shadow: ${drop}${rings};
       transition: transform 0.15s;
     "></div>`,
     className: '',
