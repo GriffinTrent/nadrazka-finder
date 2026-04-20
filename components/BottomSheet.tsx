@@ -52,8 +52,8 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
   const [hoursOpen, setHoursOpen] = useState(false);
   const [translatedReviews, setTranslatedReviews] = useState<Array<string | null> | null>(null);
   const [translating, setTranslating] = useState(false);
-  // Fix 1: Two-stop snap system
-  const [snapState, setSnapState] = useState<'peek' | 'full'>('peek');
+  // Two-stop snap system — default full so content is visible immediately
+  const [snapState, setSnapState] = useState<'peek' | 'full'>('full');
 
   const translateReviews = useCallback(async () => {
     if (translatedReviews) { setTranslatedReviews(null); return; }
@@ -99,8 +99,8 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
 
   // Reset toggles when a new location opens
   useEffect(() => { setHoursOpen(false); setTranslatedReviews(null); setTranslating(false); }, [location?.id]);
-  // Fix 1: Snap to peek whenever a new pub is selected
-  useEffect(() => { if (location) setSnapState('peek'); }, [location?.id]);
+  // Open to full whenever a new pub is selected
+  useEffect(() => { if (location) setSnapState('full'); }, [location?.id]);
 
   const isVisible = location !== null;
   const images = location?.images?.filter(img => isSafeUrl(img.imageUrl)) ?? [];
@@ -108,12 +108,13 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
 
   return (
     <>
-      {/* Backdrop */}
+      {/* Backdrop — only shown in full state so map stays interactive in peek */}
       <div
         style={{
           position: 'fixed', inset: 0, zIndex: 1001,
           background: 'rgba(15,23,42,0.45)', backdropFilter: 'blur(2px)',
-          opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? 'auto' : 'none',
+          opacity: (isVisible && snapState === 'full') ? 1 : 0,
+          pointerEvents: (isVisible && snapState === 'full') ? 'auto' : 'none',
           transition: 'opacity 0.25s ease',
         }}
         onClick={onClose}

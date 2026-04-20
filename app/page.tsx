@@ -522,15 +522,15 @@ function HomeContent() {
             <p style={{ margin: '0 0 2px', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: dm ? '#94a3b8' : '#64748b' }}>Quality</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
               <div style={{ width: 22, height: 22, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0 }} />
-              <span style={{ fontSize: 11, color: cardText }}>Most authentic</span>
+              <span style={{ fontSize: 11, color: cardText }}>Legendary</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
               <div style={{ width: 15, height: 15, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0, marginLeft: 3.5 }} />
-              <span style={{ fontSize: 11, color: cardText }}>Authentic</span>
+              <span style={{ fontSize: 11, color: cardText }}>Good</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
               <div style={{ width: 10, height: 10, background: '#1E40AF', borderRadius: '50%', border: '2px solid white', boxShadow: '0 1px 4px rgba(0,0,0,0.25)', flexShrink: 0, marginLeft: 6 }} />
-              <span style={{ fontSize: 11, color: cardText }}>Unscored</span>
+              <span style={{ fontSize: 11, color: cardText }}>Serviceable</span>
             </div>
           </div>
         </>
