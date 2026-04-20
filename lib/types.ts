@@ -5,6 +5,13 @@ export interface Review {
   text: string | null;
 }
 
+export interface BeerMenuItem {
+  name: string;
+  price: number;
+  volume: string;
+  isPrimary: boolean;
+}
+
 export interface Nadrazka {
   id: string;
   placeId: string | null;
@@ -30,4 +37,5 @@ export interface Nadrazka {
   source: string;
   scrapedAt: string;
   reviews: Review[];
+  beerMenu?: BeerMenuItem[] | null;
 }

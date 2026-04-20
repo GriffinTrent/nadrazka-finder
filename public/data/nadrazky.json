@@ -538,6 +538,20 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHQScX6hxfjXXW2wtfqC-Jg8PdokpLskFhvUisuWIIPdngl-XaEoEdFP-nDrxLQWjfTzDWeOkNXE8-W3vicgHdpvaNZiuvKGc0pEgEkW0buVbKbxuQBczL0kDDsX7INVJiaoFk=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Březňák",
+        "price": 26,
+        "volume": "0.5l",
+        "isPrimary": true
+      },
+      {
+        "name": "Zlatopramen",
+        "price": 28,
+        "volume": "0.5l",
+        "isPrimary": false
+      }
     ]
   },
   {
@@ -737,6 +751,14 @@
       },
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGxvDeYmTm2OCY_iMAY2WTtXZVmd3GoHDkADRG1edVNLM78HYADzu2l4wGmSMgpdEPIn0QWiI2xc3haUFnzjE6EdMyGfjQvHZKDxK8Whgepgx7ATMngGXDxK3G8DIYkVWErSsdi1w=w1920-h1080-k-no"
+      }
+    ],
+    "beerMenu": [
+      {
+        "name": "Braník 10°",
+        "price": 27,
+        "volume": "0.5l",
+        "isPrimary": true
       }
     ]
   },
@@ -1209,6 +1231,14 @@
       },
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE__7fOtJWlwlPl8zcj_y3DZc79z3Nirdk6-q9h1oP3HhC5Omy-PbIDN9Ok-dAWt25_zvxl13OlgBnq7YB73WbM8YxKRbtl8BcX4MV3N5y-u2Pdxp0jmKFsbY0hEOykeRfMowS1=w1920-h1080-k-no"
+      }
+    ],
+    "beerMenu": [
+      {
+        "name": "Pivo",
+        "price": 30,
+        "volume": "0.5l",
+        "isPrimary": true
       }
     ]
   },
@@ -2807,6 +2837,14 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGMzJ3QE9QNcBwdK-M_i1VmKsbIuFOOagg6gmuOaWcumv2Ed9qXJIP62NfqlrTIXMhkQH2XgFlckAXx3PPXWvkQ_grRi3h6NJq_aCEj9tSRhJGIQGw6LhYpDI5GFASmHsV6ZaVmqMn9eRBT=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Zubr 11°",
+        "price": 35,
+        "volume": "0.5l",
+        "isPrimary": true
+      }
     ]
   },
   {
@@ -3007,6 +3045,14 @@
       },
       {
         "imageUrl": "https://lh4.googleusercontent.com/proxy/D0HZOHzR7BXX8swS331NVN_axsR6GPS2Vrb4oNgmsuONi2U07emkBZeeRmBy0PqUHVjzqd4w7Gd61gzJCOaQwayvWnZgTg6lJ8wcLs2FmvDxPUy76TnWCyZHt9Bbv5x92YupuWZPJcINjuUmCbY9X9kA54P_ow=w1920-h1080-k-no"
+      }
+    ],
+    "beerMenu": [
+      {
+        "name": "Litovel 11°",
+        "price": 59,
+        "volume": "0.5l",
+        "isPrimary": true
       }
     ]
   },
@@ -4578,6 +4624,14 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEZWUnJjRv8HuEnMKbH7mGad2pIYNWwXtSajVTDl2ujXjLlrGe-2AUge6urxRLP7TOVwmwtsvRtloKy0GFg7sqQ97wEA4gcpsI52yl4v8LUYBAHxGFE5YSW2tvVo9hKa9wxgUM=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Pivo",
+        "price": 38,
+        "volume": "0.5l",
+        "isPrimary": true
+      }
     ]
   },
   {
@@ -5854,6 +5908,32 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHGqGl0fuRPX9lqj0LHOGEnskjyJhfKqiKYfQM0qFklSB_sWyXLmGy4n5qg8TUNUOi6GWZTICnXP8TyzYcFtsd7ggUKaNSm39bTyzLte2c06sbG_jWwjaDOx3ofU0lnIN0lgVw59Q=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Bernard 10°",
+        "price": 36,
+        "volume": "0.5l",
+        "isPrimary": true
+      },
+      {
+        "name": "Bernard 11°",
+        "price": 38,
+        "volume": "0.5l",
+        "isPrimary": false
+      },
+      {
+        "name": "Bernard 12°",
+        "price": 39,
+        "volume": "0.5l",
+        "isPrimary": false
+      },
+      {
+        "name": "Bernard",
+        "price": 36,
+        "volume": "0.5l",
+        "isPrimary": false
+      }
     ]
   },
   {
@@ -6227,6 +6307,14 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGlhu8_7ch9oaKWhTIph4YdRvv7SslWh88uglmMMFxgTcbCWQve-FwAisepavyjgBI7WtxgjrhmiLG5q09LJxE_sgBEd-aEvHfS8MWg56Mjj2l3iJPvMr4JSZ7lvPL7dB1pAE8HtnDBylx3=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Braník 10°",
+        "price": 27,
+        "volume": "0.5l",
+        "isPrimary": true
+      }
     ]
   },
   {
@@ -6329,6 +6417,14 @@
       },
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGcRjncRS1OME3cgXIxuyKT5xE2knzZ5BTylfHgcx416fUlkhwzat0SxQpf7D-3bNz-PJTm0Iddha1HB2LONjo21kGrWUzUYRBYJl3qz7qmM2xzXzCHSAzFQ6O84WL4Wnqy85UnoA=w1920-h1080-k-no"
+      }
+    ],
+    "beerMenu": [
+      {
+        "name": "Radegast 10°",
+        "price": 150,
+        "volume": "0.5l",
+        "isPrimary": true
       }
     ]
   },
@@ -7599,6 +7695,20 @@
       },
       {
         "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMcEUUkf9O6nxRDPcSHfKouFt1L3n0lDjedbrcP=w1920-h1080-k-no"
+      }
+    ],
+    "beerMenu": [
+      {
+        "name": "Bernard 11°",
+        "price": 49,
+        "volume": "0.5l",
+        "isPrimary": true
+      },
+      {
+        "name": "Bernard",
+        "price": 44,
+        "volume": "0.5l",
+        "isPrimary": false
       }
     ]
   },
@@ -11006,6 +11116,14 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE4s0A0c8DIUaMov66YuDkZDjSaqhbRIpFb2J0kmrI6JcyaFVN-U1GKoDUWYiIizgQwh8GgRmg22smdfkHX3OyUsgbNrgr_Khwc_TyIeG8pn6wph4cRCaRzmdoE4sTWJZWV__CO=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Gambrinus",
+        "price": 70,
+        "volume": "0.5l",
+        "isPrimary": true
+      }
     ]
   },
   {
@@ -13857,6 +13975,32 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGzJJ20ZARblU8flsd_CqZUgoJejbbqDo7-Y97MPCnG9JRDs9D4WpxU5ZeWHKlO3Hi0UiZMlzEnbZFideD0qqbdvnW1rJ1lvRzrAKneQwytqK2-jA9dBoqb0mWifMejSwntGX998g=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Kozel",
+        "price": 26,
+        "volume": "0.5l",
+        "isPrimary": true
+      },
+      {
+        "name": "Urquell",
+        "price": 35,
+        "volume": "0.5l",
+        "isPrimary": false
+      },
+      {
+        "name": "Radegast",
+        "price": 30,
+        "volume": "0.5l",
+        "isPrimary": false
+      },
+      {
+        "name": "Birell",
+        "price": 42,
+        "volume": "0.5l",
+        "isPrimary": false
+      }
     ]
   },
   {
@@ -14558,6 +14702,20 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGShyTkPC0dcKqK0A6eJ2LlKxyUEIDiEW9zkg49Eaxj3e-82azlwXEhn7RNPlZtE1ieVpApcuNtmny3qaDcl-hz5lR6Adn-k1jqwS1W5nmErGFDtc4GthgfejH6pRJoWeA1kVio4MFvPXY=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Pilsner",
+        "price": 45,
+        "volume": "0.5l",
+        "isPrimary": true
+      },
+      {
+        "name": "Birell",
+        "price": 45,
+        "volume": "0.5l",
+        "isPrimary": false
+      }
     ]
   },
   {
@@ -15058,6 +15216,14 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMs09SjLE9N8yg8_KEgVFQoGSG4nly8dqmptaJJ=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Bernard 10°",
+        "price": 99,
+        "volume": "0.3l",
+        "isPrimary": true
+      }
     ]
   },
   {
@@ -15360,6 +15526,26 @@
       },
       {
         "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPn3_uJyqpig1QukzdD3aMtrtgr6Rm2KFUu5tm7=w1920-h1080-k-no"
+      }
+    ],
+    "beerMenu": [
+      {
+        "name": "Staropramen 10°",
+        "price": 45,
+        "volume": "0.5l",
+        "isPrimary": true
+      },
+      {
+        "name": "Staropramen 11°",
+        "price": 45,
+        "volume": "0.5l",
+        "isPrimary": false
+      },
+      {
+        "name": "Staropramen",
+        "price": 50,
+        "volume": "0.5l",
+        "isPrimary": false
       }
     ]
   },
@@ -16972,6 +17158,20 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEUecnTuZOet5KS--oLzJ-2xpohTayBpc2CMvpd8JDp4VyViIrYCwIkr1MWoF_Oft7mVoPY8NxtBGKr5edvBtuNywbtFYFunDF1_2xsbpQShwpgkdZavsFFug4GEm4aDZgYvX1hZe0traM=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Birell",
+        "price": 42,
+        "volume": "0.5l",
+        "isPrimary": true
+      },
+      {
+        "name": "Točené pivo",
+        "price": 40,
+        "volume": "0.5l",
+        "isPrimary": false
+      }
     ]
   },
   {
@@ -18414,6 +18614,14 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHzR3VBtjb9gn5PwcjeXaKSDjkC3a_TqZYYT-yC5tH4lNdLnWFw9IqgotQzrVybSOb2w1lDPuxb7FEd7-RXCJ_V2vqbSLumVWi0Q7Cz6VypMQVAQ0ACNNhhPiyIROzsM6J8Eh0=w1920-h1080-k-no"
       }
+    ],
+    "beerMenu": [
+      {
+        "name": "Pivo",
+        "price": 30,
+        "volume": "0.5l",
+        "isPrimary": true
+      }
     ]
   },
   {
@@ -19286,6 +19494,14 @@
       },
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGqrvz87ULIh1YMuFMLOO2Eymh_hmXTxpZi3RltXZM50ZypERYUjBjsGTtRdRlRvdR3Ki6izlBt5p3E9M_VF_al4Pcg4bcMRlO_j3XPhxI7T8WO--16MZnt2-Sj8KuQEqPngOWmAw=w1920-h1080-k-no"
+      }
+    ],
+    "beerMenu": [
+      {
+        "name": "Pivo",
+        "price": 35,
+        "volume": "0.5l",
+        "isPrimary": true
       }
     ]
   },

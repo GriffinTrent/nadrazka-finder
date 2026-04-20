@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import type { Nadrazka } from '../lib/types';
+import type { Nadrazka, BeerMenuItem } from '../lib/types';
 
 function renderStars(stars: number | null): string {
   if (stars === null) return '';
@@ -299,6 +299,41 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                       })}
                     </div>
                   )}
+                </div>
+              )}
+
+              {/* Beer menu */}
+              {location.beerMenu && location.beerMenu.length > 0 && (
+                <div style={{ marginBottom: 16 }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: t.text3, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>
+                    🍺 Tap Beers
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 0, background: t.bg2, borderRadius: 12, overflow: 'hidden' }}>
+                    {location.beerMenu.map((beer: BeerMenuItem, i: number) => (
+                      <div key={i} style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                        padding: '9px 14px',
+                        borderBottom: i < location.beerMenu!.length - 1 ? `1px solid ${t.border}` : 'none',
+                        background: beer.isPrimary ? (darkMode ? 'rgba(250,204,21,0.07)' : 'rgba(250,204,21,0.08)') : 'transparent',
+                      }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                          {beer.isPrimary && (
+                            <span style={{ fontSize: 10, fontWeight: 700, color: '#f59e0b', letterSpacing: '0.05em' }}>PRIMARY</span>
+                          )}
+                          <span style={{ fontSize: 13, color: t.text, fontWeight: beer.isPrimary ? 600 : 400 }}>
+                            {beer.name}
+                          </span>
+                        </div>
+                        <span style={{
+                          fontSize: 13, fontWeight: 600,
+                          color: t.priceText, background: t.priceBg,
+                          padding: '2px 9px', borderRadius: 999,
+                        }}>
+                          {beer.price} Kč
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
 
