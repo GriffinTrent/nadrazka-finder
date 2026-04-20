@@ -103,7 +103,7 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
   useEffect(() => { if (location) setSnapState('full'); }, [location?.id]);
 
   const isVisible = location !== null;
-  const images = location?.images?.filter(img => isSafeUrl(img.imageUrl)) ?? [];
+  const images = location?.images?.filter(img => img.imageUrl.startsWith('/') || isSafeUrl(img.imageUrl)) ?? [];
   const todayHours = getTodayHours(location?.openingHours ?? null);
 
   return (
