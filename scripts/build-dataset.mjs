@@ -15,9 +15,10 @@ const STATIONS_PATH = join(__dirname, 'stations.json');
 
 const APIFY_TOKEN = process.env.APIFY_TOKEN;
 const DATASET_ID = process.env.APIFY_DATASET_ID;
+const LOCAL_FILE = process.env.LOCAL_FILE; // optional: path to local JSON
 
-if (!APIFY_TOKEN || !DATASET_ID) {
-  console.error('Required: APIFY_TOKEN and APIFY_DATASET_ID env vars');
+if (!LOCAL_FILE && (!APIFY_TOKEN || !DATASET_ID)) {
+  console.error('Required: LOCAL_FILE=path or (APIFY_TOKEN + APIFY_DATASET_ID) env vars');
   process.exit(1);
 }
 
@@ -75,46 +76,77 @@ const STATION_KEYWORDS = [
 ];
 
 // Non-pub/food categories to exclude
-const EXCLUDE_CATEGORIES = ['hotel', 'lodging', 'atm', 'bank', 'travel_agency', 'gas_station'];
+const EXCLUDE_CATEGORIES = ['hotel', 'lodging', 'atm', 'bank', 'travel_agency', 'gas_station',
+  'train_station', 'transit_station', 'bus_station', 'subway_station', 'light_rail_station'];
+
+// Fast food chains and non-pub establishments to exclude by name
+const CHAIN_BLACKLIST = ['kfc', 'mcdonald', 'subway', 'burger king', 'bageterie boulevard',
+  'natoo', 'costa coffee', 'starbucks', 'mcdonalds', 'banh-mi', 'dm drogerie'];
+
+// Keywords indicating the result IS a station building (not a pub at a station)
+const STATION_BUILDING_INDICATORS = ['autobusové nádraží', 'autobusove nadrazi',
+  'stanice metra', 'metro stanice', 'žst.', 'zeleznicni stanice', 'železniční stanice'];
+
+function getLat(place) { return place.location?.lat ?? place.lat ?? null; }
+function getLng(place) { return place.location?.lng ?? place.lng ?? null; }
 
 function classifyResult(place, stations) {
   const nameLow = normalize(place.title || place.name || '');
   const addrLow = normalize(place.address || place.street || '');
-  const cats = (place.categories || []).map(c => c.toLowerCase());
+  const locatedIn = normalize(place.locatedIn || '');
+  const cats = (place.categories || []).map(c => normalize(c));
 
-  // Auto-exclude
-  const hasExcludeCategory = EXCLUDE_CATEGORIES.some(ec => cats.includes(ec));
+  if (place.permanentlyClosed || place.temporarilyClosed) return null;
+
+  // Exclude station buildings, bus terminals, metro stations by name
+  const nameAndAddr = nameLow + ' ' + addrLow;
+  if (STATION_BUILDING_INDICATORS.some(k => nameAndAddr.includes(normalize(k)))) return null;
+
+  // Exclude known fast food chains
+  if (CHAIN_BLACKLIST.some(chain => nameLow.includes(chain))) return null;
+
+  // Auto-exclude non-food businesses
+  const hasExcludeCategory = EXCLUDE_CATEGORIES.some(ec => cats.some(c => c.includes(ec)));
   const hasFoodCategory = cats.some(c =>
-    ['restaurant', 'bar', 'pub', 'food', 'cafe', 'meal', 'drink', 'brewery', 'tavern'].some(fc => c.includes(fc))
+    ['restaur', 'bar', 'pub', 'cafe', 'kavarn', 'pivo', 'pizeri', 'jidelna', 'hospoda', 'pivnice', 'bufet', 'bistro', 'buffet'].some(fc => c.includes(fc))
   );
   if (hasExcludeCategory && !hasFoodCategory) return null;
-  if (place.permanentlyClosed) return null;
 
-  // Tier 1: station keyword in name
+  // Tier 1: station keyword in name OR locatedIn field mentions station
   const nameHasStation = STATION_KEYWORDS.some(k => nameLow.includes(normalize(k)));
-  if (nameHasStation) {
-    return { tier: 1, verified: true, note: 'station keyword in name' };
+  const locatedInStation = STATION_KEYWORDS.some(k => locatedIn.includes(normalize(k)));
+  if (nameHasStation || locatedInStation) {
+    return { tier: 1, verified: true, note: nameHasStation ? 'station keyword in name' : 'located in station building' };
   }
+
+  const lat = getLat(place);
+  const lng = getLng(place);
+  if (!lat || !lng) return null;
 
   // Get nearest station distance
-  const { station, distanceM } = findNearestStation(place.lat, place.lng, stations);
+  const { station, distanceM } = findNearestStation(lat, lng, stations);
 
-  // Tier 2: "nádraží" (not just "Nádražní" street) in address + within 150m
-  const addrHasStation = addrLow.includes('nádraží') || addrLow.includes('nadrazi');
-  const addrHasStreetOnly = /nadrazni\s+\d/.test(addrLow); // e.g. "Nadrazni 42"
-  if (addrHasStation && !addrHasStreetOnly && distanceM !== null && distanceM <= 150) {
-    return { tier: 2, verified: false, note: `nádraží in address + ${distanceM}m from ${station?.name}` };
+  // Tier 2: "nádraží" (not just "Nádražní" street) in address + within 200m
+  // "nadrazi" matches both nádraží AND nádražní, so check for street-number pattern to exclude Nádražní street
+  const addrHasNadrazi = addrLow.includes('nadrazi'); // catches nádraží, nádražní, nadrazi, nadrazni
+  const addrIsJustStreet = /nadrazni\s+\d/.test(addrLow) && !addrLow.includes(' nadrazi ') && !addrLow.includes('u nadrazi');
+  if (addrHasNadrazi && !addrIsJustStreet && distanceM !== null && distanceM <= 200) {
+    return { tier: 2, verified: false, note: `station in address (${Math.round(distanceM)}m from ${station?.name})` };
   }
 
-  // Tier 3: within 100m of a station (physical proximity only)
-  if (distanceM !== null && distanceM <= 100) {
-    return { tier: 3, verified: false, note: `${distanceM}m from ${station?.name} — needs review` };
+  // Tier 3: within 80m of a station (physical proximity, needs manual review)
+  if (distanceM !== null && distanceM <= 80 && hasFoodCategory) {
+    return { tier: 3, verified: false, note: `${Math.round(distanceM)}m from ${station?.name} — manual review needed` };
   }
 
   return null; // Not a nadrazka candidate
 }
 
 async function fetchDataset() {
+  if (LOCAL_FILE) {
+    console.log(`Reading local file: ${LOCAL_FILE}`);
+    return JSON.parse(readFileSync(LOCAL_FILE, 'utf8'));
+  }
   console.log(`Fetching dataset ${DATASET_ID}...`);
   const url = `https://api.apify.com/v2/datasets/${DATASET_ID}/items?token=${APIFY_TOKEN}&limit=5000&format=json`;
   const res = await fetch(url);
@@ -126,7 +158,9 @@ function dedup(places) {
   const seen = new Map();
   const out = [];
   for (const p of places) {
-    const key = p.placeId || `${p.title}_${Math.round(p.lat * 1000)}_${Math.round(p.lng * 1000)}`;
+    const lat = getLat(p);
+    const lng = getLng(p);
+    const key = p.placeId || `${p.title}_${Math.round((lat||0) * 1000)}_${Math.round((lng||0) * 1000)}`;
     if (!seen.has(key)) { seen.set(key, true); out.push(p); }
   }
   return out;
@@ -149,15 +183,17 @@ async function main() {
     const classification = classifyResult(place, stations);
     if (!classification) { excluded++; continue; }
 
-    const { station, distanceM } = findNearestStation(place.lat || 0, place.lng || 0, stations);
-    const id = place.placeId || createHash('md5').update(`${place.title}${place.lat}${place.lng}`).digest('hex').slice(0, 12);
+    const lat = getLat(place);
+    const lng = getLng(place);
+    const { station, distanceM } = findNearestStation(lat || 0, lng || 0, stations);
+    const id = place.placeId || createHash('md5').update(`${place.title}${lat}${lng}`).digest('hex').slice(0, 12);
 
     nadrazky.push({
       id,
       placeId: place.placeId || null,
       name: place.title || place.name || 'Unknown',
-      lat: place.lat,
-      lng: place.lng,
+      lat,
+      lng,
       address: place.address || place.street || '',
       city: place.city || place.municipality || null,
       stationName: station?.name || null,
