@@ -178,175 +178,178 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
         {location && (
           <div style={{ flex: 1, overflowY: 'auto', padding: '0 0 28px', visibility: snapState === 'full' ? 'visible' : 'hidden' }}>
 
-            {/* Photo gallery */}
-            {images.length > 0 && (
-              <div style={{
-                display: 'flex', gap: 6, overflowX: 'auto', padding: '4px 20px 14px',
-                scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch',
-              }}>
-                {images.map((img, i) => (
-                  // Fix 3: Plain img — no accidental Google Maps navigation
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={i}
-                    src={img.imageUrl}
-                    alt={`Photo of ${location.name}`}
-                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                    style={{
-                      flexShrink: 0,
-                      width: i === 0 ? 200 : 130,
-                      height: 110,
-                      objectFit: 'cover',
-                      borderRadius: 12,
-                      display: 'block',
-                    }}
-                  />
-                ))}
-              </div>
-            )}
+            {/* Two-column layout: info left, photos right */}
+            <div style={{ display: 'flex', alignItems: 'flex-start' }}>
 
-            <div style={{ padding: '0 20px' }}>
-              {/* Header: name */}
-              <div style={{ marginBottom: 10, paddingRight: 44 }}>
-                <h2 style={{ fontSize: 20, fontWeight: 700, color: t.text, lineHeight: 1.2, margin: 0 }}>
-                  {location.name}
-                </h2>
-
-                {/* Badges row */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
-                  <span style={{
-                    background: darkMode ? '#1A2A3A' : '#f1f5f9', color: t.text3,
-                    fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999,
-                    border: `1px solid ${t.border}`,
-                  }}>
-                    {TIER_LABELS[location.tier] ?? `Tier ${location.tier}`}
-                  </span>
-                  {location.verified ? (
-                    <span style={{ background: t.badgeBlueBg, color: t.badgeBlueText, fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999 }}>
-                      Verified
+              {/* Left column: name, badges, info rows, hours */}
+              <div style={{ flex: 1, minWidth: 0, padding: '8px 20px 0' }}>
+                <div style={{ marginBottom: 10 }}>
+                  <h2 style={{ fontSize: 20, fontWeight: 700, color: t.text, lineHeight: 1.2, margin: 0 }}>
+                    {location.name}
+                  </h2>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
+                    <span style={{
+                      background: darkMode ? '#1A2A3A' : '#f1f5f9', color: t.text3,
+                      fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999,
+                      border: `1px solid ${t.border}`,
+                    }}>
+                      {TIER_LABELS[location.tier] ?? `Tier ${location.tier}`}
                     </span>
-                  ) : (
-                    <span style={{ background: t.badgeAmberBg, color: t.badgeAmberText, fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999 }}>
-                      Unverified
-                    </span>
-                  )}
-                  {location.rating != null && (
-                    <span style={{ fontSize: 13, color: t.text2, display: 'flex', alignItems: 'center', gap: 4 }}>
-                      <span style={{ color: '#f59e0b' }}>&#9733;</span>
-                      <strong style={{ color: t.text }}>{location.rating.toFixed(1)}</strong>
-                      <span style={{ color: t.text3 }}>({location.reviewCount})</span>
-                    </span>
-                  )}
-                  {location.priceLevel != null && PRICE_LABEL[location.priceLevel] && (
-                    <span style={{ background: t.priceBg, color: t.priceText, fontSize: 11, fontWeight: 700, padding: '3px 9px', borderRadius: 999 }}>
-                      {PRICE_LABEL[location.priceLevel]}
-                    </span>
-                  )}
+                    {location.verified ? (
+                      <span style={{ background: t.badgeBlueBg, color: t.badgeBlueText, fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999 }}>
+                        Verified
+                      </span>
+                    ) : (
+                      <span style={{ background: t.badgeAmberBg, color: t.badgeAmberText, fontSize: 11, fontWeight: 600, padding: '3px 10px', borderRadius: 999 }}>
+                        Unverified
+                      </span>
+                    )}
+                    {location.rating != null && (
+                      <span style={{ fontSize: 13, color: t.text2, display: 'flex', alignItems: 'center', gap: 4 }}>
+                        <span style={{ color: '#f59e0b' }}>&#9733;</span>
+                        <strong style={{ color: t.text }}>{location.rating.toFixed(1)}</strong>
+                        <span style={{ color: t.text3 }}>({location.reviewCount})</span>
+                      </span>
+                    )}
+                    {location.priceLevel != null && PRICE_LABEL[location.priceLevel] && (
+                      <span style={{ background: t.priceBg, color: t.priceText, fontSize: 11, fontWeight: 700, padding: '3px 9px', borderRadius: 999 }}>
+                        {PRICE_LABEL[location.priceLevel]}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              {/* Divider */}
-              <div style={{ height: 1, background: t.border, marginBottom: 14 }} />
+                <div style={{ height: 1, background: t.border, marginBottom: 14 }} />
 
-              {/* Info rows */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 7, marginBottom: 14, fontSize: 13, color: t.text2 }}>
-                {location.address && (
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                    <span style={{ marginTop: 1 }}>&#128205;</span>
-                    <span>{location.address}</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 7, marginBottom: 14, fontSize: 13, color: t.text2 }}>
+                  {location.address && (
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                      <span style={{ marginTop: 1 }}>&#128205;</span>
+                      <span>{location.address}</span>
+                    </div>
+                  )}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span>&#128222;</span>
+                    {location.phone ? (
+                      <a href={`tel:${location.phone}`} style={{ color: t.linkColor, textDecoration: 'none', fontWeight: 500 }}>
+                        {location.phone}
+                      </a>
+                    ) : (
+                      <span style={{ color: t.text3 }}>—</span>
+                    )}
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span>&#127760;</span>
+                    {location.website && isSafeUrl(location.website) ? (
+                      <a href={location.website} target="_blank" rel="noopener noreferrer"
+                        style={{ color: t.linkColor, textDecoration: 'none', fontWeight: 500 }}>
+                        Website &#8599;
+                      </a>
+                    ) : (
+                      <span style={{ color: t.text3 }}>—</span>
+                    )}
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span>&#128649;</span>
+                    {location.stationName ? (
+                      <span>
+                        {location.stationName}
+                        {location.distanceToStationM != null && (
+                          <span style={{ color: t.text3, marginLeft: 6 }}>({location.distanceToStationM} m)</span>
+                        )}
+                      </span>
+                    ) : (
+                      <span style={{ color: t.text3 }}>—</span>
+                    )}
+                  </div>
+                </div>
+
+                {location.openingHours && location.openingHours.length > 0 && (
+                  <div style={{ marginBottom: 14 }}>
+                    <button
+                      onClick={() => setHoursOpen(o => !o)}
+                      style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                        width: '100%', background: t.hoursBg, border: 'none', cursor: 'pointer',
+                        borderRadius: 10, padding: '8px 12px', textAlign: 'left',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <span style={{ fontSize: 13 }}>&#128336;</span>
+                        <span style={{ fontSize: 13, color: t.text2 }}>
+                          {todayHours ? (
+                            <>
+                              <span style={{ color: t.todayText, fontWeight: 600 }}>Today: </span>
+                              <span>{todayHours}</span>
+                            </>
+                          ) : 'Opening hours'}
+                        </span>
+                      </div>
+                      <span style={{ fontSize: 11, color: t.text3, transform: hoursOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
+                        &#9660;
+                      </span>
+                    </button>
+                    {hoursOpen && (
+                      <div style={{
+                        background: t.hoursBg, borderRadius: '0 0 10px 10px',
+                        padding: '4px 12px 10px', marginTop: -2,
+                      }}>
+                        {location.openingHours.map((h, i) => {
+                          const isToday = h.day.toLowerCase() === CZ_DAYS[new Date().getDay()];
+                          return (
+                            <div key={i} style={{
+                              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                              padding: '3px 0', fontSize: 12,
+                              color: isToday ? t.todayText : t.text2,
+                              fontWeight: isToday ? 600 : 400,
+                            }}>
+                              <span style={{ textTransform: 'capitalize', minWidth: 80 }}>{CZ_TO_EN[h.day.toLowerCase()] ?? h.day}</span>
+                              <span>{h.hours}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 )}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span>&#128222;</span>
-                  {location.phone ? (
-                    <a href={`tel:${location.phone}`} style={{ color: t.linkColor, textDecoration: 'none', fontWeight: 500 }}>
-                      {location.phone}
-                    </a>
-                  ) : (
-                    <span style={{ color: t.text3 }}>—</span>
-                  )}
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span>&#127760;</span>
-                  {location.website && isSafeUrl(location.website) ? (
-                    <a href={location.website} target="_blank" rel="noopener noreferrer"
-                      style={{ color: t.linkColor, textDecoration: 'none', fontWeight: 500 }}>
-                      Website &#8599;
-                    </a>
-                  ) : (
-                    <span style={{ color: t.text3 }}>—</span>
-                  )}
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span>&#128649;</span>
-                  {location.stationName ? (
-                    <span>
-                      {location.stationName}
-                      {location.distanceToStationM != null && (
-                        <span style={{ color: t.text3, marginLeft: 6 }}>({location.distanceToStationM} m)</span>
-                      )}
-                    </span>
-                  ) : (
-                    <span style={{ color: t.text3 }}>—</span>
-                  )}
-                </div>
               </div>
 
-              {/* Opening hours */}
-              {location.openingHours && location.openingHours.length > 0 && (
-                <div style={{ marginBottom: 14 }}>
-                  <button
-                    onClick={() => setHoursOpen(o => !o)}
-                    style={{
-                      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                      width: '100%', background: t.hoursBg, border: 'none', cursor: 'pointer',
-                      borderRadius: 10, padding: '8px 12px', textAlign: 'left',
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <span style={{ fontSize: 13 }}>&#128336;</span>
-                      <span style={{ fontSize: 13, color: t.text2 }}>
-                        {todayHours ? (
-                          <>
-                            <span style={{ color: t.todayText, fontWeight: 600 }}>Today: </span>
-                            <span>{todayHours}</span>
-                          </>
-                        ) : 'Opening hours'}
-                      </span>
-                    </div>
-                    <span style={{ fontSize: 11, color: t.text3, transform: hoursOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>
-                      &#9660;
-                    </span>
-                  </button>
-
-                  {hoursOpen && (
-                    <div style={{
-                      background: t.hoursBg, borderRadius: '0 0 10px 10px',
-                      padding: '4px 12px 10px', marginTop: -2,
-                    }}>
-                      {location.openingHours.map((h, i) => {
-                        const isToday = h.day.toLowerCase() === CZ_DAYS[new Date().getDay()];
-                        return (
-                          <div key={i} style={{
-                            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                            padding: '3px 0', fontSize: 12,
-                            color: isToday ? t.todayText : t.text2,
-                            fontWeight: isToday ? 600 : 400,
-                          }}>
-                            {/* Fix 5: Show English abbreviation; isToday check still uses CZ_DAYS */}
-                            <span style={{ textTransform: 'capitalize', minWidth: 80 }}>{CZ_TO_EN[h.day.toLowerCase()] ?? h.day}</span>
-                            <span>{h.hours}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
+              {/* Right column: horizontal photo strip */}
+              {images.length > 0 && (
+                <div style={{
+                  flexShrink: 0,
+                  width: 'min(50%, 340px)',
+                  padding: '8px 20px 0 0',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  gap: 6,
+                  overflowX: 'auto',
+                  scrollbarWidth: 'none',
+                  alignItems: 'flex-start',
+                }}>
+                  {images.map((img, i) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      key={i}
+                      src={img.imageUrl}
+                      alt={`Photo of ${location.name}`}
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      style={{
+                        flexShrink: 0,
+                        width: 120, height: 120,
+                        objectFit: 'cover', borderRadius: 10, display: 'block',
+                      }}
+                    />
+                  ))}
                 </div>
               )}
+            </div>
 
-              {/* Beer menu */}
+            {/* Full-width: beer menu, CTA, reviews */}
+            <div style={{ padding: '0 20px' }}>
+
               {location.beerMenu && location.beerMenu.length > 0 && (
-                <div style={{ marginBottom: 16 }}>
+                <div style={{ marginBottom: 16, marginTop: 14 }}>
                   <div style={{ fontSize: 11, fontWeight: 700, color: t.text3, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 8 }}>
                     🍺 Tap Beers
                   </div>
@@ -383,7 +386,6 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                 </div>
               )}
 
-              {/* Google Maps button */}
               {location.googleMapsUrl && isSafeUrl(location.googleMapsUrl) && (
                 <a
                   href={location.googleMapsUrl}
@@ -395,13 +397,13 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                     background: t.btnBg, color: t.btnText,
                     borderRadius: 12, fontSize: 13, fontWeight: 600,
                     textDecoration: 'none', marginBottom: 16, boxSizing: 'border-box',
+                    marginTop: location.beerMenu?.length ? 0 : 14,
                   }}
                 >
                   &#128506; Open in Google Maps
                 </a>
               )}
 
-              {/* Google Reviews header + translate button */}
               <div style={{ height: 1, background: t.border, marginBottom: 16 }} />
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: t.text3, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
@@ -427,7 +429,6 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
               {location.reviews && location.reviews.length > 0 ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {location.reviews.slice(0, 5).map((review, i) => {
-                    // Fix 6: fall back to original text if translation returned null
                     const displayText = translatedReviews
                       ? (translatedReviews[i] ?? review.text)
                       : review.text;
