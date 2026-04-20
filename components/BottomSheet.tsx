@@ -54,6 +54,7 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
   const [translating, setTranslating] = useState(false);
   // Two-stop snap system — default full so content is visible immediately
   const [snapState, setSnapState] = useState<'peek' | 'full'>('full');
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
   const translateReviews = useCallback(async () => {
     if (translatedReviews) { setTranslatedReviews(null); return; }
@@ -92,13 +93,15 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
   };
 
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { if (lightboxSrc) setLightboxSrc(null); else onClose(); }
+    };
     document.addEventListener('keydown', handleKey);
     return () => document.removeEventListener('keydown', handleKey);
-  }, [onClose]);
+  }, [onClose, lightboxSrc]);
 
   // Reset toggles when a new location opens
-  useEffect(() => { setHoursOpen(false); setTranslatedReviews(null); setTranslating(false); }, [location?.id]);
+  useEffect(() => { setHoursOpen(false); setTranslatedReviews(null); setTranslating(false); setLightboxSrc(null); }, [location?.id]);
   // Open to full whenever a new pub is selected
   useEffect(() => { if (location) setSnapState('full'); }, [location?.id]);
 
@@ -281,12 +284,14 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                       key={i}
                       src={img.imageUrl}
                       alt={`Photo of ${location.name}`}
+                      onClick={() => setLightboxSrc(img.imageUrl)}
                       onError={(e) => { e.currentTarget.style.display = 'none'; }}
                       style={{
                         flex: 1,
                         minWidth: 0,
                         height: 90,
                         objectFit: 'cover', borderRadius: 8, display: 'block',
+                        cursor: 'zoom-in',
                       }}
                     />
                   ))}
@@ -483,6 +488,41 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
           </div>
         )}
       </div>
+
+      {/* Lightbox */}
+      {lightboxSrc && (
+        <div
+          onClick={() => setLightboxSrc(null)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 2000,
+            background: 'rgba(0,0,0,0.88)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={lightboxSrc}
+            alt="Full size photo"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: '90vw', maxHeight: '85vh',
+              objectFit: 'contain', borderRadius: 12,
+              boxShadow: '0 8px 48px rgba(0,0,0,0.6)',
+            }}
+          />
+          <button
+            onClick={() => setLightboxSrc(null)}
+            aria-label="Close photo"
+            style={{
+              position: 'absolute', top: 16, right: 16,
+              width: 36, height: 36,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: 'rgba(255,255,255,0.15)', border: 'none', borderRadius: '50%',
+              fontSize: 18, color: '#ffffff', cursor: 'pointer', backdropFilter: 'blur(4px)',
+            }}
+          >&#215;</button>
+        </div>
+      )}
     </>
   );
 }
