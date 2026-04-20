@@ -265,20 +265,17 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                 </div>
               </div>
 
-              {/* Right column: horizontal photo strip */}
+              {/* Right column: 4 photos filling the column width */}
               {images.length > 0 && (
                 <div style={{
                   flexShrink: 0,
                   width: '45%',
-                  maxWidth: 340,
-                  padding: '12px 20px 0 0',
+                  padding: '12px 20px 0 8px',
                   display: 'flex',
                   flexDirection: 'row',
                   gap: 6,
-                  overflowX: 'auto',
-                  scrollbarWidth: 'none' as const,
                 }}>
-                  {images.map((img, i) => (
+                  {images.slice(0, 4).map((img, i) => (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       key={i}
@@ -286,8 +283,9 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                       alt={`Photo of ${location.name}`}
                       onError={(e) => { e.currentTarget.style.display = 'none'; }}
                       style={{
-                        flexShrink: 0,
-                        width: 110, height: 80,
+                        flex: 1,
+                        minWidth: 0,
+                        height: 90,
                         objectFit: 'cover', borderRadius: 8, display: 'block',
                       }}
                     />
