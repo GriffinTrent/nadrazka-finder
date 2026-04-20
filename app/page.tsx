@@ -30,9 +30,9 @@ function SteamTrainLoader() {
           from { opacity: 0; transform: translateX(-50%) translateY(8px); }
           to   { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
-        /* transform-box:fill-box makes transform-origin relative to each element's
-           own bounding box, not the SVG viewport — required for correct spin/rock */
-        .loco-body { animation: rockLoco 0.44s ease-in-out infinite; transform-origin: 50% 87%; transform-box: fill-box; }
+        /* loco-body: transform-origin in SVG viewport coords (108,112) = wheel axle centre.
+           loco-wd/ws: fill-box makes each wheel spin around its own centre, not the SVG viewport centre. */
+        .loco-body { animation: rockLoco 0.44s ease-in-out infinite; transform-origin: 108px 112px; }
         .loco-wd   { animation: wheelSpin 0.50s linear infinite; transform-origin: 50% 50%; transform-box: fill-box; }
         .loco-ws   { animation: wheelSpin 0.65s linear infinite; transform-origin: 50% 50%; transform-box: fill-box; }
         .loco-sp1  { animation: steamRise 1.3s ease-out infinite 0s; }
