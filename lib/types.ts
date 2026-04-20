@@ -1,3 +1,10 @@
+export interface Review {
+  author: string | null;
+  stars: number | null;
+  publishAt: string | null;
+  text: string | null;
+}
+
 export interface Nadrazka {
   id: string;
   placeId: string | null;
@@ -20,4 +27,5 @@ export interface Nadrazka {
   permanentlyClosed: boolean;
   source: string;
   scrapedAt: string;
+  reviews: Review[];
 }

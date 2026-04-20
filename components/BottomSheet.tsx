@@ -3,6 +3,18 @@
 import { useEffect, useRef } from 'react';
 import type { Nadrazka } from '../lib/types';
 
+function renderStars(stars: number | null): string {
+  if (stars === null) return '';
+  const filled = Math.round(stars);
+  return '★'.repeat(filled) + '☆'.repeat(5 - filled);
+}
+
+function formatReviewDate(publishAt: string | null): string {
+  if (!publishAt) return '';
+  // Google returns dates like "a month ago", "2 years ago" — just pass through
+  return publishAt;
+}
+
 interface BottomSheetProps {
   location: Nadrazka | null;
   onClose: () => void;
@@ -238,6 +250,58 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                 {TIER_LABELS[location.tier]}
               </p>
             </div>
+
+            {/* Google Reviews */}
+            <div style={{ height: 1, background: t.border, margin: '16px 0' }} />
+            <div style={{ fontSize: 11, fontWeight: 700, color: t.text3, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>
+              Google Reviews
+            </div>
+            {location.reviews && location.reviews.length > 0 ? (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                {location.reviews.slice(0, 5).map((review, i) => (
+                  <div key={i} style={{ fontSize: 13 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
+                      <span style={{ color: '#f59e0b', fontSize: 13, letterSpacing: 1 }}>
+                        {renderStars(review.stars)}
+                      </span>
+                      {review.author && (
+                        <span style={{ fontWeight: 600, color: t.text2, fontSize: 12 }}>{review.author}</span>
+                      )}
+                      {review.publishAt && (
+                        <span style={{ color: t.text3, fontSize: 11 }}>· {formatReviewDate(review.publishAt)}</span>
+                      )}
+                    </div>
+                    {review.text && (
+                      <p style={{ margin: 0, color: t.text2, fontSize: 12, lineHeight: 1.6, fontStyle: 'italic' }}>
+                        &ldquo;{review.text.length > 200
+                          ? (
+                            <>
+                              {review.text.slice(0, 200)}
+                              {'... '}
+                              {location.googleMapsUrl && (
+                                <a
+                                  href={location.googleMapsUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  style={{ color: t.linkColor, fontStyle: 'normal', fontWeight: 500, textDecoration: 'none' }}
+                                >
+                                  read more
+                                </a>
+                              )}
+                            </>
+                          )
+                          : review.text
+                        }&rdquo;
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p style={{ margin: 0, fontSize: 12, color: t.text3, fontStyle: 'italic' }}>
+                No reviews available.
+              </p>
+            )}
 
           </div>
         )}

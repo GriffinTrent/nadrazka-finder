@@ -174,6 +174,12 @@ async function main() {
       permanentlyClosed: place.permanentlyClosed || false,
       source: place.searchString || '',
       scrapedAt: new Date().toISOString(),
+      reviews: (place.reviews || []).slice(0, 5).map(r => ({
+        author: r.name || r.author || null,
+        stars: r.stars ?? null,
+        publishAt: r.publishAt || r.publishedAtDate || null,
+        text: r.text || null,
+      })),
     });
   }
 
