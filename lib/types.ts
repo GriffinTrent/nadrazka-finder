@@ -7,8 +7,8 @@ export interface Review {
 
 export interface BeerMenuItem {
   name: string;
-  price: number;
-  volume: string;
+  price?: number | null;
+  volume?: string | null;
   isPrimary: boolean;
 }
 
@@ -38,4 +38,5 @@ export interface Nadrazka {
   scrapedAt: string;
   reviews: Review[];
   beerMenu?: BeerMenuItem[] | null;
+  menuExtractedAt?: string | null;
 }

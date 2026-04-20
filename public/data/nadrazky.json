@@ -97,7 +97,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG-QUDMVTUu-sXgOGizB2agovT4oPZYNuoPJ-Bvf6y3sVRHQrn_os39s4xjagKxQwmamQK50H0r_FdPtokuXcLppBJlVakvlSz3tI2i9piiK3qo3ikf304yJU7wh0r9xUdAd6a-sA=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Pilsner Urquell",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.902Z"
   },
   {
     "id": "ChIJsZDYN8ufCUcRAYEYp7Ie2Go",
@@ -197,7 +205,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFtgPPvHiBwMDmLNbXnaq-CIx4OCsIuRKlTTYqP4j1s127vKnvOLcXWjjGeZgAtNvCj7nqV-pW0E1BBmQ1yo78_vjtdBvAc5hldgHycMRrBnfbfZOMKMvNt0rVFnET-O9NU7ko=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Březňák",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJJX0ucQD1CUcRMhyqeQpto2U",
@@ -267,78 +283,6 @@
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEfjy_a3g2w3m5HX4n00Jnc8E24U9Ar59XVh3YhccXgIat6tTxsely7_Bq4KJoNKfeYZRxXBfdpPNzcihNpKpSL4Lt2C-MbyKpvs7WvNkCPToMcQcIV7DeckbMMaLStgXa6qp2vG_bt9XQ=w1920-h1080-k-no"
       }
     ]
-  },
-  {
-    "id": "ChIJR24qR_X1CUcR29LG1S-J20w",
-    "placeId": "ChIJR24qR_X1CUcR29LG1S-J20w",
-    "name": "Hotel Nádraží",
-    "lat": 50.5716937,
-    "lng": 13.5447365,
-    "address": "Černická 25/20, 435 43 Horní Jiřetín, Česko",
-    "city": null,
-    "stationName": "Litvínov",
-    "distanceToStationM": 5190,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hotel%20N%C3%A1dra%C5%BE%C3%AD&query_place_id=ChIJR24qR_X1CUcR29LG1S-J20w",
-    "phone": "+420 602 673 279",
-    "website": "https://www.hotelnadrazi.cz/",
-    "rating": 4.9,
-    "reviewCount": 71,
-    "openingHours": [],
-    "categories": [
-      "Ubytování s pokojovou službou"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražní hospoda",
-    "scrapedAt": "2026-04-20T13:37:24.232Z",
-    "reviews": [
-      {
-        "author": "Javier .Carmona",
-        "stars": 5,
-        "publishAt": "před 3 dny",
-        "text": "Fantástica experiencia en este hotel. Limpieza, atención y buen desayuno. La carta para la cena es limitada, pero muy buena también. Personal muy amable. Bonito edificio, una antigua estación de tren muy bien acondicionada. Pueblo tranquilo en una zona natural de gran belleza, a hora y media de Praga y una hora de Karlovy Vary y cerca de la frontera con Alemania y Desde."
-      },
-      {
-        "author": "Petr Sadilek",
-        "stars": 5,
-        "publishAt": "před 2 týdny",
-        "text": null
-      },
-      {
-        "author": "Romana Hrkalová",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": "Tento hotel rozhodně doporučuji! Strávili jsme tu jako rodina víkend a chystáme se zase někdy přijet. Hotel je v klidné lokalitě, mají čisto, útulno a chutné snídaně. Především bych ráda vyzdvihla milé chování a přístup veškerého personálu, zejména paní vedoucí. Byl to i díky nim moc hezký čas strávený v tomto příjemném hotelu. Děkujeme!"
-      },
-      {
-        "author": "Jan Herold",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": "Vielen Dank für das tolle Geburtstagsfrühstück!!!"
-      },
-      {
-        "author": "Alena Zbornikova",
-        "stars": 5,
-        "publishAt": "před 2 měsíci",
-        "text": "Klid, čisto, útulné pokoje, báječná snídaně, vstřícný personál - úžasné dámy! A jak psal pán přede mnou, také bych dala 6 hvězdiček, kdyby to šlo."
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPhKCWxN1SVjf6WBtb4hcnu5pj_yQ8UjQ39MHwj=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGmxuj2M4shV1_mH_ZFwqvYxomS2Om_ljEgkDqhWavqBGP3NrA0ariqeN8L9xirlTdq6_BJSlITaBhcKYTWMT39RTA0YkBKdGCBHBRKGpQkFr6CDexzMwhafPsOKjcXTZ42Qm4=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNlp6dlvvciFN-StbhBqfVjjjyxniz5VdcBVrHW=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOq6q-D6zwAJerK894WqoZXn_x-Vo9i0fxZyWfO=w1920-h1080-k-no"
-      }
-    ],
-    "priceLevel": 1
   },
   {
     "id": "ChIJbbrm0dGRCUcRD4ghrZVZsZY",
@@ -961,7 +905,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEbtmZCzDIaS8GElcegS_4YXt8xVJ2qyl4u3UZO2Oon2g0aEbewNUAIs-GmQZgwkMh5gXFNwc-kR8lmowIELWPTbArd6y_tMuWZ4Fbvd21oVubPVSYP1Qn5b4m0bu5D4BJ7eOr8zw=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Staropramen",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJjafESdYMCUcRyHNm54bSQ4M",
@@ -1061,7 +1013,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHhXxONXX-a9fEqvPeKIgSPvOmWY8ZaUYPSj9OPeE41p__aWsCXMwORvzSGZCZGBpQ1BHWDbwo3CpfxNjdtj6-0yjs42rUlTgHmURO0QNIs4WAGWdtFSoajvHCjMI2N2UQBVvjS4A=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Březňák",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJlXckb5KJCUcRDeZZBKfRS90",
@@ -1132,7 +1092,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGMcuKRR2L3LwnRT_XLKtysDPuhCqEr8w7aKwgx7gmD2qI1iYIarMyRlV2hZiHzNMoaT61X_1OuBSk5aiRQxpBLEO0OPO_XAbXm8aSiRzH-4-MN0iiUmLuNHVclMVUYX_qZhQHx=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Gambrinus",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJhdASVQDXC0cR7rKPaFTXEaU",
@@ -1340,7 +1308,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE-kZOzW-_s3WPBnyk3tk1DYkw3aZbNCpcahJ71gUydv4cmz7wL5mmAZpfTCecUMUQC16xdNCQpig4uy9Ye9QmeDuy9SZR6Uq4BEV5BSAJqQI_aS1xfKbVWUiaD5YBJGI5v5G2upYTDOIqa=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Březňák",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJu6D0wFJpCkcRFx4Wlj9CL6k",
@@ -1440,310 +1416,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPBb98LPL4Zk9Jw1rEUCU17RXkqyE3WoqjUyNHW=w1920-h1080-k-no"
       }
-    ]
-  },
-  {
-    "id": "ChIJS8ZtgamECUcRmg3uU9t8QzQ",
-    "placeId": "ChIJS8ZtgamECUcRmg3uU9t8QzQ",
-    "name": "Café Nádražka",
-    "lat": 50.6590915,
-    "lng": 14.0446077,
-    "address": "Přístavní 3591/3, 400 01 Ústí nad Labem-město, Česko",
-    "city": "Ústí nad Labem-město",
-    "stationName": "Ústí nad Labem hlavní nádraží",
-    "distanceToStationM": 39,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20N%C3%A1dra%C5%BEka&query_place_id=ChIJS8ZtgamECUcRmg3uU9t8QzQ",
-    "phone": "+420 730 174 737",
-    "website": "https://www.facebook.com/cafenadrazka/",
-    "rating": 4.6,
-    "reviewCount": 628,
-    "openingHours": [
+    ],
+    "beerMenu": [
       {
-        "day": "pondělí",
-        "hours": "8 to 18"
-      },
-      {
-        "day": "úterý",
-        "hours": "8 to 18"
-      },
-      {
-        "day": "středa",
-        "hours": "8 to 18"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "8 to 18"
-      },
-      {
-        "day": "pátek",
-        "hours": "8 to 18"
-      },
-      {
-        "day": "sobota",
-        "hours": "9 to 18"
-      },
-      {
-        "day": "neděle",
-        "hours": "9 to 18"
+        "name": "Krušovice",
+        "price": null,
+        "isPrimary": true
       }
     ],
-    "categories": [
-      "Kavárna"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražka",
-    "scrapedAt": "2026-04-20T13:37:24.240Z",
-    "reviews": [
-      {
-        "author": "Pohoda",
-        "stars": 5,
-        "publishAt": "před 2 týdny",
-        "text": "Útulná kavárna pod perónem s výhledem na protější břeh Labe. Velký výběr teplých i studených nápojů. Kávička chutná, hezky nazdobena a cukr s mašinkou. Prostě vyladěno do detailu a to se počítá."
-      },
-      {
-        "author": "Ondřej (Sel.on)",
-        "stars": 5,
-        "publishAt": "před 3 týdny",
-        "text": null
-      },
-      {
-        "author": "Lucia Langova",
-        "stars": 5,
-        "publishAt": "před 3 týdny",
-        "text": "Úžasná káva, vynikajúci zákusok, príjemná obsluha"
-      },
-      {
-        "author": "Jaruška",
-        "stars": 5,
-        "publishAt": "Upraveno před 4 týdny",
-        "text": "Výborný zelený čaj, skvělá káva a moc dobrý linecký koláč. K tomu příjemná obsluha a moc pohodlné křeslo 😎"
-      },
-      {
-        "author": "Milan Malý",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": "Výborné cappuccino a naprosto excelentní mechový dort."
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGwQ1hkktOzv0cbtycp5-66IKqIj0uhwephQSExoJzM78HRw5xrxrXNqa2SVGmV3zZw2rqIeT27ZnxZ8U5IyifWjOQ2YOY5gcFRqFz1klPYX_NY3Wc5kjaCyaagFzCQfc3VjtMT1Q=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHwESjCzF27UhpPfR8uEutBtK2uuTe74jRz2Ww_yhw_Fj9C3RbHKrfxPCcdBmPhwll1QrgX7kEcisgY89jLz78OJ0OCw_efl_LduJqcutmHY1sPWyFjzWq2tFM1eM_Voe_AlPCaYjMSJxPH=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH0Fxo2PflmksIbnAREqPZHwuGs5oNEaUaTVVzjFOJYv5J0xzJQy2KI7vbDZZQN9xctvXhmW_iKZoSn_l2Xkcz2Ek6HZoDXFJyYgqO3TuM0F5N_oEPY-GI0AvoahbQ6BaIuraSljbUAMdyR=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGbTUM98t67ZyonsPXlenJd6Cw9ggPICo-w6c2cyYxELLmKLiQndJp9SiCBPTh01TxdZR3mp2KuX8-e1XRjTJcryMCl8_jauGFmyQs7NqZUOBDPtk3ly0zWNZAfX7wuWk20T7CtfA=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
-    "id": "ChIJNW1wSKyECUcR0IqQdh0U5tk",
-    "placeId": "ChIJNW1wSKyECUcR0IqQdh0U5tk",
-    "name": "Kebab Maidum",
-    "lat": 50.6602446,
-    "lng": 14.0449349,
-    "address": "U Nádraží 1300/1, 400 01 Ústí nad Labem-centrum, Česko",
-    "city": "Ústí nad Labem-centrum",
-    "stationName": "Ústí nad Labem hlavní nádraží",
-    "distanceToStationM": 95,
-    "tier": 2,
-    "verified": false,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kebab%20Maidum&query_place_id=ChIJNW1wSKyECUcR0IqQdh0U5tk",
-    "phone": "+420 774 400 548",
-    "website": "https://www.facebook.com/kebab.maidum",
-    "rating": 4.5,
-    "reviewCount": 1464,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "10 to 1"
-      },
-      {
-        "day": "úterý",
-        "hours": "10 to 1"
-      },
-      {
-        "day": "středa",
-        "hours": "10 to 1"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "10 to 1"
-      },
-      {
-        "day": "pátek",
-        "hours": "10 to 3"
-      },
-      {
-        "day": "sobota",
-        "hours": "10 to 3"
-      },
-      {
-        "day": "neděle",
-        "hours": "10 to 1"
-      }
-    ],
-    "categories": [
-      "Rychlé občerstvení"
-    ],
-    "permanentlyClosed": false,
-    "source": "hospoda u nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.240Z",
-    "reviews": [
-      {
-        "author": "K F (Kafe)",
-        "stars": 5,
-        "publishAt": "včera",
-        "text": null
-      },
-      {
-        "author": "Petr Pohl",
-        "stars": 5,
-        "publishAt": "před 3 dny",
-        "text": "všechno naprosto v pořádku a kebab skvělej"
-      },
-      {
-        "author": "Daniela Šimková",
-        "stars": 5,
-        "publishAt": "před 2 týdny",
-        "text": null
-      },
-      {
-        "author": "Eye Pot",
-        "stars": 5,
-        "publishAt": "před 3 týdny",
-        "text": "Výborný jídlo, hezky voní, tráví se dobře."
-      },
-      {
-        "author": "Irina Shcherbanova",
-        "stars": 5,
-        "publishAt": "před 3 týdny",
-        "text": "Maso je opravdu velice dobré, šťavnaté a je cítit, že se dělá na uhlí. Velká nabídka za naprosto přijatelné ceny. Posezení uvnitř s dostatkem míst, i když poněkud zakouřený prostor od dříve zmíněného uhlí.\nP.S. parkování hned naproti v garážích - první hodina zdarma."
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGm5fs-0L45CAGSrnkERODrJ9-7N4k2JNdtYFiCGStvhTOQJA__Kx2Nly1Cb0KsrL5OmhC6geTBwA83FfyhT5cQwShhj70JTvsrIOPyKYky7l_y9MCWUnyMdd1w-EekUjp3OZRwsvbrCSc=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG_ykUSuEp2S_OPRuqzN0JxeZyAouy_DqFhWQbZnMO3GnXK3UVxpPnGNuYWVapAy8_FYFraWOpf91RGoQ5XRxUtUvugLfGAzLGJJ6PGSzVu4AS4vVXXtPD1lbQlWDrxg2NqtnFAnVVY0Imr=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHkuQ2DQALe5YIMhp2kyr9Fjhcjmdz4BL2OvRNFntImBX0e8munkZwOHr54Xll0-ADe_XlKfvMb_szJVmRRaJbXDdWeMa5cNXpaeuRli1xDHP0OFKfCf9gFH6SqFHUZY8HgqU-XkTBgQcYH=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh4.googleusercontent.com/proxy/u-Ndei05-N59ElZ5UA5jyWKD7epsAvgNYaBVR58IlWSLjGI9ia1qKdMh7t9N775QAqiEfrwdgu3lLguIHi3ExWPyPY4U0y8ny0e3wltItzz891RoZYLU0KYFI7ljSCqWSt76bijYFCVdVbfJCQC4XpMzDs3js10=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
-    "id": "ChIJgaMUgamECUcRnBvNP6pl7Iw",
-    "placeId": "ChIJgaMUgamECUcRnBvNP6pl7Iw",
-    "name": "PONT to go",
-    "lat": 50.6596835,
-    "lng": 14.0441704,
-    "address": "U Nádraží 965/6, 400 01 Ústí nad Labem-město, Česko",
-    "city": "Ústí nad Labem-město",
-    "stationName": "Ústí nad Labem hlavní nádraží",
-    "distanceToStationM": 37,
-    "tier": 2,
-    "verified": false,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=PONT%20to%20go&query_place_id=ChIJgaMUgamECUcRnBvNP6pl7Iw",
-    "phone": "+420 602 410 180",
-    "website": "http://ponty.cz/",
-    "rating": 4.7,
-    "reviewCount": 33,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "5:30 to 21:30"
-      },
-      {
-        "day": "úterý",
-        "hours": "5:30 to 21:30"
-      },
-      {
-        "day": "středa",
-        "hours": "5:30 to 21:30"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "5:30 to 21:30"
-      },
-      {
-        "day": "pátek",
-        "hours": "5:30 to 21:30"
-      },
-      {
-        "day": "sobota",
-        "hours": "6 to 21:30"
-      },
-      {
-        "day": "neděle",
-        "hours": "6 to 21:30"
-      }
-    ],
-    "categories": [
-      "Obchod s potravinami",
-      "Smíšené zboží",
-      "Rychlé občerstvení",
-      "Tabák"
-    ],
-    "permanentlyClosed": false,
-    "source": "hospoda nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.242Z",
-    "reviews": [
-      {
-        "author": "Piotr Tutak",
-        "stars": 4,
-        "publishAt": "před týdnem",
-        "text": null
-      },
-      {
-        "author": "Alpinair09 (Alpinair09)",
-        "stars": 3,
-        "publishAt": "před 2 měsíci",
-        "text": null
-      },
-      {
-        "author": "Vladimír Novák",
-        "stars": 5,
-        "publishAt": "před rokem",
-        "text": null
-      },
-      {
-        "author": "X Z",
-        "stars": 5,
-        "publishAt": "před rokem",
-        "text": "Super krámek s milou a příjemnou obsluhou.\nObchod malý, čistý se spoustou produktů na výběr. Doporučuji."
-      },
-      {
-        "author": "Pepča Benedikt",
-        "stars": 5,
-        "publishAt": "před rokem",
-        "text": "Vždy jsem velice spokojen, a hlavně super obsluha!!!"
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNufnJ3L_moLVGxMGmgsrbbqznbk2-qZ4vznHSw=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipN76WNRLXuKAqc-PPKf7JYC5tRrK6smC9SsmBVp=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMkba3IaX2rCIROB5ZbNYyqDEd7RhnDf7SgRb5o=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMldwm5gFDflarnIcALOlbXRoK3SMPBE8bQXHkW=w1920-h1080-k-no"
-      }
-    ]
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJfYK8PAChCUcRWKCjyQTfSlk",
@@ -1843,7 +1524,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG6IYKjZmQm2Pp7Tb3bNCYCjPdvMWILIaEgSBCaD0HL301iaq9ZsHOixWYAsJgOIPXznafei8Rm8lWDNh-QEeIQ9U83XOUNUvkDJkPQJtyvDIC5WXwzoa0N2HONcxaBEInsdrL2fYA9fNjH=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Březňák",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJj94nbAAbDUcRJpGtK2ey9Ik",
@@ -1943,7 +1632,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAERsUALoE1NA2IffpqELJuTg8tAtAc-RT4DAW4HtsGnwzGdUoScOTNVZyovDTPxdD6ITHABvTheV3FVzi9VE0M0TKVuVNNlGF0-VD8Z11fE4o9-ZkDboouZ1s2i5KY-m_RcaFF6CA=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Ježek",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJjT25sgeYDEcROovhSykQ8Zk",
@@ -2246,7 +1943,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHeL5Rofmj91huWTO57bil6Xi5D9e2NQ3gEAt6iYFTv22UqBmJ4cwRrsErp0xSFNPsT15NfaW0u5q9GSDhJwhv2L0dX2WVA_ChmwlzChGtIAy6c4cOeydsukez7P5UlCKPQuKilJg=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Litovel",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJwzqYqJYREkcRuij8kjYUzjU",
@@ -2578,7 +2283,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFYNNajR8aKXZQ9CicBxdZMT_bn_BT2_9ihwhoeQ0h3GSnFY0pBLTBThtiGsWSYpzEK4MFwlCPPlk5koCGweIhvuK6Zh5C7CrIVIn5SmKFRXkkkqtPmjOjtrgNiv9Y5oniUyFDZ=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Holba",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJ1eGzdpLlEUcRNCyWo5_J-3Q",
@@ -2678,7 +2391,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHA4ftTxHq91jZIKYLh2zHr9g1_u9JQWhUF1zkoEZy9qiP_Psdrmb2HKMDsu6RpxOqWOf7w4T3fMlkz1bhmh6CZRIR1kBGQfaEy5Io6AaZZh2gqssj04oxI4Sb3RFCRF3Y9AVk=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Kozel",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJjRFZFgBPEkcRSMqAtZcf-Yw",
@@ -2945,7 +2666,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF4FWWIMI3SCE-h58pgFQyuvnEb5iJO4XnkRkKXSyjzLvUJhnG9kNjFoaTV1dmRPL7OQKWcaZ29BCDJaCuqIOH6IfEoJnFH_cju0vVvYLYCb82yQNcAvgbLuQnleXyGcjYPLQfxqy0QPZoP=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Budvar",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJSXROZvtOEkcRXfJG6TnIWvU",
@@ -3356,7 +3085,15 @@
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHgDUt5yYI-czuoZEjhnrPR9wLcmOsnvtNZMQFwvdUJUnsvGTxJOJi8YGj8ebHPVx07l6znEOftCq7N9jZ8SHPy4fcPEbtQa24weN3esAixZqpKd7T83XMyMYb6mdskXMq-hww=w1920-h1080-k-no"
       }
     ],
-    "priceLevel": 2
+    "priceLevel": 2,
+    "beerMenu": [
+      {
+        "name": "Černá Hora",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJ2yLBlsUmE0cRKZV1ICYyYLU",
@@ -3457,7 +3194,15 @@
         "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMlt6nSA33mwiLfewmmPNvu24SqwVt9sMu4_rfL=w1920-h1080-k-no"
       }
     ],
-    "priceLevel": 2
+    "priceLevel": 2,
+    "beerMenu": [
+      {
+        "name": "Dalešické pivo",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJv_yILQAlE0cRjXeF9HPIFmg",
@@ -3539,7 +3284,15 @@
       {
         "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=7U7sXUakVSxEXVWLx-cXtw&cb_client=lu.gallery.gps&w=160&h=106&yaw=337.19556&pitch=0&thumbfov=100"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Starobrno",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJATpKfRbHEkcRizCtGDx_gNA",
@@ -3639,7 +3392,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAELtLcI25wQ0T74RvLOdSP80mX4qzi99ZUQEMLMTifUkp7nz-8Xrvwr3f7IfyxC5G9PR8cCw0tFmQPYgbmjPg2WCjaqEl6hvzg-9Yqwz8ng6KZRV9sTQROrXlpTb3IBvPtsndQB=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Radegast",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJN7X95NC9EkcRPQcov--uBbs",
@@ -3839,7 +3600,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFG6jnTDtFse3UpTuOCHTNFY36Ye0RmRAkNqGay79ZgR1qcm7cvFKYG1OyOZtWBrETEWe5BnrfIJz_02chtJWdBs5SBJTGIREAR9nK7f4wrWtT-QlVF5qK2tLvH61Fa68cwHA0u=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Starobrno",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJ2-KpxYOOEkcRobhejdW0l38",
@@ -3940,7 +3709,20 @@
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF-_F5FzsPfj7G0blkE7jRgGjigNa0FLMH36p_gIFhe33wVISi1ru3YUDXXAGsNyNiUlPAw2UYrrQub1GKouHd0fQA4pvPO77A3TwdJO1-HTDqmCYsioxVcoGaMGlHC3KCQ8Y3ib8eXW747=w1920-h1080-k-no"
       }
     ],
-    "priceLevel": 2
+    "priceLevel": 2,
+    "beerMenu": [
+      {
+        "name": "Černá Hora",
+        "price": null,
+        "isPrimary": true
+      },
+      {
+        "name": "Dalešické pivo",
+        "price": null,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJwzURXv8uE0cRJvxk67gS-DQ",
@@ -4041,7 +3823,15 @@
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEe4xyF6_Rz69tEiBVuOQOyOuYhdpzD9PlxEf8lB64M6qI7z8rtwm12XTxF-W3kiRJU8Khw33qm1UHbNt1RYjb8Y2UMP60knSk-sbVlVGs3qBoMdcQUMd-fjlAMNBJBG42fB4KeUcIRj7c=w1920-h1080-k-no"
       }
     ],
-    "priceLevel": 2
+    "priceLevel": 2,
+    "beerMenu": [
+      {
+        "name": "Stella Artois",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJv8EdCHkoE0cR1wDBiJY1NAI",
@@ -4265,7 +4055,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGK537fFdNSKrXCGxPkVQuEzI7g6NnxhhuR4f-dH8PGmkdx92DIbErEVOWqw97Ya4eATJ9tmfDNf-Uzs3LYpwfulSoCIk0_2SSgM2btJVaUx0uXYweOwqUGM7qXfMDZbak6P0kX=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Slavkovský pivovar",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJCdOUT_lMbUcRqShMApFWB00",
@@ -4365,7 +4163,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHIvc7KJj_Gb2eAx2GBV7-GdyAAgyViYZ15l_wHOw7bHXkqPyvgtKFhjo7KbCKuWaqSQ348Zxl_s_JUyL5kV9J5xMa6SeUuBfWt-1j39aD6rwHqMPq76MdYEcKGjrXT-XZJ8OWimQ=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Kozel",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJveim_ASWEkcRwPSnNFmafDY",
@@ -4464,65 +4270,6 @@
       },
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEU11DZy-Lhzssy68eNh2q_QaAuswuovqrptnfFBEf7kvUaTEZ8S8gj1RlLgssMO8ArOxQ8HW10BHHUSukJw51EeW6UBvKIi-fAf0UFk1BUjXJxhrcUeErYrtWlsjdjCDTmH4n-SshMej7f=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
-    "id": "ChIJEUENZAAnE0cRY22NnWSHsiY",
-    "placeId": "ChIJEUENZAAnE0cRY22NnWSHsiY",
-    "name": "Penzion Nádraží Dubňany",
-    "lat": 48.9236099,
-    "lng": 17.0745113,
-    "address": "Jarohněvice 476, 696 03 Dubňany, Česko",
-    "city": null,
-    "stationName": "Mutěnice",
-    "distanceToStationM": 3291,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Penzion%20N%C3%A1dra%C5%BE%C3%AD%20Dub%C5%88any&query_place_id=ChIJEUENZAAnE0cRY22NnWSHsiY",
-    "phone": null,
-    "website": null,
-    "rating": 5,
-    "reviewCount": 3,
-    "openingHours": [],
-    "categories": [
-      "Penzion"
-    ],
-    "permanentlyClosed": false,
-    "source": "restaurace nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.283Z",
-    "reviews": [
-      {
-        "author": "Olda M",
-        "stars": 5,
-        "publishAt": "před 2 měsíci",
-        "text": "Penzion na cyklostezce Kyjov - Mutěnice ze zrušené železniční trati. Opodál je i restaurace s vyžitím pro děti. Místo se nachází v klidné lokalitě Dubňan Jarohněvice."
-      },
-      {
-        "author": "Wiesław Podrzorski",
-        "stars": 5,
-        "publishAt": "před 8 měsíci",
-        "text": "Super miejsce polecamy 💯😁"
-      },
-      {
-        "author": "Eliška Kosova",
-        "stars": 5,
-        "publishAt": "před 10 měsíci",
-        "text": null
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGqrVrRMkyCDUUWIfH3U1N7CZ5ygMiAlsnhICjMKWP8SYOrUhzcNdel0BBXAZJr0e4SOUxY2xSlAh3EYJ6DcCWHZGCnS7En2epzGfkdu-twBxgRHlXaMlQUv6BN0sKYuI1-JT5mJn_aE9XM=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=b85KKIpycc8_UAkXKE6TZA&cb_client=lu.gallery.gps&w=160&h=106&yaw=146.31404&pitch=0&thumbfov=100"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFCawN6KhDJqtG2UrCTAewxo_GYh4P1-n7-GPvezJJPXuSKHM2KhVaiJHX8SjGnpiR5o1d0amPsuLAv53BQkjcV2BjxlwrUDgLjngaOeUwQYR4a2JFKWp7LMbJcUDrQskq-UcMdmoKaCCU=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEUPaZXaCJqn3huwnJUXxEIvDL2MhPCOQEmOdnRpfiSGTcA20lHxRozTC65nmV8Fpdg6bnXQZcY_np33NaoxcmXst0xQuKLk4R4jf2QcgDsxXXlEKQYzOQxrhzdgNlgtWdry1dhceElkc1u=w1920-h1080-k-no"
       }
     ]
   },
@@ -4703,7 +4450,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHTYYnqw4YtX-n-CcvtOJbE-FCfGKf2G2rG1RUqgV_GiM78X1T_7sOd64MO6RDUPV3ts38txg_--hajuzKT471XPgc5_TayeQFWRnI1Ko8CdX-rib0KDIuXsVJL1bOUP_wI0a4=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Bernard",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJX4qmAemPEkcRqM4pTbUJRxI",
@@ -4903,7 +4658,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHMTkczWFXdUVOWvqqHHHgxwvj---9qudf_Zo3KEqAzt44fI8u6zsQstqQzXawuiE6zM_2ls3nDrXWE8gnGloUZLA2PJmS2JzdF4OL89fcWGHE3ENPlpubuZaEMsZpCETz6DQQH=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Litovel",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJOZONODClEkcR32BrH64E1-M",
@@ -5128,110 +4891,15 @@
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFKSsU4h4r__d7uAOBUXknvwVSKDcCm_4PsJT6U1v883QcldJVlZ1wWimebYkgfE51-nXew_SM9QB49XbpowJn3u-uvHxUaeO0YY3yJRcL9ro7Pnx2WV8j2QtvxuPf5CMnlXq_R=w1920-h1080-k-no"
       }
     ],
-    "priceLevel": 2
-  },
-  {
-    "id": "ChIJ8RmmWZOVEkcRCoNensZzCrU",
-    "placeId": "ChIJ8RmmWZOVEkcRCoNensZzCrU",
-    "name": "BIGFOODPOINT - Nádražní",
-    "lat": 49.1917036,
-    "lng": 16.6126943,
-    "address": "Nádražní 681/2, 602 00 Brno-střed, Česko",
-    "city": "Brno-střed",
-    "stationName": "Brno hlavní nádraží",
-    "distanceToStationM": 71,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=BIGFOODPOINT%20-%20N%C3%A1dra%C5%BEn%C3%AD&query_place_id=ChIJ8RmmWZOVEkcRCoNensZzCrU",
-    "phone": null,
-    "website": "https://bigfoodpoint.cz/nabidka-nadrazni/",
-    "rating": 2.5,
-    "reviewCount": 119,
-    "openingHours": [
+    "priceLevel": 2,
+    "beerMenu": [
       {
-        "day": "pondělí",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "úterý",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "středa",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "pátek",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "sobota",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "neděle",
-        "hours": "Otevřeno 24 hodin"
+        "name": "Bernard",
+        "price": null,
+        "isPrimary": true
       }
     ],
-    "categories": [
-      "Pizzerie",
-      "Obchod s kebabem",
-      "Rychlé občerstvení",
-      "Pizza do ruky"
-    ],
-    "permanentlyClosed": false,
-    "source": "restaurace nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.289Z",
-    "reviews": [
-      {
-        "author": "Kubko Vanko",
-        "stars": 1,
-        "publishAt": "před týdnem",
-        "text": "Hrozné. Obsluha chytá peniaze od bezdomovcov a následne jedlo bez rukavice. Hygiena im asi nič nehovorí. Kebab som radšej vyhodil so koša."
-      },
-      {
-        "author": "Nazar Sas",
-        "stars": 3,
-        "publishAt": "před 4 týdny",
-        "text": null
-      },
-      {
-        "author": "Ilkham Arstanbekov",
-        "stars": 1,
-        "publishAt": "před měsícem",
-        "text": "Already 3rd time selling oversalted pizza in the evenings, it seems like they use overstayed dough in their pizza and just cover it with excessive amount of salt, it is not accidently, they always sell oversalted pizza. Disgusting"
-      },
-      {
-        "author": "Michal Kočvara",
-        "stars": 5,
-        "publishAt": "před 2 měsíci",
-        "text": "Tybláho, pán ve dvě ráno ve středu 4.2.  byl nejpříjemnější člověk, kterého jsem ve dvě ráno potkal. Příjemný pokec, příjemná pizza, příjemný zážitek.\n\nPizza"
-      },
-      {
-        "author": "Tony Antonin",
-        "stars": 3,
-        "publishAt": "před 2 měsíci",
-        "text": "Pizza, ani kebab nikdy nebyl špatný, ale obsluha katastrofální, věčně jako by byli pod nějakými návykovými látkami, což by potvrzovalo i to, že tam s nimi neustále vybavují a zdržují stejní lidi. A to nechcete! 😡"
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEas_zbic_edT4evN_vNQIYy-E-WlLEC0sTtaecfR6lyEhiKZhCIQt8fc0HkEjQj1-k95kTFx0Vo04Mt4o9hgHNK3nxCZk3yGMWLPjZF9kDWd2_aUHodaPhj2rksEZL1hWjDqY=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEStPv6vfpIU7BpHb-zfWYlSovAs8qamQh8Iu66yRiEoCUP7_WGIOXNByd2ZdQgYIF_agzIo2H4zx-0mo_BrsHYXWLgqk_jUWvhvB_1oPKGZtVnKaQAlYLeO5amJzmVtM8z04fbHK0E4_U=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHTM4M_HkE8VQOX3ZcQog1iSi_Vv5pqt1cOd6KxJ4E2rrZqobRGbjvI4UiyXqxJZRdwhhKXGErDW4VfxnUNWGOXBDwxKsS9C6UZtDn5sZr6Hj2zXxi4oRWtHxeSmXRfrx7990_f4A=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh4.googleusercontent.com/proxy/godmOjk_rmnLJ51YhAVMsX6RT0NSSeFN3e2n9zK5-Ij9Z7Ky9StgSzrJRm-G_jB3d1CGSpg38iMu214g5jQC3l3YT-6DpVGNq46sTn8Rrj36luV9c4TfpGwkLgwjvB5w_SXzs59eAhJ2eYmoemeA5pw1qebJ-FM=w1920-h1080-k-no"
-      }
-    ]
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJDa7fKGiVEkcRgyk-x56f17I",
@@ -5335,202 +5003,6 @@
     ]
   },
   {
-    "id": "ChIJqaHPbCKVEkcRzISQKRfM5q0",
-    "placeId": "ChIJqaHPbCKVEkcRzISQKRfM5q0",
-    "name": "Turecký kebab-hlavní nádraží",
-    "lat": 49.1912692,
-    "lng": 16.6116658,
-    "address": "Nádražní 506, 602 00 Brno-střed, Česko",
-    "city": "Brno-střed",
-    "stationName": "Brno hlavní nádraží",
-    "distanceToStationM": 106,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tureck%C3%BD%20kebab-hlavn%C3%AD%20n%C3%A1dra%C5%BE%C3%AD&query_place_id=ChIJqaHPbCKVEkcRzISQKRfM5q0",
-    "phone": "+420 775 954 730",
-    "website": "http://www.tureckykebab.cz/",
-    "rating": 4.3,
-    "reviewCount": 517,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "0 to 3, 8 to 24"
-      },
-      {
-        "day": "úterý",
-        "hours": "0 to 3, 8 to 24"
-      },
-      {
-        "day": "středa",
-        "hours": "0 to 3, 8 to 24"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "0 to 4, 8 to 24"
-      },
-      {
-        "day": "pátek",
-        "hours": "0 to 4, 8 to 24"
-      },
-      {
-        "day": "sobota",
-        "hours": "0 to 6, 8 to 24"
-      },
-      {
-        "day": "neděle",
-        "hours": "0 to 6, 8 to 24"
-      }
-    ],
-    "categories": [
-      "Rychlé občerstvení"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražní restaurace",
-    "scrapedAt": "2026-04-20T13:37:24.293Z",
-    "reviews": [
-      {
-        "author": "Ala'a Al-Deen Al-Shahed",
-        "stars": 5,
-        "publishAt": "před týdnem",
-        "text": null
-      },
-      {
-        "author": "Kadir",
-        "stars": 5,
-        "publishAt": "Upraveno před týdnem",
-        "text": null
-      },
-      {
-        "author": "kuldeep singh",
-        "stars": 5,
-        "publishAt": "před týdnem",
-        "text": "Best service"
-      },
-      {
-        "author": "Ramon Hudák",
-        "stars": 5,
-        "publishAt": "před 2 týdny",
-        "text": null
-      },
-      {
-        "author": "Honza",
-        "stars": 5,
-        "publishAt": "před 2 týdny",
-        "text": "Prijemna obsluha super kebab nemam slov"
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPPUhHEoH-SLMPbhO6BKWuqQeW78cTR7bo_4dEf=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGJfc8s0DXUbB5CuElMF4XbzEqUjpghmpkd5fTeXkfCb6t6WOgvC4u9Sw3mxiodNN2jkMitrC9azRz7m4YPmufhrj5qmHSOfZo8Nq7tfY1S-7PdQ-17q_WQUXpSVs14rTc_ZhwY=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE5BW4V-gG07c4-4z1m9X7XCfPf2JYF-7QFoILB0h3Sye82CbnEKdRGINbEW1PziWRMp40y2w2C8Ukp6ToFgWLo922hr99dCxRMjrjBKvKeX_l5Pzrn1N7X5pY2tI2-PFhV1z2h9_q3jx_b=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh4.googleusercontent.com/proxy/EDmAxWE9YX3FNUQaKmBjqa0ernmy2cuSDoHORkoCv0UU0J5PfsnDP-KKYrYpjqHRV5QC_f_oqu1iapflzAW5k7hC0uvGFyVnykp-8Gw5OEbZkEbQ9rtwOeUZEoDmEFcoagZMjFHASTeki1phbk_EHQboA6cuaQ=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
-    "id": "ChIJAd5oXPmVEkcRqy8DIKE5w08",
-    "placeId": "ChIJAd5oXPmVEkcRqy8DIKE5w08",
-    "name": "Mini Market a smenarna u hl.Nadrazi BRNO vedle posty(NOON STOP)",
-    "lat": 49.1910456,
-    "lng": 16.6125156,
-    "address": "Nádražní 1, 602 00 Brno-střed, Česko",
-    "city": "Brno-střed",
-    "stationName": "Brno hlavní nádraží",
-    "distanceToStationM": 44,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Mini%20Market%20a%20smenarna%20u%20hl.Nadrazi%20BRNO%20vedle%20posty(NOON%20STOP)&query_place_id=ChIJAd5oXPmVEkcRqy8DIKE5w08",
-    "phone": "+420 605 460 708",
-    "website": "https://mini-market.makro.rest/",
-    "rating": 3,
-    "reviewCount": 6,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "úterý",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "středa",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "pátek",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "sobota",
-        "hours": "Otevřeno 24 hodin"
-      },
-      {
-        "day": "neděle",
-        "hours": "Otevřeno 24 hodin"
-      }
-    ],
-    "categories": [
-      "Prodejní stánek",
-      "Pekařství",
-      "Prodej piv",
-      "Novinový stánek",
-      "Tabák",
-      "Vinárna"
-    ],
-    "permanentlyClosed": false,
-    "source": "hospoda nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.293Z",
-    "reviews": [
-      {
-        "author": "Vojta Miča",
-        "stars": 1,
-        "publishAt": "před týdnem",
-        "text": "V nočních hodinách jsem byl s přítelem v tomto obchodě a kupovali jsme si víno na večer. Ve frontě jsme si dali s přítelem pusu a ona na nás začala ŘVÁT, že na nás není nikdo zvědavý a že máme jít s tímto pryč. Jedná se o velmi neslušné chování a celá prodejna vypadá, že tam už dlouhoooo nebyla ČOIka nebo hygiena. Doporučuji ostatním zavítat do jiné prodejny, uděláte tak lépe."
-      },
-      {
-        "author": "Yezevec",
-        "stars": 4,
-        "publishAt": "před 4 měsíci",
-        "text": "Potahá"
-      },
-      {
-        "author": "Jakub Šesták",
-        "stars": 5,
-        "publishAt": "před 5 měsíci",
-        "text": "Příjemná Lenka a Irenka. S úsměvem na tváři. :)"
-      },
-      {
-        "author": "Jan Sladký",
-        "stars": 4,
-        "publishAt": "před rokem",
-        "text": null
-      },
-      {
-        "author": "Šimon Pačesa",
-        "stars": 1,
-        "publishAt": "před rokem",
-        "text": "Mini market a smenarna otvorená nonstop ale smenarna je len od siedmej do ôsmej a nonstop je iba obchod … tiež to mohli niekde napísať a ušetriť mi zbytočnú cestu o"
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=8_Wqq8X2LzdvZ4XLQAR4-Q&cb_client=search.gws-prod.gps&w=408&h=240&yaw=167.80527&pitch=0&thumbfov=100"
-      }
-    ]
-  },
-  {
     "id": "ChIJS7m7LN7fE0cRDmYZ3mGGH2A",
     "placeId": "ChIJS7m7LN7fE0cRDmYZ3mGGH2A",
     "name": "Hostinec U Nádraží",
@@ -5628,7 +5100,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHokhAT9OMlm2Nhcfm6EqcfERsYqgF-bvpNiK09w2xWEctN7UH3j1cW6NkArCDPyDTwyfNQ72rMduXN7uIRBPb-FHT3033JANvWYMl4EQA5nobLOcjjK9qz9mnV1KPqdEBUTlhaKA=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Kozel",
+        "price": 29,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJp1dZEoriE0cR8R24tNIFTIQ",
@@ -6107,7 +5587,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOHYRndEkLZ40Ur90TPjvYvg3gMHhv8xNsN0zYo=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Kozel",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJX77P9KH1E0cRtzAfQq2-amQ",
@@ -6816,7 +6304,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG7YLJluEZK0VGhxHrWGPTOOG-Jcpl3X6grMxomNSBu7oi7hKrEM-w2SnXBOHFrP9fhejEVaktGqYtLkt-Vd6N0r9mnmXWV7OiakFwjeurf_zL_XrDGXp0ByXD8SNlTUSCYuJ13JQ=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Kozel",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJdb_Ag7zhE0cRmzWZpk4H37Q",
@@ -6916,7 +6412,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGxGv6tRFa8fuD7HIcGztV1hgQ3kxLV3Xk-hlXO6LJCs1U418FBhNFE_HkcVulzEzHLV-9y90vZgP9M8nkMdCkjGs7UyRVb9seAA-Ccnb0i4pIXj2sN3gdnM12rpQOXBfMAwAEMzFuNLlk=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Císařský pivovar",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJfd5XbnWNE0cR-7C7TqEIyeA",
@@ -7016,7 +6520,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEjj_bN7lLPAmrzsGxXt_bb_0lrnnKwx7Wf_xn_WtvJ07N0irS7B3cC_ZrVRpWqgt77bzxm2GAFgbZ6xCSZIXr3xAmdo_q2IwzzDEkYGLvh2mGjoXkfNCyqXwd_C3G52IW6Pxw0Q3OxoEsR=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Radegast",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJLbSb6GNVEUcRFkqGfOpwV3k",
@@ -7118,7 +6630,15 @@
       {
         "imageUrl": "https://lh4.googleusercontent.com/proxy/0XKMMsc2c7Bzm4q7bLvE-LyOtKpC2fCESvmGlx-BVpTV0Fkf2DZXwVhZga9mfaexgYtzQ1hY2TL4lh6H0gVmkc6apl3EjDD2Bh1ZamWimuW82upiZp9zzeFOMugjCDIWQ-6rSfkKmhzT7SrdekdGk2IQ3FDB4ZA=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Gambrinus",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJ4UzSyuDhE0cR8QzQPFJxkVQ",
@@ -7220,7 +6740,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGEMT0wmwKdn2ayJn4Mbep1h_4Sk5adJi97o1-jrMMjAR2kWtLNmW5XGJgf0ZJdRAQMfpyFKcOgVRri7vdiV09hfOboDLFGRZxm0ZyOTGvHmpwZYZ9w6aQaBUiqaZps-mP1QcGU_g=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Ostravar",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJjzDpOThVEUcR2U3cd8qd4d8",
@@ -7594,125 +7122,6 @@
     ]
   },
   {
-    "id": "ChIJD23omxroE0cRKuksFjSpQq8",
-    "placeId": "ChIJD23omxroE0cRKuksFjSpQq8",
-    "name": "GTC club - sportovní a relaxační centrum|Hotel",
-    "lat": 49.7534019,
-    "lng": 18.0154063,
-    "address": "Na Nádraží 477/28, 743 01 Bílovec 1, Česko",
-    "city": null,
-    "stationName": "Bílovec",
-    "distanceToStationM": 90,
-    "tier": 2,
-    "verified": false,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=GTC%20club%20-%20sportovn%C3%AD%20a%20relaxa%C4%8Dn%C3%AD%20centrum%7CHotel&query_place_id=ChIJD23omxroE0cRKuksFjSpQq8",
-    "phone": "+420 775 728 848",
-    "website": "http://www.gtcclub.eu/",
-    "rating": 4.1,
-    "reviewCount": 381,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "10:30 to 22"
-      },
-      {
-        "day": "úterý",
-        "hours": "10:30 to 22"
-      },
-      {
-        "day": "středa",
-        "hours": "10:30 to 22"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "10:30 to 22"
-      },
-      {
-        "day": "pátek",
-        "hours": "10:30 to 22"
-      },
-      {
-        "day": "sobota",
-        "hours": "10:30 to 22"
-      },
-      {
-        "day": "neděle",
-        "hours": "10:30 to 21"
-      }
-    ],
-    "categories": [
-      "Místo konání akce",
-      "Kulečníková herna",
-      "Restaurace",
-      "Sportovní bar",
-      "Squashový kurt",
-      "Tenisový kurt"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražní jídelna",
-    "scrapedAt": "2026-04-20T13:37:24.309Z",
-    "reviews": [
-      {
-        "author": "Marius Bukauskas",
-        "stars": 1,
-        "publishAt": "před týdnem",
-        "text": null
-      },
-      {
-        "author": "lil yashima",
-        "stars": 4,
-        "publishAt": "před 6 měsíci",
-        "text": "drahy"
-      },
-      {
-        "author": "Ursula Lauer",
-        "stars": 5,
-        "publishAt": "před 6 měsíci",
-        "text": "Schönes Hotel. Alles neu."
-      },
-      {
-        "author": "Martina Oslancova",
-        "stars": 5,
-        "publishAt": "před 6 měsíci",
-        "text": "Izby: až veľmi veľké, priestranné, čisté, novo zariadené, úložný priestor postačujúci. Mne osobne vadilo, že som mala s manželom oddelenú posteľ, nie je manželská. Koberec v celom zariadení aj v izbe. Vybavenie: obuvák, smetné koše, handrička na topánky, rýchlovarná kanvica, šálky, lyžičky, fén, uteráky, sprchový gél aj mydlo, chladnička, trezor.\nObsluha: recepčná je veľmi akčná, správna osoba na správnom mieste, veľmi ochotná, a urobí všetko pre spokojnosť ľudí. Maximálna ústretovosť.\nJedlo: raňajky sme nemohli absolvovať, dostali sme balíčky (balená voda, bageta alebo obložený chlebík, keksíky, jablko). Nemajú kuchára, ale v ponuke je pizza - pochutila nám, horúce maliny s vanilkovou zmrzlinou a šľahačkou - tiež pochutili. Čapujú pivo, Kofolu. Platba možná aj kartou.\nPoloha: pre naše potreby vyhovujúca. Hneď vedľa železničnej stanice, ale vlaky chodia veľmi zriedkavo."
-      },
-      {
-        "author": "Karol M",
-        "stars": 5,
-        "publishAt": "před 7 měsíci",
-        "text": "Miejsce odwidzielismy już 2 raz jako przystanek podczas naszej wycieczki motocyklowej. Pani zajmująca się obiektem bardzo miła i pomocna, a śniadanie bardzo pyszne. Myślę że wrócimy tu jeszcze nie raz. Dziękujemy."
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPla7dqKoBT6YqRPN3-PtTRvP6OetNHQwjsCaLu=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFzq3Xz_e3cBSuKR5vvIIdyeMvGEkKcYg4xN9IWYEPra8wjlj347srJCGpKfSu5NMYINUlzZXqHp9aJCgA7KTii87-qMNy5LnlVV4m6gqb1ZAVpd3-aPRjIRv7dr5eWtqSwwgEa=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMv8ZGTjnd9kXZbb7vHsTldsdYbqHefIyHef1e5=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMcEUUkf9O6nxRDPcSHfKouFt1L3n0lDjedbrcP=w1920-h1080-k-no"
-      }
-    ],
-    "beerMenu": [
-      {
-        "name": "Bernard 11°",
-        "price": 49,
-        "volume": "0.5l",
-        "isPrimary": true
-      },
-      {
-        "name": "Bernard",
-        "price": 44,
-        "volume": "0.5l",
-        "isPrimary": false
-      }
-    ]
-  },
-  {
     "id": "ChIJo6tdPzIRFEcR7u41yRROi5k",
     "placeId": "ChIJo6tdPzIRFEcR7u41yRROi5k",
     "name": "Nádražní Restaurace",
@@ -7811,7 +7220,27 @@
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG0eT_-_A1He22zfHTmv1g8UcdG61BVORl4lfRJmvs0PGtdPgYqpgGywJZrK7wca0LZAV4OANr0TXk2uHEo_0MfgOXgBokQXqlcymtlxEB_IB3Sw8r_inPQp_ZyTeEG28V2NVrXT2bhNv-d=w1920-h1080-k-no"
       }
     ],
-    "priceLevel": 1
+    "priceLevel": 1,
+    "beerMenu": [
+      {
+        "name": "Radegast",
+        "price": 40,
+        "volume": "0.5l",
+        "isPrimary": true
+      },
+      {
+        "name": "Radegast",
+        "price": 34,
+        "volume": "0.3l",
+        "isPrimary": false
+      },
+      {
+        "name": "Kozel",
+        "price": 34,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJQd6_veKUCkcRnePdi5f87f4",
@@ -8112,7 +7541,20 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGvIc9QwZvwY_oPRjIBLsKfb9SQCy8Mz8lr6GT-76EZTWzYCbGJAVrCg_G9WIvqgQUZlgrmRX-tXE6xgwJQ-SO1RxL9i1i2YKsz49kpFai2yI8hfUPEYkXmQYC31MjAaHwFkeo=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Gambrinus",
+        "price": null,
+        "isPrimary": true
+      },
+      {
+        "name": "Pilsner Urquell",
+        "price": null,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJEy7zXRQrC0cRiMmZpeBEyQ4",
@@ -8423,78 +7865,6 @@
     ]
   },
   {
-    "id": "ChIJ4f_AGES7CkcRoVuk6IPA0Tw",
-    "placeId": "ChIJ4f_AGES7CkcRoVuk6IPA0Tw",
-    "name": "Penzion \"U Nádraží\"",
-    "lat": 49.5247553,
-    "lng": 12.9369159,
-    "address": "Nádražní 213, 346 01 Horšovský Týn-Velké Předměstí, Česko",
-    "city": "Velké Předměstí",
-    "stationName": "Horšovský týn",
-    "distanceToStationM": 62,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Penzion%20%22U%20N%C3%A1dra%C5%BE%C3%AD%22&query_place_id=ChIJ4f_AGES7CkcRoVuk6IPA0Tw",
-    "phone": "+420 604 109 109",
-    "website": "http://www.penzion.htyn.cz/",
-    "rating": 4.4,
-    "reviewCount": 133,
-    "openingHours": [],
-    "categories": [
-      "Penzion"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražní jídelna",
-    "scrapedAt": "2026-04-20T13:37:24.319Z",
-    "reviews": [
-      {
-        "author": "George Siamos",
-        "stars": 5,
-        "publishAt": "před týdnem",
-        "text": null
-      },
-      {
-        "author": "Klára Gajdošová",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": "Původně jsme měli zamluvený jiný typ ubytování od tohoto provozovatele. Bohužel však došlo k závadě a dostali jsme nabídku na toto ubytování, které jsme přijali. Musím pochválit čistotu pokojů, klidnou lokalitu a skvělou péči, která nám byla poskytnuta u snídaně. Ta byla opravdu vynikající, míchaná vejce a obrovská porce. Navíc provozovatel je sympatický pán, který si s námi i poklábosil. Odjížděli jsme spokojení. Moc děkujeme. 🙂"
-      },
-      {
-        "author": "Maxmilián Kirschner",
-        "stars": 5,
-        "publishAt": "před 2 měsíci",
-        "text": "Snidane jsou top jako ze lepsi snidani jsem nemel"
-      },
-      {
-        "author": "Peter T",
-        "stars": 5,
-        "publishAt": "před 2 měsíci",
-        "text": "Izby čisté útulné, raňajky formou menu."
-      },
-      {
-        "author": "Atami Package",
-        "stars": 2,
-        "publishAt": "před 4 měsíci",
-        "text": null
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEnXRVwCe7XwdTyDBpZiROrG9NDhd8G1jzme7ccB8Y_qJAwXhy1bFUD0wEay50RK2wSo_MxKB7qgfXeGYA41vJqUMdSQlMmBXQ23gg5mghWW7C6TyKwMz0X7-5bPBV4ylW-BpFaYpZqEuzj=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNF1E25-Yp3wdbEWgo6J8W0j7tQ_wx2y5ZZ16mB=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNhc005499lX9EUgA5LXkjuAWYKWhktexd2DOKU=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOZjInaTG7WLwWz0TXQ0Da9Pl5CVZktR0szHKlE=w1920-h1080-k-no"
-      }
-    ],
-    "priceLevel": 1
-  },
-  {
     "id": "ChIJ_5h_4f3xCkcRft0vtv1QF4w",
     "placeId": "ChIJ_5h_4f3xCkcRft0vtv1QF4w",
     "name": "Kavárna Moving Station",
@@ -8796,207 +8166,6 @@
     ]
   },
   {
-    "id": "ChIJs7F0o1EudUcRRl8KLuN2JLM",
-    "placeId": "ChIJs7F0o1EudUcRRl8KLuN2JLM",
-    "name": "Skiareál Nad nádražím",
-    "lat": 49.1412388,
-    "lng": 13.2308111,
-    "address": "Železná Ruda 279, 340 04 Železná Ruda, Česko",
-    "city": "Železná Ruda",
-    "stationName": "Železná Ruda město",
-    "distanceToStationM": 254,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Skiare%C3%A1l%20Nad%20n%C3%A1dra%C5%BE%C3%ADm&query_place_id=ChIJs7F0o1EudUcRRl8KLuN2JLM",
-    "phone": "+420 603 418 357",
-    "website": "https://www.skinadrazi.cz/",
-    "rating": 4.2,
-    "reviewCount": 1002,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "9 to 16"
-      },
-      {
-        "day": "úterý",
-        "hours": "9 to 16"
-      },
-      {
-        "day": "středa",
-        "hours": "9 to 16"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "9 to 16"
-      },
-      {
-        "day": "pátek",
-        "hours": "9 to 16, 18 to 21"
-      },
-      {
-        "day": "sobota",
-        "hours": "9 to 16, 18 to 21"
-      },
-      {
-        "day": "neděle",
-        "hours": "9 to 16"
-      }
-    ],
-    "categories": [
-      "Lyžařské středisko",
-      "Turistická atrakce"
-    ],
-    "permanentlyClosed": false,
-    "source": "bar nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.324Z",
-    "reviews": [
-      {
-        "author": "KEŇANN79",
-        "stars": 5,
-        "publishAt": "Upraveno před týdnem",
-        "text": "Supr domácí sky areál bomba hlavně večerní lyžování."
-      },
-      {
-        "author": "Slávek Miki79",
-        "stars": 5,
-        "publishAt": "Upraveno před měsícem",
-        "text": "Výborný lyžování koncem ledna, sjezdovky stále dobře sloužící, udržované . Nyní v únoru 2024 teplo a sníh už nejde udržet. :-) .\nNic se nezměnilo, nyní 15.3.2026 na velké sjezdovce (i když je nad nulou) se stále lyžuje."
-      },
-      {
-        "author": "Jaromir Uxa",
-        "stars": 2,
-        "publishAt": "před měsícem",
-        "text": "fain kopec pro skiskolu, děti a učení. dojem velmi pokazil vlekar, ktery na děti řve místo aby jim na pomě pomohl."
-      },
-      {
-        "author": "Simona Cettlova",
-        "stars": 4,
-        "publishAt": "před měsícem",
-        "text": null
-      },
-      {
-        "author": "Jana Weberova",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": null
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEfDhQ6tCmGLxfDSywtrOJ80Lj78ZT7GCwOai6SqpsWJEhaSrdsKO5DGS8_zvkCXEMmcmHYxTJhPXiYLYnBU1Sgb_0R3A1H0lltYF_K3hbh8jPbSGcF9OX8YfIAry7IFFZGVPYx=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHApnXZl5_8o2v06OzAjfZsawpycMef-fbOiVg5oMb47YsgXdtCS_X76vSdEGrax7a7foAL1XCrBVTTwrn9RrdQbsENsmsvEyJRaqbzxNk0I5Vi-VaU9xddyPknVzBl1pFCkAq6=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGSj5046X_rmfR9UJvy8GzVdA0BmyAZogXRz4wTtFzcaofrI0wKvePHFZ6DfvG5m1rIqMPS7jlCu8gb4IlC4peDyW352qJiia1-fdDEV-cwxqefWUvg44Sf901NqBM15-KOY4M=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFVeGKfb5skt1mMaJRWoOSNwfkK2AC7x46wADgyc4ZEFSZG6-SRtQzYSflMsHP1jjaZJzY-Mu6vl1Aya3tKognS7EMHaxNAp53-31iN3uqxkDKneexDsw4Z6FAHb-HwB7_Vh-Nx=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
-    "id": "ChIJTxAaKADxCkcRRf-wIuoJ83M",
-    "placeId": "ChIJTxAaKADxCkcRRf-wIuoJ83M",
-    "name": "PAPEJ'S DÖNER Turecký restaurant",
-    "lat": 49.7430366,
-    "lng": 13.3877701,
-    "address": "Nádražní 102/9, 326 00 Plzeň 2-Slovany-Východní Předměstí, Česko",
-    "city": "Plzeň 2-Slovany-Východní Předměstí",
-    "stationName": "Plzeň hlavní nádraží",
-    "distanceToStationM": 48,
-    "tier": 3,
-    "verified": false,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=PAPEJ'S%20D%C3%96NER%20Tureck%C3%BD%20restaurant&query_place_id=ChIJTxAaKADxCkcRRf-wIuoJ83M",
-    "phone": null,
-    "website": null,
-    "rating": 4.3,
-    "reviewCount": 78,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "9 to 22"
-      },
-      {
-        "day": "úterý",
-        "hours": "9 to 22"
-      },
-      {
-        "day": "středa",
-        "hours": "9 to 22"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "9 to 22"
-      },
-      {
-        "day": "pátek",
-        "hours": "9 to 22"
-      },
-      {
-        "day": "sobota",
-        "hours": "10 to 22"
-      },
-      {
-        "day": "neděle",
-        "hours": "11 to 22"
-      }
-    ],
-    "categories": [
-      "Turecká restaurace"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražní restaurace",
-    "scrapedAt": "2026-04-20T13:37:24.329Z",
-    "reviews": [
-      {
-        "author": "Zuzana Kovářová",
-        "stars": 1,
-        "publishAt": "před 2 měsíci",
-        "text": "Horší kebab jsem v Plzni neměla, obsluha neochotná, jídlo prošlé, způsobuje běhavku. Tohle je hned u hlavního nádraží probůh?!"
-      },
-      {
-        "author": "Leoš Kopecký",
-        "stars": 5,
-        "publishAt": "před 2 měsíci",
-        "text": "Velmi příjemná a ochotná obsluha. Je to sice kebab ale při každé návštěvě Vás něco nového překvapí, občas je k prodeji domácí pečivo, jindy je v salátu nějaká přísada navíc. A ceny jsou jak všude, spíš lehce levnější, a ještě k tomu mají akce pro studenty."
-      },
-      {
-        "author": "Josef Procházka",
-        "stars": 1,
-        "publishAt": "před 2 měsíci",
-        "text": null
-      },
-      {
-        "author": "Filip Vaněk",
-        "stars": 1,
-        "publishAt": "před 3 měsíci",
-        "text": "V kebabu jsem měl několik vlasů a obsluha se semnou možná tak hádala že to vlasy nejsou i když to byla jasná hnědá barva její barvy vlasů"
-      },
-      {
-        "author": "Simča",
-        "stars": 5,
-        "publishAt": "před 6 měsíci",
-        "text": "Měla jsem sice jen baklavu, ale byla výborná. Obsluha milá, prostředí pěkné."
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEAZlhC53wpuEaTrzsPABHBl8tC7tqfD25U4g7sa07VCgbxmGpJOVjdDclssXsytBMMdthckUKGUMfOzTdyGa1yaUddyjkWz09AhIcbaYhOQXYS_QDVwiB6gyZU6ZPG27joWU23RQ=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPxK-QTTywtWnN9jJL9YPWzQKTLvsTKwJmg7R1Q=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipMODGMbxhQZOBWmuEhJFrE7ftfuo9lH-x9eP3Rs=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGyGeqcKYtlkfDh0qXMDNE7ZCP2fnkDhEl-KFb2EhEdu0xnzj4HSKV1bid62HuImw83S41iKROEU7Ox1cQlf_YGy-1xFeirmOFnuFgx8_-LfK7kDPlGVTaeaPD0zkX8McJTS-BTtA=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
     "id": "ChIJA81f2RAhc0cR8DjiypJ_wlU",
     "placeId": "ChIJA81f2RAhc0cR8DjiypJ_wlU",
     "name": "Jan Pavlík - Restaurace Na Nádraží",
@@ -9194,7 +8363,20 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH663aQ-up5azhiDTzVreeElVDKq-nm0KrFKn_5IzQmvchnNcl9s29XRZvKiGfeVVCJVB1ctqTvo6PoJvcFIl8W6_6QQvmM2CVjMcSW-Cj1a-DN_Bs9Ou6V6Vcc2K2jHZXeJ2s=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Gambrinus",
+        "price": null,
+        "isPrimary": true
+      },
+      {
+        "name": "Pilsner Urquell",
+        "price": null,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJSRo7JaFdc0cR5Oenlnj5mLw",
@@ -9294,7 +8476,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGpx-Gl9DvRYNCMQDOtc4pz8QlHV7Qf1ghFlgJ7GRtyybj9_VbjOGhlSLTA7wVSG_BCmC4VXG2Y8zKYZl2Gqf_WMRjF5LWyPP5MfarlFl927_H8AUsQfwpLdCZiDxotNMm26YT7=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Rohozec",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJnfgnr3s5c0cRTBdtk2khp3Q",
@@ -9690,7 +8880,20 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE8xJkaaEv3Nbd9NbfRxPsS5J_bWADjCvrk8iXzA9r3vbQmb_5qD0Hauda9yns8KCcZrFTdwmt1WVwdWNDqyM-WpXY1_HgqnXZMoLqnyVWYmBWvUSaoCxPoDS5QG5Jo9QB4rFq9=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Kozel",
+        "price": null,
+        "isPrimary": true
+      },
+      {
+        "name": "Pardál",
+        "price": null,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJr-EZgUSmDEcR2ZZimXKtk9g",
@@ -9793,78 +8996,6 @@
     ]
   },
   {
-    "id": "ChIJLT2eCgBKC0cR9v6udjTth0U",
-    "placeId": "ChIJLT2eCgBKC0cR9v6udjTth0U",
-    "name": "Agi Café Bar",
-    "lat": 49.2563838,
-    "lng": 13.9172034,
-    "address": "U Nádraží 984, 386 01 Strakonice I, Česko",
-    "city": "Strakonice I",
-    "stationName": "Strakonice",
-    "distanceToStationM": 133,
-    "tier": 2,
-    "verified": false,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Agi%20Caf%C3%A9%20Bar&query_place_id=ChIJLT2eCgBKC0cR9v6udjTth0U",
-    "phone": "+420 739 759 009",
-    "website": "https://www.facebook.com/AgiCafeBar/",
-    "rating": 3.9,
-    "reviewCount": 15,
-    "openingHours": [],
-    "categories": [
-      "Kavárna a bar",
-      "Hostel"
-    ],
-    "permanentlyClosed": false,
-    "source": "bar nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.337Z",
-    "reviews": [
-      {
-        "author": "Kateřina Kuchařová",
-        "stars": 1,
-        "publishAt": "před 2 lety",
-        "text": "Velké zklamání, chybně uvedené informace o otevírací době - poté, co jsme dorazili ke kavárně, tak teprve zde jsme zjistili, že pondělky mají zavřeno. Opravte si to na Google i jinde, zbytečně si odháníte zákazníky."
-      },
-      {
-        "author": "Honza Marsalek",
-        "stars": 5,
-        "publishAt": "před 2 lety",
-        "text": "Krásná malá kavárna. Když čekáte na vlak ideální posezení. Tak hezkou provozovnu u nádraží jsem dlouho neviděl. Obsluha za jedna."
-      },
-      {
-        "author": "Daniel Gondek",
-        "stars": 5,
-        "publishAt": "před 2 lety",
-        "text": null
-      },
-      {
-        "author": "Zdenka Hlaváčová",
-        "stars": 5,
-        "publishAt": "před 5 lety",
-        "text": "Ok"
-      },
-      {
-        "author": "Radek Oliva",
-        "stars": 5,
-        "publishAt": "před 6 lety",
-        "text": null
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipME8BoTmum9xd_hVKB20JqOBfT97Xuuuqt7esc=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFC1LscFVqPJTJSe-Ta1pLzOSYp5Jf5TqCbHwCZ8vg3_CpQ0FXfN0CJHZeyfgppNjLu1E-9Iz9pmkSDIaHomaQcJq-QohjdmqlmTKiiq5k099RrOjp3sEm0lGKO10E9shhMGPZLjQ=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPBFHhSAyEyAV8DdnzECXGVMEbfhJ_1ARH7aCg=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipPrgEaKKTMCumyuEgbWO4OnOTzgGPMo2Hr7p5w=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
     "id": "ChIJ4-EwR-88c0cRVRllhG_zzJE",
     "placeId": "ChIJ4-EwR-88c0cRVRllhG_zzJE",
     "name": "Restaurace Jakule",
@@ -9962,7 +9093,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGynMz8g4m14e7gBoqCli7VAMIzPMBIq7DZEPOSBr50TCaqGr_i4FOYhTWFVKj6FaH76P30xazWMwBWMfRLHuUM19S1p4ZgLu8V587w17XHd9WObfGKr34AI2GA-2e1ClOpGjBGDg=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Krušovice",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJv8q27FJac0cR2_nADBdMDdw",
@@ -10259,7 +9398,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF_aKMbS8uS-fazbID7XwN9TJFoytAmQNUtqHJ5LoIFk2oKcqx563O2xt4pXxKFECHXKlxefendFuf87OhySuZq3C24mAxmvFoGUt2SOQOan1xgykm0x6S_FVG31kamw7WAYZjC=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Krušovice",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJ50R0m7dPc0cR2tswBe8nGGQ",
@@ -10358,206 +9505,6 @@
       },
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF6fuV17oPN3xqoZC6zgXZEzD__inAOWtYKJqeuZjntHBbrgvAWPKnrWXWJaFTGJ-flwDie8DeLo7a9-cd_K1aNE96uiRnmpMZArJVvl4vXO4hUm00yqJOPZSkhN92_3VHHmGtgAaW-k0Qk=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
-    "id": "ChIJqbJrf-xPC0cRxq9jhliJG7Y",
-    "placeId": "ChIJqbJrf-xPC0cRxq9jhliJG7Y",
-    "name": "Lotus Asijské Bistro",
-    "lat": 49.2981368,
-    "lng": 14.1428107,
-    "address": "U Nádraží 2565, 397 01 Písek 1-Budějovické Předměstí, Česko",
-    "city": "Budějovické Předměstí",
-    "stationName": "Písek",
-    "distanceToStationM": 182,
-    "tier": 2,
-    "verified": false,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Lotus%20Asijsk%C3%A9%20Bistro&query_place_id=ChIJqbJrf-xPC0cRxq9jhliJG7Y",
-    "phone": "+420 608 678 246",
-    "website": null,
-    "rating": 3.7,
-    "reviewCount": 63,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "úterý",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "středa",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "pátek",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "sobota",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "neděle",
-        "hours": "9 to 21"
-      }
-    ],
-    "categories": [
-      "Vietnamská restaurace"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražní jídelna",
-    "scrapedAt": "2026-04-20T13:37:24.345Z",
-    "reviews": [
-      {
-        "author": "Petr Bednář",
-        "stars": 4,
-        "publishAt": "před 2 týdny",
-        "text": null
-      },
-      {
-        "author": "Lukáš",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": null
-      },
-      {
-        "author": "František Matějka",
-        "stars": 5,
-        "publishAt": "před 2 měsíci",
-        "text": null
-      },
-      {
-        "author": "Jiří Gondek",
-        "stars": 4,
-        "publishAt": "před 3 měsíci",
-        "text": null
-      },
-      {
-        "author": "Tereza Krákorová",
-        "stars": 5,
-        "publishAt": "před 5 měsíci",
-        "text": "Chodíme do této restaurace velice rádi. Nejen kvůli slušným cenám. Už jsme s rodinou ochutnali několik chodů, jako nudle, kuře po sečuánsku, kachnu na medu, smaženou rýži nebo sushi a vše nám velmi chutnalo. A obsluha? Paní, co se na vás usměje a jídlo vám donese až ke stolu, což je pro vietnamské bistra hodně vzácné zacházení. Doporučuji."
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh4.googleusercontent.com/proxy/iPwm_rQOKZb2u3IM2dfKxRF2c9KqQYehI_BcVqSL39ppvHR82bVu_uUGJ0-tQ-bRpJiPxWAM3TCtl-1_heLOzuXC9JRowxVOrosB8iTCr0zyzFUu7rmmFzsixPxHCEPYhhHK0n5HEDshTnChgaZbAn-Hi3y0UA=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh6.googleusercontent.com/proxy/DZbiSxp1lOtoQMzxcDt5yLH0VjTUCrJCyc8IVmPFJe4tdNXqsDaZqn6mpMbM9b2GH7zBAr_ypqiJ7PrC9VTgwjvaWXwnfRfPOapTuA8gOU8OOf7iRpG2qQRkapzFLTtg3ZCQ_6pb2R8aAeg8rLmTWUxocyGCnA=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh5.googleusercontent.com/proxy/Ir0qyno6suCFTJ5YEvATryl6syydoH5oMc-082eav3JBdzRqc-3-TVwfJkSKc0dSRDTWh0a6JmoLSv1hxQnOlkoCCZpskUOObfG8nRKCMIjfkdtO83RVpZz1NvgpQA4_rLy7rMVOdjZX_rGd7nnq7KMYu9HNuhU=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh6.googleusercontent.com/proxy/nZ9MkujtVeTzCIZItbLc6fOJGmTB_AqoMMggaDQL11WmAgDIIaI5s9kIhB7WKHeyzbDHiJ0G4hujhWdqxhj4cD-rrJe79YJTi0hb3t1-dGQ_HHrg8LmoDe5SIwyFeo4dcCERF0INUoWvszcPxE9ZZ5X_NNVm0EE=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
-    "id": "ChIJ4638PwBPC0cRNJLnQEVY-jg",
-    "placeId": "ChIJ4638PwBPC0cRNJLnQEVY-jg",
-    "name": "ROJ KEBAB",
-    "lat": 49.2981361,
-    "lng": 14.1425998,
-    "address": "U Nádraží 2565, 397 01 Písek 1-Budějovické Předměstí, Česko",
-    "city": "Budějovické Předměstí",
-    "stationName": "Písek",
-    "distanceToStationM": 183,
-    "tier": 2,
-    "verified": false,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=ROJ%20KEBAB&query_place_id=ChIJ4638PwBPC0cRNJLnQEVY-jg",
-    "phone": null,
-    "website": null,
-    "rating": 3.1,
-    "reviewCount": 15,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "úterý",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "středa",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "pátek",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "sobota",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "neděle",
-        "hours": "9 to 21"
-      }
-    ],
-    "categories": [
-      "Turecká restaurace"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražní jídelna",
-    "scrapedAt": "2026-04-20T13:37:24.347Z",
-    "reviews": [
-      {
-        "author": "Roman Lád",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": null
-      },
-      {
-        "author": "Libor Veselý",
-        "stars": 1,
-        "publishAt": "před 4 měsíci",
-        "text": "Dnes již neexistujicí provoz 👎"
-      },
-      {
-        "author": "Jan Charvát",
-        "stars": 5,
-        "publishAt": "před 6 měsíci",
-        "text": "To je snad jediný kebab v Písku, který je opravdu z masa, už na první pohled je vidět že je to maso a ne mražený polotovar, tak jak je to jinde. Výborný"
-      },
-      {
-        "author": "David Jarabica",
-        "stars": 1,
-        "publishAt": "před 7 měsíci",
-        "text": "Nejhorší kebab jaký jsem kdy jedla. Paní mi začala odměřovat gramáž masa kdy do posledního kousku přesměrovala zdali ji hmotnost sedí. Maso hrozně nakorenene. Po ochutnání hnus. Nehotová tortila potvrzovala vše. Syn dostal hranolky s kyselým ketchupem a taktéž nedodělané. Peníze byli hozený s okna ven rovnou do popelnice.\nPodnik okrádá lidí tím co jim prodává."
-      },
-      {
-        "author": "Pipa",
-        "stars": 5,
-        "publishAt": "před rokem",
-        "text": null
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEZuJDyqNEjIQenzscGTTO4J4TlBMIpLdmwd3OF6peVfeiAIoSYsogTjwvOeDv4OMkmF0w2hM2uEgEpBomSVlcYKkJ6BDpABo4XyOXzEYEkg8oO8KRvSrknJfXBsWJmNyBMwoG3=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEcxyRlbfu05Cq2e6buI6DWvAFLCpfseYfSSOjeLyL3UzAOdDCPhR2ZgftXNBnowPl68bjTHRfic4x03gQmFHftG8h0srmDopo1LqBkgdJn3bRGwx8r3rs6n813XHi865hwBzFp1A=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE7hXGUYugFoN-LjYMCOE0wYTlgn-zGgM6CnzxhiXkDuyy4lF7ECXb3MwLpmLLstqZwRNx57DW9c1Ro-iEVfn64h7q0giRFNgWPr5TQ6sCCOs1g4T3K5ARZUBqoXdqnpbP-QPSU=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHI9TVTCHDfCRxeqCxNKTP5bpeI9C5J_UTLbySunXEWP9evUxm1qmKBjz_Ty1Iltfe30XytT8V-ia6Cy6W-3t9iWf4Avl41XJYoPBcSQtOFUF8HM5R4hbBjolwOQh84CgZYym0D=w1920-h1080-k-no"
       }
     ]
   },
@@ -11045,7 +9992,20 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG_p0k_J1A_34sBXHj667EM-tktKM9tFfD0UlLVE-mQKmVMstezUpr5i6GoXS-ADUYpx81ewK7uvwUMaTBWpDJiMdBq_LSyxKX6C3nT5GqQ12sJqcdniYqoNTZTViV4B-jFd6YM5j2dxB9x=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Gambrinus",
+        "price": null,
+        "isPrimary": true
+      },
+      {
+        "name": "Zubr",
+        "price": null,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJtVSUIFNzE0cREkGfg6PDS8c",
@@ -11224,7 +10184,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipN_yeOxsm2d7inuF7vqRY7UMWcjB7s6_82Mp1H9=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Staropramen",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJOcsg_YQVE0cRxQoir5Sp1DI",
@@ -11424,7 +10392,38 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHcfMETtKmlk8caVKZ9uXK-goZ9HDMgMzAFTK1ciDYglx1aEBUDulaHjLAZtOoWRBozMnkFAOee-udXBYhYKvHagx-TXhUqbehZjVtZPAe5OzJ4rAmOMnhU8Z68IkZoeP0--1k6=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Kozel",
+        "price": 24,
+        "volume": "0.5l",
+        "isPrimary": true
+      },
+      {
+        "name": "Radegast",
+        "price": 29,
+        "volume": "0.5l",
+        "isPrimary": false
+      },
+      {
+        "name": "Gambrinus",
+        "price": 26,
+        "isPrimary": false
+      },
+      {
+        "name": "Svijany",
+        "price": 28,
+        "isPrimary": false
+      },
+      {
+        "name": "Pilsner Urquell",
+        "price": 33,
+        "volume": "0.5l",
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJF9CsW-d5E0cR04pftoKgRkQ",
@@ -11524,7 +10523,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNz-qGEwlGU3nh7cOnJswNIZdgSur4qkpZ9IeEN=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Gambrinus",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJl2DIf9ANE0cRuDizczCzL-c",
@@ -11625,7 +10632,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE5ST4n-3M5dyzgpLOG4h4j_v5bvnXtz8_d1V2Wu6n_6WzOtYV6aHGLwuURP3nfgzEN9vnrTHqyb7ulyV-43-uefZ_u9UxlVrJN_k8tsaEZ6Ba355fDUDU3VHmFfiZB9d0Au7PHP73Uz4g=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Radegast",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJoyJ5nVgGE0cR2wIQjSjJczM",
@@ -11825,106 +10840,6 @@
     ]
   },
   {
-    "id": "ChIJdTKPRMNvE0cROtR7TZdXr3o",
-    "placeId": "ChIJdTKPRMNvE0cROtR7TZdXr3o",
-    "name": "Bistro Princ Asie",
-    "lat": 49.0988284,
-    "lng": 17.7524836,
-    "address": "Nádražní 261, 763 26 Luhačovice, Česko",
-    "city": null,
-    "stationName": "Luhačovice",
-    "distanceToStationM": 38,
-    "tier": 3,
-    "verified": false,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bistro%20Princ%20Asie&query_place_id=ChIJdTKPRMNvE0cROtR7TZdXr3o",
-    "phone": "+420 606 146 235",
-    "website": null,
-    "rating": 3.8,
-    "reviewCount": 35,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "8:30 to 19"
-      },
-      {
-        "day": "úterý",
-        "hours": "8:30 to 19"
-      },
-      {
-        "day": "středa",
-        "hours": "8:30 to 19"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "8:30 to 19"
-      },
-      {
-        "day": "pátek",
-        "hours": "8:30 to 19"
-      },
-      {
-        "day": "sobota",
-        "hours": "9 to 18:30"
-      },
-      {
-        "day": "neděle",
-        "hours": "9 to 18:30"
-      }
-    ],
-    "categories": [
-      "Asijská restaurace"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražní jídelna",
-    "scrapedAt": "2026-04-20T13:37:24.365Z",
-    "reviews": [
-      {
-        "author": "Pink Peep",
-        "stars": 4,
-        "publishAt": "před 2 týdny",
-        "text": "Žádný luxusní asia bistro to není ale porce mega ceny skoro zadarmo. A že tady chodí chlapy na pivo co jako. kdo nehledá gastro zážitek doporučuji ."
-      },
-      {
-        "author": "Michaela Kopackova",
-        "stars": 1,
-        "publishAt": "před 3 týdny",
-        "text": null
-      },
-      {
-        "author": "Pepajop Pepajop",
-        "stars": 5,
-        "publishAt": "před 5 měsíci",
-        "text": null
-      },
-      {
-        "author": "Matěj Daníček",
-        "stars": 5,
-        "publishAt": "před 5 měsíci",
-        "text": null
-      },
-      {
-        "author": "Honza Pavel",
-        "stars": 5,
-        "publishAt": "před 5 měsíci",
-        "text": null
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEkfVfbUwyIWAIdPfiZpQ4AJr3C5OkjMP_Pl_R7GsVgTDp4Jhmz0-1bQlJ8dNKV4IkdK_6dLCeFyh-hCCU7JIqQ7EiXIHi7egNu-QQeSn6nVJwlBO72yxiLe_Fg_wphjCLKD7A=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFYTB7GjjBb1oMbGCE4g8SUkE5_l0ZZ_Pz0lpW2ekracIBm9bC7m5oamavijeSHIjwX9lwaaxAtlOnhDBhuK8DKTFSF8yJQ8-_TauRAfTFmIQWHRi-Jy824WJyjYpkzulnJJY6xaQ=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipM_hF9JjdxUdRGFUS2oOkf1QnKamcG9zOQbIWsS=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE9WzBVNii192VNITewWUPEuGFLbCgwDzoYsSC8CwwasexwzNf9Gq1kim9kvLIC5FcojqVA797qQq5ZcwI22vfa640wuKbrCtsMpVu654SbpnIPpBQzvF5Cg9u-h1E5dvMvivE=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
     "id": "ChIJxaN9IFNzE0cRcWJNhidc4Ys",
     "placeId": "ChIJxaN9IFNzE0cRcWJNhidc4Ys",
     "name": "Rychlé Občerstvení Fast Food",
@@ -12022,7 +10937,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEXtWcsBaDzfEcrtgoImp0cHR58FlGrL7IdkyubUFsAD3aTwSQ3k2fHLF2ZF6OupieW1PvQJzGEfDFFZHaY0Ey510BeiDDcm4Omf5kCPgiH-dNRLZAXt-WCoR0K4AtQutvVw0BTMA=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Kozel",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJORELVKKuDUcRUYf_ZCk81Ew",
@@ -12331,7 +11254,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEXw09zMLAgGNA6XW2uG7K-tT4WENSg7XKJirLDpoo9tk2VNuyKZzj4NgRYefR2OcQ4Otvhl1L6gxDT1MTYORHw5w39C0T7RPvo_PIUtIaPi3fmldroeRUlYWfsaxaPJWflw8x1cw=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Litovel",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJLWnF1wegEkcR8eGSkJ76TMQ",
@@ -12432,7 +11363,15 @@
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE49c7x60B4e6HP4hHTR_6iRPbDSiiATxDbEYKO4ksCRCooaCAD-dUEe2lIPXyltPw9uPZbXDdbcS7MHONMPsm7mdtiZCFrazXqol0XLh-WX5i6xASA6tw7ORK-FRQgVlFpK7xJ=w1920-h1080-k-no"
       }
     ],
-    "priceLevel": 1
+    "priceLevel": 1,
+    "beerMenu": [
+      {
+        "name": "Rebel",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJbUN6YQBfDUcRet6G08SZ7JY",
@@ -12531,107 +11470,6 @@
       },
       {
         "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=an6V5uXZS1CZZMxePcpZJA&cb_client=lu.gallery.gps&w=160&h=106&yaw=256.8058&pitch=0&thumbfov=100"
-      }
-    ]
-  },
-  {
-    "id": "ChIJy4fMVR1vDUcRh_7f_eFOdaE",
-    "placeId": "ChIJy4fMVR1vDUcRh_7f_eFOdaE",
-    "name": "Pizza - Bistro",
-    "lat": 49.3484151,
-    "lng": 16.0203331,
-    "address": "K Novému nádraží 2014/7, 594 01 Velké Meziříčí, Česko",
-    "city": null,
-    "stationName": "Velké Meziříčí",
-    "distanceToStationM": 315,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Pizza%20-%20Bistro&query_place_id=ChIJy4fMVR1vDUcRh_7f_eFOdaE",
-    "phone": "+420 606 311 606",
-    "website": "https://pizza-bistro.cz/",
-    "rating": 4.6,
-    "reviewCount": 387,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "9:30 to 18:30"
-      },
-      {
-        "day": "úterý",
-        "hours": "9:30 to 18:30"
-      },
-      {
-        "day": "středa",
-        "hours": "9:30 to 18:30"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "9:30 to 18:30"
-      },
-      {
-        "day": "pátek",
-        "hours": "9:30 to 18:30"
-      },
-      {
-        "day": "sobota",
-        "hours": "Zavřeno"
-      },
-      {
-        "day": "neděle",
-        "hours": "Zavřeno"
-      }
-    ],
-    "categories": [
-      "Pizzerie",
-      "Rychlé občerstvení"
-    ],
-    "permanentlyClosed": false,
-    "source": "restaurace nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.368Z",
-    "reviews": [
-      {
-        "author": "David Smejkal",
-        "stars": 3,
-        "publishAt": "před 2 týdny",
-        "text": null
-      },
-      {
-        "author": "Martina Cvetanova",
-        "stars": 5,
-        "publishAt": "před 3 týdny",
-        "text": null
-      },
-      {
-        "author": "Jara191 Benda",
-        "stars": 5,
-        "publishAt": "před 3 týdny",
-        "text": null
-      },
-      {
-        "author": "Olga Šupkova",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": null
-      },
-      {
-        "author": "Ondra Zezulka",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": "Skvělá zkušenost! Měl jsem tu kousek pizzy za 46 Kč – byla velká a moc dobrá, rozhodně doporučuji. Mají tam široký výběr jídel, což je velké plus. Jen pozor na to, že platba kartou je možná až od 100 Kč, jinak berou hotovost."
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHFZhVHNwyVNHhG74mQmSACFfYmqXpGJqgnvB-zATrfhKWTOGnDjY8kARh14pzofRByqNPhRHcmB1tBEpyGEVJUQcV-ZOSVF8mwV8za2pGMY8ta-GdU7SRtLnlNwlsJGtaS2PGb=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipOK_frrVxe08ZK3uyZsISHLL45l0hn8dR4vTnne=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG-Sb6fntmL_y_Zp0eoKOwQlkpc9VlWpr8OTW_8EB5j9QTaNmCiHcNtQPytKBlcowRigX_yBGp86sDASZULjPVumgccN8r4epng14Ax9fab7jSHgz8Syex8GPcdm65YpzEaYKSk=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/p/AF1QipNAebqJHsdKElgDdnKIzUVNo1oPMr78tZi15J7g=w1920-h1080-k-no"
       }
     ]
   },
@@ -12934,7 +11772,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHifS2WRyz7pqizo4qr0hLKzjbT1HqttBSw-ZVL0yvMDEfWxynKcqFJSKebCRe9Ujh74tkpCoiDaBRanIej1oszxaIGYPQZhBU4NjJjkuuShEYY4gErV_Zsp9ImQXgu59K31sC80Q=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Polické pivo",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJH6rgtAxWDEcR03HEkVGsvpU",
@@ -13034,7 +11880,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGvaBk8EapZ41MZ9NsVuDfcdiN_h6jFpTiFUMnYzCMwYnld_w7wAhHyRWMG-77Qba6TqIECDIderOdgY_zJWWooAIQJNbhO8o2M2jPCtXxHJGCmUbyaBBwMqYdKbKWq1DW3-m-ZirNjXN4C=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Bernard",
+        "price": 45,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJDTUXgnUVDUcREB0rPYW4D54",
@@ -13133,77 +11987,6 @@
       },
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHAtwAadH93UTGqTRDXYeVzNerCai_peOb5YKwMSfz2RvDQCXsh-5x8YyiIOw5icfT1i36M_ue15gdX9KTudqNG-KbbUhISp4luV6xlYSZQ14H1dRF4m_baxU3YTFECGL7wlv_Jiw=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
-    "id": "ChIJ2ah5S0jDDEcR_WLg2PtgKV4",
-    "placeId": "ChIJ2ah5S0jDDEcR_WLg2PtgKV4",
-    "name": "Apartmány Pokorný",
-    "lat": 49.295333,
-    "lng": 15.0762516,
-    "address": "U Nádraží čp. 351, 394 70 Kamenice nad Lipou, Česko",
-    "city": null,
-    "stationName": "Kamenice nad Lipou",
-    "distanceToStationM": 122,
-    "tier": 2,
-    "verified": false,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Apartm%C3%A1ny%20Pokorn%C3%BD&query_place_id=ChIJ2ah5S0jDDEcR_WLg2PtgKV4",
-    "phone": "+420 774 526 625",
-    "website": "http://www.apartmany-kamenice.cz/",
-    "rating": 4.6,
-    "reviewCount": 7,
-    "openingHours": [],
-    "categories": [
-      "Ubytování"
-    ],
-    "permanentlyClosed": false,
-    "source": "restaurace nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.372Z",
-    "reviews": [
-      {
-        "author": "Ladis St.",
-        "stars": 4,
-        "publishAt": "před 2 lety",
-        "text": null
-      },
-      {
-        "author": "Oliver",
-        "stars": 5,
-        "publishAt": "před 4 lety",
-        "text": null
-      },
-      {
-        "author": "Jarda Sojka",
-        "stars": 5,
-        "publishAt": "před 5 lety",
-        "text": null
-      },
-      {
-        "author": "Cafik Adrian",
-        "stars": 4,
-        "publishAt": "před 8 lety",
-        "text": null
-      },
-      {
-        "author": "Sarka Rehackova",
-        "stars": 5,
-        "publishAt": "před 8 lety",
-        "text": null
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHppLhAqW4B-sX188oHd52LoPa99g6qa5xRK3gOrDdzr9a7ASdgbVf0F1jq_3K4lasvF5bE0m-VXJSvjbaZVgZSK1hOB_Te4k7x_kqGgEdwahB8LehwuTXHn0Rg8ypeA4y_5A=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=nvpZW93sZBooklkONo4BRw&cb_client=lu.gallery.gps&w=160&h=106&yaw=12.151207&pitch=0&thumbfov=100"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF0at_3AMo7PVQk_9Us6Ybb1Mcv-0G9N56tb154wBXJ3nOeAQ3s2Ivs9MoDXTOsoeX9So5xbbCexB99p_0uew99GI44WNuexQwiMIS54uOqBqqhQGpwqKulMXXcokOefvxq840=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH_vGx3CIYjRO_nPZrTVVIGEpJ-Rl7xVQrWdbQ6SrG6JOXSFmW_U6IZIpY5uh6XHe-j1UvHqv_Eeb2YKvbbwmwaNyxTGe6l6O_DxLDmQ-Qch6zk1rXAR-eOtzhwE0QAS9NcAzd9=w1920-h1080-k-no"
       }
     ]
   },
@@ -13703,7 +12486,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE5HUXCjMMRt5Ymjvsxux8O5UI40J6ESM8p87my9-zmZcULfSQtHeD6ejF6hhq3XboApQRXOYWYgYKQ7B0qylyVpUWNSl3LnsoNPnYGbKk9plfzXvobHyxUIedbqAbFUFVbnhyyQQ=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Žatecký pivovar",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJady-i6sEDEcRL9hr8bzOerE",
@@ -13803,7 +12594,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGSuPgv0ZFowRFhCr9SYaP74lds-cYxV_OugnW5Yrn9u4PuhL707h1TjguQz-s9l01RswDV6jdFDnLrL9sZ3ObPhCGvSeRAywRc06jXtKAt8X33RQ88KzEjKO41cH8iysF8HTBwCw=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Radegast",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJzddJx5K3C0cRIi-9on4P_sY",
@@ -13875,7 +12674,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAErZph4ZgNlFk-YDfQyq40zcsu2sDuW_FFoHk5k2pDIacjhcgsrYukIDnzs7AngxuS31_8NA8hysWOTERNNUINO5H3Tqw6E1_4SvXl_W0y_WNcEDGtixB14uu8PHd-HMBWwZCs=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Krušovice",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJqS1SWM8PDEcRJg38IcUXq9c",
@@ -14101,7 +12908,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEQtqo4KRtQzqsQ-QyUxJ3aGX86fGTDlP8bEG9vclDV6nyX7JrYLJP4eokD1TsUZiisOd4bxE6ufZXldTgvUdiHoOiIzeHaS4hNdY0rEphOalkU-W16mJFzayOY9FOOUDLYv1UL=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Staropramen",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJaUbiKd5TCUcRbuP9VOUD7tM",
@@ -14202,7 +13017,15 @@
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE7zUgl-ByPHHAknrXdxLLfS3FVWaqjLz3JTNQv9cASx4mwyZdWySDrU0OsTIqE4WGnGAWDv2ScquWw9x9RSIQ0JDiggT9d0C5quWYl-169tx3mcjwYbnDBKIQ61RvxKp3zmwwI_yKb0O1O=w1920-h1080-k-no"
       }
     ],
-    "priceLevel": 1
+    "priceLevel": 1,
+    "beerMenu": [
+      {
+        "name": "Klášter",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJ-SaEi8HlC0cRY1LDMn3pCk0",
@@ -14302,7 +13125,25 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH-QETc64OSMCwZOOiRFn0b-VMUymaYMZPxMlFjauXiZP3YmE_Uu2VuveD6ngi3E9YgK2PXCJExolxAVUwsb8OKa_q1Q64ZblJrW34zZ4SwYpShHsvrKA8eIc4XPuVqGrrsvK8=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Krušovice",
+        "price": null,
+        "isPrimary": true
+      },
+      {
+        "name": "Svijany",
+        "price": null,
+        "isPrimary": false
+      },
+      {
+        "name": "Gambrinus",
+        "price": null,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJd5BdjZJTCUcR1KQH6FLCW9Y",
@@ -14402,7 +13243,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGeFYrsCxJRrQkeIA34POF3JP3TWOGk7udvhmqu29EgWf4pUA_aKJ7KHAvLCsuzxYD-iTFLEwzVXmfMefJt2lxbeHSK9a7hdjx0_Q3eX6c_a8M0WgWFc-bcFLY8_XyvpHeDOqg=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Klášter",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJ-WAGG02lC0cRNS75qCcpWO4",
@@ -14502,7 +13351,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF4ONwkupk1B9aRs5FwtsFBW2LyUsWyQcUtMKk-wyKhniMlXFyRPP9Y6TPEkfCanZA1cfe3WvX48I65IF_oOLabLK6U4gg-SRy23Q1EaSLkra76ur0jJShslK_XuMRF5UsiNR86qWByfSs=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Pilsner Urquell",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJP9XGUkXJC0cReGUX38cqMuc",
@@ -14916,7 +13773,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF7a5oIhvngd1Vlc80hJkbTNHhHCUjHnKvYRUi2A1pK-vAR0j7L-7oj511Dk-r0ZjBQok5mUT5XujxO_bfvntTyMDL-7KOY79sBmq0CGILY8x2fD9oZdmJ--xL3hbx7B4G3ikXBIjyDUxjT=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Braník",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJddVCO_NTCUcRLxbh0Jt4k2U",
@@ -15016,7 +13881,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFB7ygeXnynI_MmIx-UfwrA7wpHoCGSjvnHVXEuHcuiU-X5cnDX0sSNtHKNwzbWEdfMftvDDQagWz0KFB7-bq7668llmuKzW9zuF5HOQPQ3kGb0PYYI1Fk85lirxV9fmeDa_cJqAQ=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Staropramen",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJJyL2FLj3C0cRBB024b8BJ_o",
@@ -15116,7 +13989,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGhGFIHptvT0ACulDF1wMGfJUGUf3d2Gn9CfgXBtFSxV-_8DClN34rwCGKQQa7rkQGTv8oZu028C3JpHX08lZJPoZhDq4o802D0y4XZX6iqtTYfKJdD-CCPrkkubzdkoJ3RccS1jXZyBItQ=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Postřižinské pivo",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJ42nhUNGxC0cR8v0y-GFaXRw",
@@ -15648,7 +14529,15 @@
       {
         "imageUrl": "https://lh5.googleusercontent.com/proxy/Jh2ZLAHvwP1L4MIMOT-De0VUzkio5SdE-QI9PQs6IONLQof0GO3cZwbHtNxstNgwgHI7PhBkSBopXaC_v-sx_ZA9ABxo-VHYTm25QbpBEXOa8tdCkoZUVAI0gzG3hRfebB0mswazAssVIS50U9aNDHYwCuF8JfQ=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Pivovar Chříč",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJPziDF2V5DEcRULGaNTaY6n0",
@@ -15848,7 +14737,20 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH9S1K8FrZyw4ZeDeDO63NViNIvWxtnsgKH9ibDFmsx6qcbhjDQqaJSW00ln64boi9m-tN6fbQlW-SijBYx_CCEPkWuL3i-Px7ogDsfwUktBe0WAT9chgVrGrVxHJr4Dl5kea_evC6wMI7T=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Pilsner Urquell",
+        "price": null,
+        "isPrimary": true
+      },
+      {
+        "name": "Gambrinus",
+        "price": null,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJ08GUFkiFC0cRe7bThZ72CpE",
@@ -15948,7 +14850,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGqNTe8qyNV722mjvpQ171OOGUD4m3auRZRyydc1BfFmzyO2dpGNa_fY6jvP5fBh5M4m0XR_HVre9zvKIHvMzyWxBdgYoQY3-iKJC4DSAioQcR5HTXiyZLJdOhDWeup4gUoMIk=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Svijany",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJqRruK1HrC0cRVsC_BANXYf8",
@@ -16588,7 +15498,20 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEzUSX9v1NBwdIra7d3lr2TNcWQAjrVIS8D9Q59L7GAR72LjSMgF2VvspgWg2J1-zBrn4J99UY2aO20v4obQcbiTP8GGq5cTL3mQE2gC9Eb0zzNYwd79MRNpW31d9uUNai0VAc=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Staropramen",
+        "price": null,
+        "isPrimary": true
+      },
+      {
+        "name": "Braník",
+        "price": null,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJbYrvQMENDEcRMThICeJdA10",
@@ -16954,113 +15877,6 @@
     ]
   },
   {
-    "id": "ChIJCfXqJZ3FC0cRTUript4D-14",
-    "placeId": "ChIJCfXqJZ3FC0cRTUript4D-14",
-    "name": "Infocentrum kavárna Nelahozeves",
-    "lat": 50.2627879,
-    "lng": 14.3022735,
-    "address": "Nelahozeves 2 žel. stanice Nelahozeves zámek, Nelahozeves 2, 277 51 Nelahozeves, Česko",
-    "city": "Nelahozeves",
-    "stationName": "Nelahozeves zámek",
-    "distanceToStationM": 21,
-    "tier": 3,
-    "verified": false,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Infocentrum%20kav%C3%A1rna%20Nelahozeves&query_place_id=ChIJCfXqJZ3FC0cRTUript4D-14",
-    "phone": "+420 315 315 841",
-    "website": "https://infocentrum.nelahozeves.cz/",
-    "rating": 4.9,
-    "reviewCount": 110,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "Zavřeno"
-      },
-      {
-        "day": "úterý",
-        "hours": "10 to 17"
-      },
-      {
-        "day": "středa",
-        "hours": "10 to 21"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "10 to 17"
-      },
-      {
-        "day": "pátek",
-        "hours": "10 to 21"
-      },
-      {
-        "day": "sobota",
-        "hours": "10 to 21"
-      },
-      {
-        "day": "neděle",
-        "hours": "10 to 17"
-      }
-    ],
-    "categories": [
-      "Turistické informační středisko",
-      "Kavárna",
-      "Místo konání akce",
-      "Prodejna pohlednic",
-      "Prodejna map",
-      "Rychlé občerstvení",
-      "Veřejné toalety",
-      "Bezbariérové veřejné toalety"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražní restaurace",
-    "scrapedAt": "2026-04-20T13:37:24.411Z",
-    "reviews": [
-      {
-        "author": "Jirka Gore",
-        "stars": 5,
-        "publishAt": "Upraveno před hodinou",
-        "text": "...vyplati se pribrzdit na dobrej dortik nebo utopence😉👍"
-      },
-      {
-        "author": "Jan Prochazka",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": "V místě nádražní budovy infocentrum s kavárnou. Zakusky,káva, pivo,suvenýry. Chválím příjemnou a ochotnou obsluhu,palec nahoru"
-      },
-      {
-        "author": "MyNicknameIsMom",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": "Genius Loci místa u kterého to ani nečekáte 😍 příjemná kavárna hned na nádraží s vnitřním dětským koutkem s možností pozorování vlaků,v teplém počasí je k dispozici i venkovní hriště s vláčkem. V nabídce je výběr dezertů a základních slaných snacků a hlavně dobrá baristická káva, kterou by člověk občas na výletech pohledal :) rozhodně doporučujeme k navštívení."
-      },
-      {
-        "author": "Mikina58",
-        "stars": 5,
-        "publishAt": "před měsícem",
-        "text": null
-      },
-      {
-        "author": "Petula Bobekk",
-        "stars": 5,
-        "publishAt": "před 2 měsíci",
-        "text": "Neskutečně příjemné prostředí, výborná káva, zákusky, turistické vizitky. Možno i navštívit s pejskem. Určitě se znovu zastavíme..."
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHDLLO7Hy9lywnX4F0iLtOFvBY_WA-xYWFZkr-ZbN1Z7uR4oL-GGn5cG2t3RRaNzkeCCFy_UboisYsrrxnMYVT_jPWdDM7eJfUtKh4A4GtiOm3A0ZzyF___aXLnXcmCajsb4IMLp1o4hTU=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG_D50AIRkieGcYGsPJzzwMzp-rP-1e5i9-s9w_53siZS1ZJz5j53Tb_ZmdHe6MYdG-qNU7sGX1StWRRwbogJ0UB6vjpYY6qtprMIbaG5v2Pt5pjswAtqdyL36zcHbLF2qTmLNktQ=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEECXotvY0JpkP3dXBpxqitkoqrPC-B692nNNlsHYfpA_zhNsh8bopT5GxqWnDuaG2hZ4w32OehSyZCo-Jkx_vJZfsPcd8cM2y9KPPbTf-7bEBL8KET1HwHqUwbECVwjKUDj4nadD-agxxl=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFelYdg1KrPZX7UjrJQCg9AXOomP67yQO3evYxAfowBbga8MfT09FbcHNVeoc0oV3gzra7qdsmiYIsSDvbIPmgtaegfzJvz4-SoPTAcZj4qvoB1RlMzSHHlM2KRBbbcpR6BuN4HGMcPRNIx=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
     "id": "ChIJXYpKqWG8C0cRlPtyKpLkOGc",
     "placeId": "ChIJXYpKqWG8C0cRlPtyKpLkOGc",
     "name": "Restaurace Zastávka",
@@ -17325,268 +16141,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFls2uVQxhSpzTcSPdUFxwgeP7YhXfVJeta_lovhUIVrFq33OcaYTM6T6wr8lgaKRRxEGRJmqbZ-9snrK58BIjIriESXMYx2UGa4PVcrOipixqqFbokZ5ygVya3Nm41jPcYur7MXyOoKOk=w1920-h1080-k-no"
       }
-    ]
-  },
-  {
-    "id": "ChIJIbXK5pA2CUcRXaRNA0HBwac",
-    "placeId": "ChIJIbXK5pA2CUcRXaRNA0HBwac",
-    "name": "Penzion U nádraží",
-    "lat": 50.7600768,
-    "lng": 15.0460114,
-    "address": "Na Františku 345/2, 460 07 Liberec, Česko",
-    "city": "Liberec",
-    "stationName": "Liberec",
-    "distanceToStationM": 137,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Penzion%20U%20n%C3%A1dra%C5%BE%C3%AD&query_place_id=ChIJIbXK5pA2CUcRXaRNA0HBwac",
-    "phone": "+420 972 365 421",
-    "website": null,
-    "rating": 3.3,
-    "reviewCount": 9,
-    "openingHours": [],
-    "categories": [
-      "Dům pro hosty"
     ],
-    "permanentlyClosed": false,
-    "source": "nádražní hospoda",
-    "scrapedAt": "2026-04-20T13:37:24.419Z",
-    "reviews": [
+    "beerMenu": [
       {
-        "author": "Ladislav Vitak",
-        "stars": 1,
-        "publishAt": "před 4 měsíci",
-        "text": "Není to penzion, ale administrativní budova ČD a SŽ."
-      },
-      {
-        "author": "Petro Irkha",
-        "stars": 5,
-        "publishAt": "před rokem",
-        "text": "Чисто та не дорого"
-      },
-      {
-        "author": "Petr Minčák",
-        "stars": 5,
-        "publishAt": "před 4 lety",
-        "text": null
-      },
-      {
-        "author": "Lukáš Kroupa",
-        "stars": 3,
-        "publishAt": "před 6 lety",
-        "text": "Cestoval jsem jen kolem, služeb jsem nevyužil, ale jedna věc: místo je hůře dostupné autem. A je to tam slabší s parkovanim."
-      },
-      {
-        "author": "Jakub Kitler",
-        "stars": 4,
-        "publishAt": "před 7 lety",
-        "text": null
+        "name": "Svijany",
+        "price": null,
+        "isPrimary": true
       }
     ],
-    "images": [
-      {
-        "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=Q_5mg92ULf9DyFHYrpMfAg&cb_client=lu.gallery.gps&w=160&h=106&yaw=149.71817&pitch=0&thumbfov=100"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFsgHYGjm2kDyp6RENQNtJ-jgD5XuNcpTuqopyJgPpb5b-hKwywbZwxl1bzqodWnWCgAFzrgRODxvDWuuXF_-aYa3qjyr8go5WMuNmEmatYQNg1c2CoDRAZNzmizbBJq9dLA1jIjw=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGzv1uf4fjIp6fOuyBlnemYAWDZgwTaORt4EIYse4n5NPtjElVVEfQbsqyHnfqnLbY5enV9Co8aK3aCMdgtuAMlSXOBzVhv7Lgx0joa6PilKRH7nvgiRIWEwNSm3pYuReO3nkrZyQ=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
-    "id": "ChIJlSovewA3CUcRmD0Fo22YyU8",
-    "placeId": "ChIJlSovewA3CUcRmD0Fo22YyU8",
-    "name": "UMI Fusion Bistro",
-    "lat": 50.7618585,
-    "lng": 15.0466666,
-    "address": "Nákladní 344/2, 460 07 Liberec-Jeřáb, Česko",
-    "city": "Liberec-Jeřáb",
-    "stationName": "Liberec",
-    "distanceToStationM": 81,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=UMI%20Fusion%20Bistro&query_place_id=ChIJlSovewA3CUcRmD0Fo22YyU8",
-    "phone": "+420 725 396 397",
-    "website": "https://umifusionliberec.choiceqr.com/",
-    "rating": 5,
-    "reviewCount": 7,
-    "openingHours": [
-      {
-        "day": "pondělí",
-        "hours": "8 to 21"
-      },
-      {
-        "day": "úterý",
-        "hours": "8 to 21"
-      },
-      {
-        "day": "středa",
-        "hours": "8 to 21"
-      },
-      {
-        "day": "čtvrtek",
-        "hours": "8 to 21"
-      },
-      {
-        "day": "pátek",
-        "hours": "8 to 21"
-      },
-      {
-        "day": "sobota",
-        "hours": "9 to 21"
-      },
-      {
-        "day": "neděle",
-        "hours": "9 to 21"
-      }
-    ],
-    "categories": [
-      "Asijská restaurace"
-    ],
-    "permanentlyClosed": false,
-    "source": "nádražní bufet",
-    "scrapedAt": "2026-04-20T13:37:24.420Z",
-    "reviews": [
-      {
-        "author": "Magic Studio",
-        "stars": 5,
-        "publishAt": "před 3 týdny",
-        "text": "Absolute cinema nikdo tam nebyl jídlo za 3 min na stole a porce jak huj"
-      },
-      {
-        "author": "Roman V.",
-        "stars": 5,
-        "publishAt": "před 2 měsíci",
-        "text": "Pěkně nové bistro na nádraží v Liberci. Když člověku ujede vlak, musí čekat na další a v žaludku prázdno. Perfektní rychlost. Měl jsem uvařeno za cca 5min. Doporučuji"
-      },
-      {
-        "author": "Ikor",
-        "stars": 5,
-        "publishAt": "před 3 měsíci",
-        "text": "Гарний заклад, смачна їжа, ввічливий персонал.\nСупер, смачно, рекомендую."
-      },
-      {
-        "author": "Sofia Zaharun",
-        "stars": 5,
-        "publishAt": "před 3 měsíci",
-        "text": "nice"
-      },
-      {
-        "author": "Dalibor Krunt",
-        "stars": 5,
-        "publishAt": "před 3 měsíci",
-        "text": null
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHELDIiQKSSwm-w8cPEcK-mmRn8CEGOatjjI6aenEfL2JZYEOjP_eyYpiaTAEaikCb8W7NIKraMHPiGK8ze7Ic9rqrqcvq0BZHGLHDQR5azrRIiNTQM5gv5Nx7eP-FTAApVXAXoZnl0Im8=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/proxy/RK7bN9utVPFKuak21H-9G8ZvU8Mk4OVJIY6qtUk_WJExf8B1cc6F78bNLWDLRYtDHyhTJXbHGd9Kvg_AnTojhJ1hK2re1U_DRBZLvLpNP9M0e1DMhYc7LOGba1jvI9QwhomBhHSIpS4680d_NQXL-GXmaF59FTc=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh6.googleusercontent.com/proxy/IkanFYxJ4BDY-wJWu7xkbZoWBXfFGzhY4Rzr3dS3P26iXPEDWX6Dt-8FscObrZNGejW9T28-C9tOlp-sCU6W8yXlYtfo-_NXzHMxoIRsOsz9TobOTGZEWVRC8Y_ySpPgJiESOvH5kR5D-qnm8iqrCJtieZTAHA=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh5.googleusercontent.com/proxy/92f0bxBVkH1SNSPzOW13xgcv0C2__pAwP9Z4LyT1uUTJ9yGO_4BkRmnAd7vN3cau0ArQxooCM9ZP-OdybGN2ztaGggaHXpUEvza18BIp9g2DJGx-XdrjvMg09dzlyXOjKMap76WQOI2izr0F5xGL7q2i-K-aFA=w1920-h1080-k-no"
-      }
-    ]
-  },
-  {
-    "id": "ChIJA3HNA7FPc0cRwOasvutGfXg",
-    "placeId": "ChIJA3HNA7FPc0cRwOasvutGfXg",
-    "name": "Penzion Tilia, U Nádraží",
-    "lat": 48.9726776,
-    "lng": 14.4942155,
-    "address": "Dienzenhoferova 58, 370 06 České Budějovice 5, Česko",
-    "city": "České Budějovice 5",
-    "stationName": "České Budějovice",
-    "distanceToStationM": 454,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Penzion%20Tilia%2C%20U%20N%C3%A1dra%C5%BE%C3%AD&query_place_id=ChIJA3HNA7FPc0cRwOasvutGfXg",
-    "phone": "+420 387 411 468",
-    "website": "https://www.penziony.cz/ceske-budejovice/penzion-tilia/",
-    "rating": null,
-    "reviewCount": 0,
-    "openingHours": [],
-    "categories": [
-      "Penzion"
-    ],
-    "permanentlyClosed": false,
-    "source": "bar nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.429Z",
-    "reviews": [],
-    "images": [
-      {
-        "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=Yrs_UWyiJHtDYY1l1hujew&cb_client=search.gws-prod.gps&w=408&h=240&yaw=176.16663&pitch=0&thumbfov=100"
-      }
-    ]
-  },
-  {
-    "id": "ChIJ9XhdAwCVEkcR805BOL1N6oU",
-    "placeId": "ChIJ9XhdAwCVEkcR805BOL1N6oU",
-    "name": "Train Coffee",
-    "lat": 49.1911371,
-    "lng": 16.6133693,
-    "address": "Nádražní 418/1, 602 00 Brno-střed, Česko",
-    "city": "Brno-střed",
-    "stationName": "Brno hlavní nádraží",
-    "distanceToStationM": 19,
-    "tier": 1,
-    "verified": true,
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Train%20Coffee&query_place_id=ChIJ9XhdAwCVEkcR805BOL1N6oU",
-    "phone": null,
-    "website": null,
-    "rating": 4,
-    "reviewCount": 4,
-    "openingHours": [],
-    "categories": [
-      "Bar"
-    ],
-    "permanentlyClosed": false,
-    "source": "bar nádraží",
-    "scrapedAt": "2026-04-20T13:37:24.438Z",
-    "reviews": [
-      {
-        "author": "Michal Zvozil",
-        "stars": 5,
-        "publishAt": "před 6 měsíci",
-        "text": null
-      },
-      {
-        "author": "Jakub Roubíček",
-        "stars": 5,
-        "publishAt": "před 9 měsíci",
-        "text": null
-      },
-      {
-        "author": "NakU Czechovskij",
-        "stars": 5,
-        "publishAt": "před rokem",
-        "text": "Tbh this place saved my back like 3 times... Mostly because the station doesn't have a place to sit in...\nIt's comfy here, the service was kind and helpful and it's clean and hygienic there"
-      },
-      {
-        "author": "Nikola Majsniarová",
-        "stars": 1,
-        "publishAt": "před rokem",
-        "text": "Predali ste mi nechutný, rozmoceny a po záruke croissant. Obsluha tiež nebola vôbec milá. Takto ste mi rannú cestu vlakom fakt nezlepšili. Fotené 2.1."
-      }
-    ],
-    "images": [
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGqVHZUkGn7nDvhpPp2KrqZXUpayakwA22aPYVtjAvxqnzSHECcn_KapMKON4Erc-Rbyonq-loaJxGxRhNg6tgQWXKBbptTUxZEjF8ipxfZkwQFIm0co1fh3xzyXpuBR49t_fdC=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF8uxH0HPAaRq-Jjii6Ed-XjxE9Vq3K6qe8O1jLRma5TfAjKi8Eztfxl-ZGAXvPQkH_LWhvkPSogddwt2c0j3D283C18H3yNXuQqbtfIofptXoFFltU-lSGWr75uSO5PcvsbXB5=w1920-h1080-k-no"
-      },
-      {
-        "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=fY0g2VSjZzsfiqqEPmDeCA&cb_client=lu.gallery.gps&w=160&h=106&yaw=98.1851&pitch=0&thumbfov=100"
-      }
-    ]
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJbQdls6CWC0cREOqHWFNM30s",
@@ -17754,7 +16317,15 @@
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFTRA80E5QX0Didqt3f3QkLwQ8IxiOR_STa6Brp1q6zB8jGXRDUfqfphx4a27OGYIRDBp4G-8YsVbjNCnpWXpjqbevidEOp1tWJn1ElRvMLfQzKTQCR04xy8iL9tpTxllQK6Oc=w1920-h1080-k-no"
       }
     ],
-    "priceLevel": 1
+    "priceLevel": 1,
+    "beerMenu": [
+      {
+        "name": "Braník",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJQWEKcSGVC0cRB4YKikoW17w",
@@ -17854,7 +16425,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFRFPLnmsqCl8rKKW_57Qp0q1z-mQWvNwBgAKZF5G94Bkqz6sLJcQDX3uXdDRGeO5or7rfa7iXyOoASloz1BIVXl7zu7aDQt0Wfsm31eYRsenYFcgTTWLGQa2Y8m3uCVvZEGPA__r6VjoBk=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Staropramen",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJaQZUzaCWC0cR4U4Oej239gM",
@@ -17954,7 +16533,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGGvD2ikA7jR3iddUh1-I00gOHqNuPOJwaJ3eBAUY-CVFGdGoiNHyKlWgPOjfAcUKutAePm8gcnYGjAR3Fe_z4VNssk6dD3RD41clxfaNK8eX97M-ESsLdQ9aAT27aVOI4Lv7_2tWTRIK8=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Braník",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJmyLhMQCVC0cRK_qfniWLjM0",
@@ -18054,7 +16641,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEE7CrIZ5ssQI1ux2g4KNXCW4CLzUEu1Hq_9ScQrx1EMnNIKY5DwWqEy54zrBekqrSxmqzhF9FT_Oq1qzm3nAd5s8F2eRCB6SmQpTbfxPBePslyDdjNIirukSCNKCsbxb6h3jJfzD4wYJaY=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Pilsner Urquell",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJ7ZSX2JOUC0cRIUBHTzq8UXk",
@@ -18354,7 +16949,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFNw6gX-aELNgMS2oPiRJeZCdl67FXGxDXl5OQqTFI5DHQUm_RgRXeE7VV3zXr40hpRs-XGSuVcbXxbh565ElGJtiDu2m-JEzgq-7SJk-0d3waWBpb97_V6hIXPD8b_lha7ZfBTUQ=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Krušovice",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJWysB5X-UC0cRlTj_KEQKDOw",
@@ -18760,7 +17363,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFhfLmNxU3cbs-FWlq3M-z7-hBsVSlE3n9uSzbCmejc-K-UR5PolYUkbIHeeK6REaaqWjrcIxDL3o8-zbZ45yeAHeIGUKr43CehKNc7NcQHW0eVZaxSQiYUZuiym0PHNyhJk8e8R0qZvXMV=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Krušovice",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJR1W9Qn5zEkcRNbYPmg8ch-s",
@@ -18800,7 +17411,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFJRouGDVLHQPVr0LwFHh4qLibAI3ldg4Y89UJO5I-U4IZI46dIN7iuK_Bg9EapK1gGR-oC_h9tnt4Fr3VBDWEp7GdnoRchOxjyrjffarLTeeicviQ0cWd3Gxu5zJgiAMBJDHWr=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Kozel",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJKyDk99BDCUcR6T2quuU7weM",
@@ -18870,7 +17489,20 @@
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH9sFFh_-VJ6KrIfqkUN4W1qKdVd-QPzR6KhOK-7mGKfKYAj4g76y-hZFAeIMJNFMGLGow79-SGufwZEP0kgBcR6vnu8ZQdW6gd1y6q9oGTXTCRLD6ZoLsMwDv9saccbxphUvCtPzuBGC_z=w1920-h1080-k-no"
       }
     ],
-    "priceLevel": 2
+    "priceLevel": 2,
+    "beerMenu": [
+      {
+        "name": "Pilsner Urquell",
+        "price": 38,
+        "isPrimary": true
+      },
+      {
+        "name": "Kozel",
+        "price": 28,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJrxQRLgU6CUcR26Q1xRqUXrs",
@@ -19009,7 +17641,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEyH0mGBEu7jWxAa1JUTGspfQ4ZNyoJYa3bNwiOytd9Dr25P4ekhs8Szo3ZbqmXfmCG4oowT1ErZZJr4CkB3CBGHmo1ZCR3o0EEOR1oMLA0qix5PXrm26tpQD2zPCeItlJlAc21=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Krušovice",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJBZQIjyNdCUcR3ljF2gT8wwY",
@@ -19079,7 +17719,16 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEz1srdyuHnlnQsqzWFdul-QDmvrxQ5cNp0AGHOnAflMZbW1PZFiqESqgoTsd009Q8xmTnjQ0pdQCGt-5u8TPMlfbBgXkseG-9FNd8MQH1Y8Uy-8or9sXFXMn2hWGfrG7fuAWmxgPVr1Y3Q=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Březňák",
+        "price": 24,
+        "volume": "0.5l",
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJye4Y0YvLDkcRgf7swPEFvvQ",
@@ -19150,7 +17799,15 @@
       {
         "imageUrl": "https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=kw7XdUhLKcpbRADwiAUxlA&cb_client=search.gws-prod.gps&w=408&h=240&yaw=208.28294&pitch=0&thumbfov=100"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Braník",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJAysMRAAvCUcRYLyrUA-zFfg",
@@ -19288,7 +17945,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEhBV6dkyKkcZIf0-TpZFlIOUie2Il8L8YxJI0WetPWh8atN1aHP7wV9evuqXy7gQUx-HSLWCgA7pttQ7ktTnqH15rbE68-NHj4xQVucsXqvyqVj2TzF1ptPcAsKCFNq_U06a8=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Braník",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJJVSd0ca3DkcRTOcgshCiE54",
@@ -19745,7 +18410,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGMtFwYBbQgHVsCqT_X0Uxt832H8LnKEE_uvtiKV96Zf5SYYbbz-ilzGtlDCevYK_yvJIAGEJZ2NzbL8AZ0YfugGp3lcpTy24xuhj7HhuPSNK1kPV0OjClClOgSUnzvb9yTfQBfyCA1PBfo=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Gambrinus",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJv8xvtJ2ZDkcRZEEeyQvZ1wM",
@@ -19814,7 +18487,15 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFI6CPdKN7q03KIvQwODyMdrr_A71TnCQIyzAlISBn9gL_JvYOMBSAPmBjsDZfzpCr5wlQMmEh2c_w315ePOWPTJEC2kfRq2KMiuJoVR4HX14RPxyZbdKF_K5wQf_JZT-doiaDu=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Krušovice",
+        "price": null,
+        "isPrimary": true
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJmVKjTYx6DkcRQwuENVTHWzM",
@@ -19883,7 +18564,20 @@
       {
         "imageUrl": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFlk98x6pBrORf8b6scZ7D8SinIGxPVJxaECJ-NbQsYsPgF9_zRrs2FC3cnTniagvvjKl7aU-J8eqTOmJ17LWYgPjIGyxmuUnNK_8MR8BswyW95___lslcFfjS_ZzKyqO_HyeAC=w1920-h1080-k-no"
       }
-    ]
+    ],
+    "beerMenu": [
+      {
+        "name": "Krušovice",
+        "price": null,
+        "isPrimary": true
+      },
+      {
+        "name": "Primátor",
+        "price": null,
+        "isPrimary": false
+      }
+    ],
+    "menuExtractedAt": "2026-04-20T17:18:08.903Z"
   },
   {
     "id": "ChIJpXqj4xKzDkcRPSAEkixxA_8",

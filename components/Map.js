@@ -12,18 +12,45 @@ const TILE_ATTRIBUTION =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
 
 // Keywords that signal a proper gritty station pub (score up → bigger marker)
-// Note: 'nádražka' is NOT listed here — it has its own dedicated +2 in getMarkerSize()
-// to avoid double-counting. 'graffiti' appears only once (removed duplicate).
+// Note: 'nádražka'/'nádržka' are NOT listed here — they get their own +3 in
+// getMarkerSize() to avoid double-counting with the per-review keyword pass.
 const POSITIVE_WORDS = [
   // Czech — gritty/cheap/local signals
   'nádražní hospoda', 'kouř', 'cigaret', 'graffiti',
   'levné pivo', 'levný piv', 'dobré pivo', 'skvělé pivo', 'výborné pivo',
   'levn', 'lacin', 'špinav', 'místní', 'stamgast', 'dělník',
   'starý pán', 'staříc', 'starej', 'pivko', 'pivo za', 'levný', 'lokální',
-  'klobás', 'hotovk', 'guláš', 'řízek',
+  'klobás', 'hotovk', 'hotovky', 'guláš', 'řízek', 'výpečk',
   'čekáte na vlak', 'před odjezdem', 'drobáku', 'korun za',
-  'klasic', 'staromódní',                  // classic/old-fashioned Czech signals
-  'oldschool', 'oldskool',                 // borrowed English — common in Czech reviews too
+  'klasic', 'staromódní',
+  'oldschool', 'oldskool',
+  // Czech — time-stopped/authentic atmosphere
+  'závan',            // "závan starých časů" — whiff of old times
+  'zastavil čas',     // "kde se zastavil čas" — where time stood still
+  'zastavil se čas',
+  'retro',
+  'z dob minulých',
+  'beze změn',
+  'zachoval',
+  'hospůdka',         // affectionate diminutive
+  'lokálk',           // "Lokálka" — Czech slang for a local/regular pub
+  'vesnick',          // "vesnická hospůdka" — village pub
+  'venkovsk',         // "venkovská hospoda" — rural pub
+  'osazenstvo',       // "the regulars" — pub-specific vocabulary
+  'bufet',            // station buffet — classic nádražka format
+  // Czech — draught beer vocabulary
+  'točen',            // "točené pivo", "točený" — draught beer
+  'čepovan',          // "čepované pivo"
+  'výčepní',          // barperson who draws beer — very pub-specific
+  'výčepová',
+  // Czech — price/portion signals
+  'nízké ceny',
+  'velké porce',
+  'poctivá česká',
+  'poctivé ceny',
+  // Czech — pub fixtures
+  'kulečník',         // billiard table — classic pub fixture
+  'půllitr',
   // English
   'smoking', 'smoke', 'cheap beer', 'good beer',
   'great beer', 'locals', 'local', 'dirty', 'workers', 'old men', 'regulars',
@@ -37,15 +64,19 @@ const NEGATIVE_WORDS = [
   'nádherné', 'čistota', 'moderní', 'zrekonstruov',
   'romantick', 'elegantní', 'stylové', 'stylový',
   'čisté záchody', 'čisté toalet', 'wellness', 'wine bar', 'vinotéka',
+  // Czech — wrong-type-of-place signals
+  'kebab', 'döner', 'turecký', 'vietnamsk', 'asijsk', 'pizza',
+  'cappuccino', 'latte', 'flat white', 'barista', 'koktejl', 'koktejly',
   // English
   'lovely', 'beautiful', 'clean bathroom', 'clean toilet', 'spotless',
   'modern', 'renovated', 'romantic', 'elegant', 'fancy', 'stylish',
   'nice decor', 'welcoming atmosphere',
+  'cocktail', 'cocktails', 'brunch', 'specialty coffee',
 ];
 
 // Classic Czech pub/bar categories — split by score tier so both arrays are actually used
 const TOP_PUB_CATEGORIES  = ['Hospoda', 'Hostinec', 'Pivní výčep'];
-const GOOD_PUB_CATEGORIES = ['Bar', 'Sportovní bar'];
+const GOOD_PUB_CATEGORIES = ['Bar', 'Sportovní bar', 'Bufetová restaurace'];
 
 /**
  * Compute authenticity score for a nadrazka.
@@ -56,8 +87,13 @@ function getMarkerSize(nadrazka) {
   const reviews = nadrazka.reviews ?? [];
   const reviewCount = nadrazka.reviewCount ?? 0;
   const cats = nadrazka.categories ?? [];
+  const name = (nadrazka.name ?? '').toLowerCase();
 
   let score = 0;
+
+  // Name bonus: "Nádražní restaurace", "Hospoda U Nádraží" etc. are strong signals
+  if (name.includes('nádraž') || name.includes('nadrazi') || name.includes('nadraz')) score += 2;
+  if (name.includes('hospod') || name.includes('hostinec') || name.includes('výčep') || name.includes('pivnic')) score += 1;
 
   // Category bonus: classic pub types get a head start
   if (cats.some(c => TOP_PUB_CATEGORIES.includes(c)))       score += 3;
@@ -68,14 +104,16 @@ function getMarkerSize(nadrazka) {
   else if (nadrazka.priceLevel === 2) score += 1;
   else if (nadrazka.priceLevel >= 3) score -= 1;
 
-  // Review text signals
+  // Review text signals — capped at ±3 per review to prevent keyword stuffing
   for (const r of reviews) {
     const text = (r.text ?? '').toLowerCase();
     if (!text) continue;
-    for (const kw of POSITIVE_WORDS) { if (text.includes(kw)) score += 1; }
-    for (const kw of NEGATIVE_WORDS) { if (text.includes(kw)) score -= 1; }
-    // Strong signal: reviewer explicitly calls it a nádražka
-    if (text.includes('nádražka')) score += 2;
+    let rs = 0;
+    for (const kw of POSITIVE_WORDS) { if (text.includes(kw)) rs += 1; }
+    for (const kw of NEGATIVE_WORDS) { if (text.includes(kw)) rs -= 1; }
+    // Strong explicit signal: reviewer calls it a nádražka (or colloquial nádržka)
+    if (text.includes('nádražka') || text.includes('nádržka')) rs += 3;
+    score += Math.max(-3, Math.min(3, rs));
   }
 
   // Review count bonus (more reviews = more prominent)
@@ -84,7 +122,7 @@ function getMarkerSize(nadrazka) {
   else if (reviewCount >= 50)  score += 1;
 
   if (score >= 5)  return 'large';
-  if (score <= 1)  return 'small';
+  if (score <= 2)  return 'small';
   return 'medium';
 }
 

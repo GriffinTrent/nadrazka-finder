@@ -324,13 +324,17 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                             {beer.name}
                           </span>
                         </div>
-                        <span style={{
-                          fontSize: 13, fontWeight: 600,
-                          color: t.priceText, background: t.priceBg,
-                          padding: '2px 9px', borderRadius: 999,
-                        }}>
-                          {beer.price} Kč
-                        </span>
+                        {beer.price != null ? (
+                          <span style={{
+                            fontSize: 13, fontWeight: 600,
+                            color: t.priceText, background: t.priceBg,
+                            padding: '2px 9px', borderRadius: 999,
+                          }}>
+                            {beer.price} Kč
+                          </span>
+                        ) : (
+                          <span style={{ fontSize: 11, color: t.text3 }}>on tap</span>
+                        )}
                       </div>
                     ))}
                   </div>
