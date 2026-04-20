@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import type { Nadrazka } from '../lib/types';
 
 function renderStars(stars: number | null): string {
@@ -15,12 +15,6 @@ function isSafeUrl(url: string): boolean {
     return parsed.protocol === 'https:' || parsed.protocol === 'http:';
   } catch { return false; }
 }
-
-const TIER_LABELS: Record<1 | 2 | 3, string> = {
-  1: 'Station keyword in name — high confidence',
-  2: 'Station address + proximity — medium confidence',
-  3: 'Proximity only — boss-agent validated',
-};
 
 const PRICE_LABEL: Record<number, string> = { 1: '€', 2: '€€', 3: '€€€', 4: '€€€€' };
 
@@ -43,6 +37,28 @@ interface BottomSheetProps {
 export default function BottomSheet({ location, onClose, darkMode = false }: BottomSheetProps) {
   const sheetRef = useRef<HTMLDivElement>(null);
   const [hoursOpen, setHoursOpen] = useState(false);
+  const [translatedReviews, setTranslatedReviews] = useState<Array<string | null> | null>(null);
+  const [translating, setTranslating] = useState(false);
+
+  const translateReviews = useCallback(async () => {
+    if (translatedReviews) { setTranslatedReviews(null); return; }
+    if (!location?.reviews?.length) return;
+    setTranslating(true);
+    const results = await Promise.all(
+      location.reviews.slice(0, 5).map(async r => {
+        if (!r.text) return null;
+        try {
+          const res = await fetch(
+            `https://api.mymemory.translated.net/get?q=${encodeURIComponent(r.text)}&langpair=cs|en`
+          );
+          const json = await res.json();
+          return json.responseData?.translatedText ?? r.text;
+        } catch { return r.text; }
+      })
+    );
+    setTranslatedReviews(results);
+    setTranslating(false);
+  }, [location, translatedReviews]);
 
   const t = darkMode ? {
     sheet: '#1e293b', bg2: '#0f172a', text: '#f1f5f9', text2: '#94a3b8', text3: '#64748b',
@@ -66,8 +82,8 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
     return () => document.removeEventListener('keydown', handleKey);
   }, [onClose]);
 
-  // Reset hours toggle when a new location opens
-  useEffect(() => { setHoursOpen(false); }, [location?.id]);
+  // Reset toggles when a new location opens
+  useEffect(() => { setHoursOpen(false); setTranslatedReviews(null); setTranslating(false); }, [location?.id]);
 
   const isVisible = location !== null;
   const images = location?.images?.filter(img => isSafeUrl(img.imageUrl)) ?? [];
@@ -304,64 +320,72 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
                 </a>
               )}
 
-              {/* Divider */}
-              <div style={{ height: 1, background: t.border, marginBottom: 14 }} />
-
-              {/* Tier description */}
-              <div style={{ background: t.tierBg, borderRadius: 10, padding: '10px 14px' }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: t.text3, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>
-                  Confidence
+              {/* Google Reviews header + translate button */}
+              <div style={{ height: 1, background: t.border, marginBottom: 16 }} />
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: t.text3, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                  Google Reviews
                 </div>
-                <p style={{ margin: 0, fontSize: 13, color: t.tierText, lineHeight: 1.5 }}>
-                  {TIER_LABELS[location.tier]}
-                </p>
-              </div>
-
-              {/* Google Reviews */}
-              <div style={{ height: 1, background: t.border, margin: '16px 0' }} />
-              <div style={{ fontSize: 11, fontWeight: 700, color: t.text3, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>
-                Google Reviews
+                {location.reviews?.some(r => r.text) && (
+                  <button
+                    onClick={translateReviews}
+                    disabled={translating}
+                    style={{
+                      fontSize: 11, fontWeight: 600, padding: '4px 12px', borderRadius: 999,
+                      border: `1px solid ${t.border}`, cursor: translating ? 'default' : 'pointer',
+                      background: translatedReviews ? t.btnBg : (darkMode ? '#1e293b' : '#f1f5f9'),
+                      color: translatedReviews ? t.btnText : t.text2,
+                      opacity: translating ? 0.6 : 1,
+                      transition: 'all 0.2s',
+                    }}
+                  >
+                    {translating ? 'Translating…' : translatedReviews ? 'Show original' : '🌐 Translate to English'}
+                  </button>
+                )}
               </div>
               {location.reviews && location.reviews.length > 0 ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                  {location.reviews.slice(0, 5).map((review, i) => (
-                    <div key={i} style={{ fontSize: 13 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
-                        <span style={{ color: '#f59e0b', fontSize: 13, letterSpacing: 1 }}>
-                          {renderStars(review.stars)}
-                        </span>
-                        {review.author && (
-                          <span style={{ fontWeight: 600, color: t.text2, fontSize: 12 }}>{review.author}</span>
-                        )}
-                        {review.publishAt && (
-                          <span style={{ color: t.text3, fontSize: 11 }}>· {review.publishAt}</span>
+                  {location.reviews.slice(0, 5).map((review, i) => {
+                    const displayText = translatedReviews ? translatedReviews[i] : review.text;
+                    return (
+                      <div key={i} style={{ fontSize: 13 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
+                          <span style={{ color: '#f59e0b', fontSize: 13, letterSpacing: 1 }}>
+                            {renderStars(review.stars)}
+                          </span>
+                          {review.author && (
+                            <span style={{ fontWeight: 600, color: t.text2, fontSize: 12 }}>{review.author}</span>
+                          )}
+                          {review.publishAt && (
+                            <span style={{ color: t.text3, fontSize: 11 }}>· {review.publishAt}</span>
+                          )}
+                        </div>
+                        {displayText && (
+                          <p style={{ margin: 0, color: t.text2, fontSize: 12, lineHeight: 1.6, fontStyle: 'italic' }}>
+                            &ldquo;{displayText.length > 200
+                              ? (
+                                <>
+                                  {displayText.slice(0, 200)}
+                                  {'... '}
+                                  {location.googleMapsUrl && (
+                                    <a
+                                      href={location.googleMapsUrl}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      style={{ color: t.linkColor, fontStyle: 'normal', fontWeight: 500, textDecoration: 'none' }}
+                                    >
+                                      read more
+                                    </a>
+                                  )}
+                                </>
+                              )
+                              : displayText
+                            }&rdquo;
+                          </p>
                         )}
                       </div>
-                      {review.text && (
-                        <p style={{ margin: 0, color: t.text2, fontSize: 12, lineHeight: 1.6, fontStyle: 'italic' }}>
-                          &ldquo;{review.text.length > 200
-                            ? (
-                              <>
-                                {review.text.slice(0, 200)}
-                                {'... '}
-                                {location.googleMapsUrl && (
-                                  <a
-                                    href={location.googleMapsUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{ color: t.linkColor, fontStyle: 'normal', fontWeight: 500, textDecoration: 'none' }}
-                                  >
-                                    read more
-                                  </a>
-                                )}
-                              </>
-                            )
-                            : review.text
-                          }&rdquo;
-                        </p>
-                      )}
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               ) : (
                 <p style={{ margin: 0, fontSize: 12, color: t.text3, fontStyle: 'italic' }}>
