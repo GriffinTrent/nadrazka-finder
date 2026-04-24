@@ -239,10 +239,15 @@ async function main() {
   writeFileSync(OUTPUT_PATH, JSON.stringify(nadrazky, null, 2));
   console.log(`Written to ${OUTPUT_PATH}`);
 
-  // Immediately download images before Google signed URLs expire
-  console.log('\nDownloading images to public/images/ ...');
-  const downloadScript = join(__dirname, 'download-images.mjs');
-  execFileSync(process.execPath, [downloadScript], { stdio: 'inherit' });
+  // Download images — only needed when there are new Google-signed URLs to cache
+  const hasNewUrls = nadrazky.some(n => n.images?.some(i => i.imageUrl.startsWith('http')));
+  if (hasNewUrls) {
+    console.log('\nDownloading images to public/images/ ...');
+    const downloadScript = join(__dirname, 'download-images.mjs');
+    execFileSync(process.execPath, [downloadScript], { stdio: 'inherit' });
+  } else {
+    console.log('\nAll images already local — skipping download step.');
+  }
 }
 
 main().catch(e => { console.error(e); process.exit(1); });
