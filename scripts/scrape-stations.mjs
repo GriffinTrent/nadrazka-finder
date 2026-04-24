@@ -69,7 +69,9 @@ console.log(`Generated ${startUrls.length} search URLs`);
 
 const actorInput = {
   startUrls,
-  maxCrawledPlacesPerSearch: 5,
+  // No maxCrawledPlacesPerSearch — that cap is per search TERM string (global), not per URL.
+  // Zoom 15 naturally limits each coordinate search to ~20 local results.
+  maxCrawledPlaces: 50000, // global safety ceiling
   language: 'cs',
   countryCode: 'cz',
   maxReviews: 5,
@@ -107,11 +109,18 @@ async function run() {
   console.log(`Dataset ID: ${datasetId}`);
   console.log(`Monitor at: https://console.apify.com/actors/runs/${runId}`);
 
-  // Poll for completion
+  // Poll for completion (retries on transient 5xx errors)
   let lastCount = 0;
   while (true) {
     await sleep(30_000);
-    const { data: status } = await apifyGet(`/actor-runs/${runId}`);
+    let status;
+    try {
+      const result = await apifyGet(`/actor-runs/${runId}`);
+      status = result.data;
+    } catch (err) {
+      console.log(`  Poll error (will retry): ${err.message}`);
+      continue;
+    }
     const count = status.stats?.crawledCount ?? 0;
     if (count !== lastCount) { console.log(`  Places found: ${count}`); lastCount = count; }
     console.log(`  Status: ${status.status}`);

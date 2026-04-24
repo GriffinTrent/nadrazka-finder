@@ -46,3 +46,4 @@ next-env.d.ts
 
 # apify raw scrape dumps (can be very large)
 scripts/beer-*-raw.json
+scripts/scraped-raw.json
