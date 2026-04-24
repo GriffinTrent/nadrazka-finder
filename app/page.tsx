@@ -1,10 +1,39 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useCallback, useEffect, useRef, useState, Suspense } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import type { Nadrazka } from '../lib/types';
+import { ROUTES, type Route } from '../lib/routes';
 import { PubSearch, PubSearchButton } from '../components/PubSearch';
+
+// Haversine distance between two points in metres
+function haversineM(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6371000;
+  const phi1 = lat1 * Math.PI / 180, phi2 = lat2 * Math.PI / 180;
+  const dPhi = (lat2 - lat1) * Math.PI / 180, dLambda = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dPhi / 2) ** 2 + Math.cos(phi1) * Math.cos(phi2) * Math.sin(dLambda / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+// Minimum distance from a point to a line segment, in metres
+function distToSegmentM(lat: number, lng: number, lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const cos = Math.cos(((lat1 + lat2) / 2) * Math.PI / 180);
+  const dx = (lng2 - lng1) * cos, dy = lat2 - lat1;
+  const len2 = dx * dx + dy * dy;
+  if (len2 === 0) return haversineM(lat, lng, lat1, lng1);
+  const t = Math.max(0, Math.min(1, ((lng - lng1) * cos * dx + (lat - lat1) * dy) / len2));
+  return haversineM(lat, lng, lat1 + t * (lat2 - lat1), lng1 + t * (lng2 - lng1));
+}
+
+function pubOnRoute(pub: Nadrazka, route: Route, maxDistM = 15000): boolean {
+  for (let i = 0; i < route.waypoints.length - 1; i++) {
+    const [lat1, lng1] = route.waypoints[i];
+    const [lat2, lng2] = route.waypoints[i + 1];
+    if (distToSegmentM(pub.lat, pub.lng, lat1, lng1, lat2, lng2) <= maxDistM) return true;
+  }
+  return false;
+}
 
 // ---------------------------------------------------------------------------
 // SteamTrainLoader — static SVG steam locomotive (original artwork, project-owned)
@@ -240,6 +269,8 @@ function HomeContent() {
   const [darkMode, setDarkMode] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [selectedRoute, setSelectedRoute] = useState<Route | null>(null);
+  const [visitedIds, setVisitedIds] = useState<Set<string>>(new Set());
 
   const restoredRef = useRef(false);
 
@@ -251,6 +282,19 @@ function HomeContent() {
     } else {
       setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
     }
+    const storedVisited = localStorage.getItem('nadrazka-visited');
+    if (storedVisited) {
+      try { setVisitedIds(new Set(JSON.parse(storedVisited))); } catch { /* ignore */ }
+    }
+  }, []);
+
+  const handleToggleVisited = useCallback((id: string) => {
+    setVisitedIds(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      localStorage.setItem('nadrazka-visited', JSON.stringify([...next]));
+      return next;
+    });
   }, []);
 
   // First-visit onboarding hint
@@ -307,6 +351,11 @@ function HomeContent() {
     restoredRef.current = true;
   }, [mapData, loading, searchParams]);
 
+  const filteredMapData = useMemo(() => {
+    if (!selectedRoute) return mapData;
+    return mapData.filter(pub => pubOnRoute(pub, selectedRoute));
+  }, [mapData, selectedRoute]);
+
   const dm = darkMode;
   const cardBg = dm ? '#1e293b' : '#ffffff';
   const cardText = dm ? '#f1f5f9' : '#1e293b';
@@ -338,13 +387,21 @@ function HomeContent() {
       ) : (
         <>
           <Map
-            mapData={mapData}
+            mapData={filteredMapData}
             onLocationSelect={handleLocationSelect}
             selectedId={selectedLocation?.id ?? null}
             darkMode={darkMode}
+            visitedIds={visitedIds}
+            selectedRoute={selectedRoute}
           />
 
-          <BottomSheet location={selectedLocation} onClose={handleClose} darkMode={darkMode} />
+          <BottomSheet
+            location={selectedLocation}
+            onClose={handleClose}
+            darkMode={darkMode}
+            isVisited={selectedLocation ? visitedIds.has(selectedLocation.id) : false}
+            onToggleVisited={() => selectedLocation && handleToggleVisited(selectedLocation.id)}
+          />
 
           {/* Search panel */}
           {showSearch && (
@@ -360,16 +417,46 @@ function HomeContent() {
           <PubSearchButton onClick={() => setShowSearch(true)} darkMode={darkMode} />
 
           {/* Header panel — top left */}
-          <div style={{ position: 'absolute', top: 20, left: 20, zIndex: 900, background: dm ? '#0D1F33' : '#1565C0', borderRadius: 12, boxShadow: dm ? '0 2px 12px rgba(0,0,0,0.4)' : '0 2px 16px rgba(21,101,192,0.35)', padding: '12px 18px', minWidth: 190 }}>
+          <div style={{ position: 'absolute', top: 20, left: 20, zIndex: 900, background: dm ? '#0D1F33' : '#1565C0', borderRadius: 12, boxShadow: dm ? '0 2px 12px rgba(0,0,0,0.4)' : '0 2px 16px rgba(21,101,192,0.35)', padding: '12px 18px', minWidth: 200 }}>
             <h1 style={{ fontSize: 15, fontWeight: 700, color: '#ffffff', lineHeight: 1.2, margin: 0 }}>
               🚉 N&#225;dražka Finder
             </h1>
             <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.85)', margin: '5px 0 0', fontWeight: 600 }}>
-              {mapData.length} <span style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 400 }}>locations</span>
+              {filteredMapData.length}
+              {selectedRoute && <span style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 400 }}> on route</span>}
+              {!selectedRoute && <span style={{ color: 'rgba(255,255,255,0.6)', fontWeight: 400 }}> locations</span>}
+              {visitedIds.size > 0 && (
+                <span style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 400, marginLeft: 6 }}>· {visitedIds.size} visited</span>
+              )}
             </p>
-            <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.55)', margin: '2px 0 0' }}>
-              Czech train station pubs
-            </p>
+
+            {/* Route selector */}
+            <div style={{ position: 'relative', marginTop: 8 }}>
+              <select
+                value={selectedRoute?.id ?? ''}
+                onChange={e => setSelectedRoute(ROUTES.find(r => r.id === e.target.value) ?? null)}
+                style={{
+                  width: '100%',
+                  background: dm ? '#1E3550' : 'rgba(255,255,255,0.18)',
+                  color: '#ffffff',
+                  border: '1px solid rgba(255,255,255,0.25)',
+                  borderRadius: 7,
+                  padding: '5px 24px 5px 8px',
+                  fontSize: 11,
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  appearance: 'none',
+                  WebkitAppearance: 'none',
+                  outline: 'none',
+                }}
+              >
+                <option value="" style={{ color: '#1e293b', background: '#fff' }}>All routes</option>
+                {ROUTES.map(r => (
+                  <option key={r.id} value={r.id} style={{ color: '#1e293b', background: '#fff' }}>{r.name}</option>
+                ))}
+              </select>
+              <span style={{ position: 'absolute', right: 7, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', fontSize: 9, color: 'rgba(255,255,255,0.7)' }}>▼</span>
+            </div>
           </div>
 
           {/* Dark mode toggle — top right */}

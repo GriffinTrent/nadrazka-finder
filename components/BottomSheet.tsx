@@ -46,9 +46,11 @@ interface BottomSheetProps {
   location: Nadrazka | null;
   onClose: () => void;
   darkMode?: boolean;
+  isVisited?: boolean;
+  onToggleVisited?: () => void;
 }
 
-export default function BottomSheet({ location, onClose, darkMode = false }: BottomSheetProps) {
+export default function BottomSheet({ location, onClose, darkMode = false, isVisited = false, onToggleVisited }: BottomSheetProps) {
   const sheetRef = useRef<HTMLDivElement>(null);
   const [hoursOpen, setHoursOpen] = useState(false);
   const [translatedReviews, setTranslatedReviews] = useState<Array<string | null> | null>(null);
@@ -190,9 +192,31 @@ export default function BottomSheet({ location, onClose, darkMode = false }: Bot
 
             {/* Name + badges — full width */}
             <div style={{ padding: '8px 20px 0' }}>
-              <h2 style={{ fontSize: 20, fontWeight: 700, color: t.text, lineHeight: 1.2, margin: '0 0 8px' }}>
-                {location.name}
-              </h2>
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 8, marginBottom: 8 }}>
+                <h2 style={{ fontSize: 20, fontWeight: 700, color: t.text, lineHeight: 1.2, margin: 0, flex: 1 }}>
+                  {location.name}
+                </h2>
+                {onToggleVisited && (
+                  <button
+                    onClick={onToggleVisited}
+                    title={isVisited ? 'Mark as not visited' : 'Mark as visited'}
+                    style={{
+                      flexShrink: 0,
+                      background: isVisited ? '#37A83A' : t.bg2,
+                      color: isVisited ? '#fff' : t.text2,
+                      border: isVisited ? 'none' : `1px solid ${t.border}`,
+                      borderRadius: 999,
+                      padding: '5px 12px',
+                      fontSize: 11,
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {isVisited ? '✓ Visited' : '+ Visited'}
+                  </button>
+                )}
+              </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
                 <span style={{
                   background: darkMode ? '#1A2A3A' : '#f1f5f9', color: t.text3,
