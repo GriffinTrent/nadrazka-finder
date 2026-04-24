@@ -76,17 +76,82 @@ const STATION_KEYWORDS = [
   'bahnhof', // Czech border regions
 ];
 
-// Non-pub/food categories to exclude
-const EXCLUDE_CATEGORIES = ['hotel', 'lodging', 'atm', 'bank', 'travel_agency', 'gas_station',
-  'train_station', 'transit_station', 'bus_station', 'subway_station', 'light_rail_station'];
+// Non-pub/food categories to exclude (normalized substring matches).
+// A place is excluded when it has one of these AND no food/drink category.
+// Czech categories from Google Maps CZ are in Czech — English-only list was a bug.
+const EXCLUDE_CATEGORIES = [
+  // English (original API values)
+  'hotel', 'lodging', 'atm', 'bank', 'travel_agency', 'gas_station',
+  'train_station', 'transit_station', 'bus_station', 'subway_station', 'light_rail_station',
+  // Czech transport infrastructure (normalized: no diacritics, lowercase)
+  'zeleznicni',           // Železniční stanice / dopravce / infrastruktura / pokladna / služby
+  'vlakove depo',         // Vlakové depo
+  'autobusova zastavka',  // Autobusová zastávka
+  'tramvajova zastavka',  // Tramvajová zastávka
+  'trolejbusova zastavka',
+  'zastavka',             // bare "Zastávka" (generic stop)
+  'stanice metra',        // metro
+  'doprava osob',         // Doprava osob (passenger transport company)
+  'dopravni uzel',        // Dopravní uzel (transport hub)
+  'prepravni sluzba',     // Přepravní služba
+  'jizdenek',             // Prodejce/Prodej jízdenek (ticket sales)
+  'uzkokolejne',          // Stanice úzkokolejné dráhy
+  'doprava na letiste',   // airport shuttle
+  // Czech facilities (never a pub)
+  'parkoviste',           // Parkoviště (parking)
+  'toalety',              // Veřejné toalety / Bezbariérové veřejné toalety
+  'cerpaci stanice',      // Čerpací stanice (gas station)
+  // Czech accommodation (exclude unless also has food category)
+  'penzion',
+  'hostel',
+  'ubytovani pod strechou',    // B&B / accommodation-only
+  'ubytovani s pokojovou',     // hotel room service type
+  'dum pro hosty',             // guest house
+  // Czech non-food attractions & services
+  'muzeum',
+  'galerie umeni',
+  'historicka pamatka',
+  'turisticka atrakce',
+  'turisticke informacni stredisko',
+  'divadelni spolecnost',
+  'sportovni komplex',
+  'squashovy kurt',
+  'tenisovy kurt',
+  'cyklisticky park',
+  'golfove odpaliste',
+  'strelnice',
+  'wellness centrum',
+  'lyzarske stredisko',
+  'hudebni producent',
+  'videoprodukce',
+  'cateringove sluzby',
+  'kongresove centrum',
+  'organizace svateb',
+  'statni sprava',
+  'skola vareni',
+  'supermarket',
+  'tabak',
+  'prodejna pohlednic',
+  'prodejna map',
+  'uschovna zavazadel',   // luggage storage
+];
 
 // Fast food chains and non-pub establishments to exclude by name
 const CHAIN_BLACKLIST = ['kfc', 'mcdonald', 'subway', 'burger king', 'bageterie boulevard',
   'natoo', 'costa coffee', 'starbucks', 'mcdonalds', 'banh-mi', 'dm drogerie'];
 
 // Keywords indicating the result IS a station building (not a pub at a station)
-const STATION_BUILDING_INDICATORS = ['autobusové nádraží', 'autobusove nadrazi',
-  'stanice metra', 'metro stanice', 'žst.', 'zeleznicni stanice', 'železniční stanice'];
+const STATION_BUILDING_INDICATORS = [
+  'autobusové nádraží', 'autobusove nadrazi',
+  'stanice metra', 'metro stanice', 'žst.',
+  'zeleznicni stanice', 'železniční stanice',
+  // Catch plain station-name patterns: "Praha hlavní nádraží", "Nádraží Kyje", etc.
+  // matched against name+addr; only fires when nádraží is the name of the place, not a pub
+  'hlavni nadrazi', 'dolni nadrazi', 'horni nadrazi', 'mistni nadrazi',
+  'nadrazi kyje', 'nadrazi branik', 'nadrazi vysocany', 'nadrazi liboc',
+  'nadrazi libusin', 'nadrazi velesl', 'nadrazi podbaba', 'nadrazi klan',
+  'nadrazi hluboc', 'nadrazi mechol', 'vlakove nadrazi', 'autobusove nadrazi',
+];
 
 function getLat(place) { return place.location?.lat ?? place.lat ?? null; }
 function getLng(place) { return place.location?.lng ?? place.lng ?? null; }
@@ -109,7 +174,7 @@ function classifyResult(place, stations) {
   // Auto-exclude non-food businesses
   const hasExcludeCategory = EXCLUDE_CATEGORIES.some(ec => cats.some(c => c.includes(ec)));
   const hasFoodCategory = cats.some(c =>
-    ['restaur', 'bar', 'pub', 'cafe', 'kavarn', 'pivo', 'pizeri', 'jidelna', 'hospoda', 'pivnice', 'bufet', 'bistro', 'buffet'].some(fc => c.includes(fc))
+    ['restaur', 'bar', 'pub', 'cafe', 'kavarn', 'pivo', 'pizeri', 'jidelna', 'hospoda', 'pivnice', 'bufet', 'bistro', 'buffet', 'hostinec'].some(fc => c.includes(fc))
   );
   if (hasExcludeCategory && !hasFoodCategory) return null;
 
