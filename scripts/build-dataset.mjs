@@ -50,7 +50,13 @@ function loadStations() {
     return [];
   }
   const raw = JSON.parse(readFileSync(STATIONS_PATH, 'utf8'));
-  return raw.elements?.filter(e => e.lat && e.lon).map(e => ({
+  return raw.elements?.filter(e => {
+    if (!e.lat || !e.lon) return false;
+    // Exclude metro, funicular, and other non-railway stations
+    const stationType = e.tags?.station;
+    if (stationType === 'subway' || stationType === 'funicular' || stationType === 'monorail') return false;
+    return true;
+  }).map(e => ({
     id: e.id,
     name: e.tags?.name || e.tags?.['name:cs'] || 'Unknown',
     lat: e.lat,
@@ -134,11 +140,15 @@ const EXCLUDE_CATEGORIES = [
   'prodejna pohlednic',
   'prodejna map',
   'uschovna zavazadel',   // luggage storage
+  // Fast food / takeaway (not pub-style establishments)
+  'rychle obcerstveni',   // Rychlé občerstvení (fast food outlet)
+  'kebaberie',            // kebab shop
+  'doner kebab',          // döner kebab shop
 ];
 
 // Fast food chains and non-pub establishments to exclude by name
 const CHAIN_BLACKLIST = ['kfc', 'mcdonald', 'subway', 'burger king', 'bageterie boulevard',
-  'natoo', 'costa coffee', 'starbucks', 'mcdonalds', 'banh-mi', 'dm drogerie'];
+  'natoo', 'costa coffee', 'starbucks', 'mcdonalds', 'banh-mi', 'dm drogerie', 'kebab'];
 
 // Keywords indicating the result IS a station building (not a pub at a station)
 const STATION_BUILDING_INDICATORS = [
@@ -178,13 +188,6 @@ function classifyResult(place, stations) {
   );
   if (hasExcludeCategory && !hasFoodCategory) return null;
 
-  // Tier 1: station keyword in name OR locatedIn field mentions station
-  const nameHasStation = STATION_KEYWORDS.some(k => nameLow.includes(normalize(k)));
-  const locatedInStation = STATION_KEYWORDS.some(k => locatedIn.includes(normalize(k)));
-  if (nameHasStation || locatedInStation) {
-    return { tier: 1, verified: true, note: nameHasStation ? 'station keyword in name' : 'located in station building' };
-  }
-
   const lat = getLat(place);
   const lng = getLng(place);
   if (!lat || !lng) return null;
@@ -192,16 +195,28 @@ function classifyResult(place, stations) {
   // Get nearest station distance
   const { station, distanceM } = findNearestStation(lat, lng, stations);
 
+  // Tier 1: station keyword in name OR locatedIn field mentions station
+  // Cap at 2km — places with "nádraží" in name but >2km from any railway station are likely false positives
+  const nameHasStation = STATION_KEYWORDS.some(k => nameLow.includes(normalize(k)));
+  const locatedInStation = STATION_KEYWORDS.some(k => locatedIn.includes(normalize(k)));
+  if ((nameHasStation || locatedInStation) && (distanceM === null || distanceM <= 2000)) {
+    return { tier: 1, verified: true, note: nameHasStation ? 'station keyword in name' : 'located in station building' };
+  }
+
   // Tier 2: "nádraží" (not just "Nádražní" street) in address + within 200m
   // "nadrazi" matches both nádraží AND nádražní, so check for street-number pattern to exclude Nádražní street
   const addrHasNadrazi = addrLow.includes('nadrazi'); // catches nádraží, nádražní, nadrazi, nadrazni
   const addrIsJustStreet = /nadrazni\s+\d/.test(addrLow) && !addrLow.includes(' nadrazi ') && !addrLow.includes('u nadrazi');
-  if (addrHasNadrazi && !addrIsJustStreet && distanceM !== null && distanceM <= 200) {
+  if (addrHasNadrazi && !addrIsJustStreet && distanceM !== null && distanceM <= 200 && hasFoodCategory) {
     return { tier: 2, verified: false, note: `station in address (${Math.round(distanceM)}m from ${station?.name})` };
   }
 
-  // Tier 3: within 80m of a station (physical proximity, needs manual review)
-  if (distanceM !== null && distanceM <= 80 && hasFoodCategory) {
+  // Tier 3: within 50m of a railway station AND name/address has a station-related hint
+  // Tight distance + hint requirement prevents generic city-centre restaurants near busy stops
+  const hasStationHint = nameLow.includes('nadrazi') || nameLow.includes('peron') || nameLow.includes('zastavka') ||
+    nameLow.includes('nadraska') || addrLow.includes('nadrazi') ||
+    nameLow.includes('perron') || nameLow.includes('nastupiste');
+  if (distanceM !== null && distanceM <= 50 && hasFoodCategory && hasStationHint) {
     return { tier: 3, verified: false, note: `${Math.round(distanceM)}m from ${station?.name} — manual review needed` };
   }
 
