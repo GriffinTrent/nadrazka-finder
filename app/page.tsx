@@ -279,6 +279,7 @@ function HomeContent() {
 
   const restoredRef = useRef(false);
   const pendingVisitRef = useRef<string | null>(null);
+  const mergedRef = useRef(false);
 
   // Initialise from stored preference, fall back to system preference
   useEffect(() => {
@@ -299,22 +300,26 @@ function HomeContent() {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if ((event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session) {
         setUser(session.user);
-        // Merge any offline localStorage visits into Supabase (idempotent)
-        const localIds = JSON.parse(localStorage.getItem('nadrazka-visited') ?? '[]') as string[];
-        if (localIds.length > 0) {
-          await supabase.from('visited_pubs').upsert(
-            localIds.map(pub_id => ({ user_id: session.user.id, pub_id })),
-            { onConflict: 'user_id,pub_id', ignoreDuplicates: true }
-          );
-          localStorage.removeItem('nadrazka-visited');
-        }
-        // Complete any pending visit that triggered the auth flow
-        if (pendingVisitRef.current) {
-          await supabase.from('visited_pubs').upsert(
-            { user_id: session.user.id, pub_id: pendingVisitRef.current },
-            { onConflict: 'user_id,pub_id', ignoreDuplicates: true }
-          );
-          pendingVisitRef.current = null;
+        // Guard against SIGNED_IN + INITIAL_SESSION both firing on magic link return
+        if (!mergedRef.current) {
+          mergedRef.current = true;
+          // Merge any offline localStorage visits into Supabase (idempotent)
+          const localIds = JSON.parse(localStorage.getItem('nadrazka-visited') ?? '[]') as string[];
+          if (localIds.length > 0) {
+            await supabase.from('visited_pubs').upsert(
+              localIds.map(pub_id => ({ user_id: session.user.id, pub_id })),
+              { onConflict: 'user_id,pub_id', ignoreDuplicates: true }
+            );
+            localStorage.removeItem('nadrazka-visited');
+          }
+          // Complete any pending visit that triggered the auth flow
+          if (pendingVisitRef.current) {
+            await supabase.from('visited_pubs').upsert(
+              { user_id: session.user.id, pub_id: pendingVisitRef.current },
+              { onConflict: 'user_id,pub_id', ignoreDuplicates: true }
+            );
+            pendingVisitRef.current = null;
+          }
         }
         // Load full visited set from Supabase
         const { data } = await supabase.from('visited_pubs').select('pub_id').eq('user_id', session.user.id);
@@ -322,6 +327,7 @@ function HomeContent() {
       }
       if (event === 'SIGNED_OUT') {
         setUser(null);
+        mergedRef.current = false;
         const stored = localStorage.getItem('nadrazka-visited');
         setVisitedIds(stored ? new Set(JSON.parse(stored)) : new Set());
       }
@@ -336,15 +342,26 @@ function HomeContent() {
       return;
     }
     const isCurrentlyVisited = visitedIds.has(id);
-    if (isCurrentlyVisited) {
-      await supabase.from('visited_pubs').delete().eq('user_id', user.id).eq('pub_id', id);
-      setVisitedIds(prev => { const n = new Set(prev); n.delete(id); return n; });
-    } else {
-      await supabase.from('visited_pubs').upsert(
-        { user_id: user.id, pub_id: id },
-        { onConflict: 'user_id,pub_id', ignoreDuplicates: true }
-      );
-      setVisitedIds(prev => new Set([...prev, id]));
+    // Optimistic update
+    setVisitedIds(prev => {
+      const n = new Set(prev);
+      if (isCurrentlyVisited) n.delete(id); else n.add(id);
+      return n;
+    });
+    const { error } = isCurrentlyVisited
+      ? await supabase.from('visited_pubs').delete().eq('user_id', user.id).eq('pub_id', id)
+      : await supabase.from('visited_pubs').upsert(
+          { user_id: user.id, pub_id: id },
+          { onConflict: 'user_id,pub_id', ignoreDuplicates: true }
+        );
+    if (error) {
+      // Rollback optimistic update
+      setVisitedIds(prev => {
+        const n = new Set(prev);
+        if (isCurrentlyVisited) n.add(id); else n.delete(id);
+        return n;
+      });
+      console.error('Failed to update visited status:', error.message);
     }
   }, [user, visitedIds]);
 
@@ -580,7 +597,7 @@ function HomeContent() {
 
           {/* Auth modal — shown when unauthenticated user tries to mark visited */}
           {showAuthModal && (
-            <AuthModal onClose={() => setShowAuthModal(false)} darkMode={darkMode} />
+            <AuthModal onClose={() => { pendingVisitRef.current = null; setShowAuthModal(false); }} darkMode={darkMode} />
           )}
 
           {/* Map legend — bottom right, above zoom controls */}
