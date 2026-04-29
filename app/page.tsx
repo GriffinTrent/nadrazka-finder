@@ -3,9 +3,11 @@
 import dynamic from 'next/dynamic';
 import { useCallback, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import type { User } from '@supabase/supabase-js';
 import type { Nadrazka } from '../lib/types';
 import { ROUTES, type Route } from '../lib/routes';
 import { PubSearch, PubSearchButton } from '../components/PubSearch';
+import { supabase } from '../lib/supabase';
 
 // Haversine distance between two points in metres
 function haversineM(lat1: number, lng1: number, lat2: number, lng2: number): number {
@@ -220,6 +222,7 @@ function FullScreenLoader() {
 // Dynamic imports
 // ---------------------------------------------------------------------------
 const BottomSheet = dynamic(() => import('../components/BottomSheet'), { ssr: false });
+const AuthModal = dynamic(() => import('../components/AuthModal'), { ssr: false });
 
 const Map = dynamic(
   () => import('../components/Map'),
@@ -271,8 +274,11 @@ function HomeContent() {
   const [showSearch, setShowSearch] = useState(false);
   const [selectedRoute, setSelectedRoute] = useState<Route | null>(null);
   const [visitedIds, setVisitedIds] = useState<Set<string>>(new Set());
+  const [user, setUser] = useState<User | null>(null);
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
   const restoredRef = useRef(false);
+  const pendingVisitRef = useRef<string | null>(null);
 
   // Initialise from stored preference, fall back to system preference
   useEffect(() => {
@@ -288,14 +294,59 @@ function HomeContent() {
     }
   }, []);
 
-  const handleToggleVisited = useCallback((id: string) => {
-    setVisitedIds(prev => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id); else next.add(id);
-      localStorage.setItem('nadrazka-visited', JSON.stringify([...next]));
-      return next;
+  // Auth state + localStorage→Supabase sync
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if ((event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session) {
+        setUser(session.user);
+        // Merge any offline localStorage visits into Supabase (idempotent)
+        const localIds = JSON.parse(localStorage.getItem('nadrazka-visited') ?? '[]') as string[];
+        if (localIds.length > 0) {
+          await supabase.from('visited_pubs').upsert(
+            localIds.map(pub_id => ({ user_id: session.user.id, pub_id })),
+            { onConflict: 'user_id,pub_id', ignoreDuplicates: true }
+          );
+          localStorage.removeItem('nadrazka-visited');
+        }
+        // Complete any pending visit that triggered the auth flow
+        if (pendingVisitRef.current) {
+          await supabase.from('visited_pubs').upsert(
+            { user_id: session.user.id, pub_id: pendingVisitRef.current },
+            { onConflict: 'user_id,pub_id', ignoreDuplicates: true }
+          );
+          pendingVisitRef.current = null;
+        }
+        // Load full visited set from Supabase
+        const { data } = await supabase.from('visited_pubs').select('pub_id').eq('user_id', session.user.id);
+        if (data) setVisitedIds(new Set(data.map((r: { pub_id: string }) => r.pub_id)));
+      }
+      if (event === 'SIGNED_OUT') {
+        setUser(null);
+        const stored = localStorage.getItem('nadrazka-visited');
+        setVisitedIds(stored ? new Set(JSON.parse(stored)) : new Set());
+      }
     });
+    return () => subscription.unsubscribe();
   }, []);
+
+  const handleToggleVisited = useCallback(async (id: string) => {
+    if (!user) {
+      pendingVisitRef.current = id;
+      setShowAuthModal(true);
+      return;
+    }
+    const isCurrentlyVisited = visitedIds.has(id);
+    if (isCurrentlyVisited) {
+      await supabase.from('visited_pubs').delete().eq('user_id', user.id).eq('pub_id', id);
+      setVisitedIds(prev => { const n = new Set(prev); n.delete(id); return n; });
+    } else {
+      await supabase.from('visited_pubs').upsert(
+        { user_id: user.id, pub_id: id },
+        { onConflict: 'user_id,pub_id', ignoreDuplicates: true }
+      );
+      setVisitedIds(prev => new Set([...prev, id]));
+    }
+  }, [user, visitedIds]);
 
   // First-visit onboarding hint
   useEffect(() => {
@@ -457,6 +508,36 @@ function HomeContent() {
               </select>
               <span style={{ position: 'absolute', right: 7, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', fontSize: 9, color: 'rgba(255,255,255,0.7)' }}>▼</span>
             </div>
+
+            {/* Auth row */}
+            {user ? (
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 8 }}>
+                <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.55)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 120 }}>
+                  {user.email}
+                </span>
+                <button
+                  onClick={() => supabase.auth.signOut()}
+                  style={{
+                    background: 'none', border: 'none', cursor: 'pointer',
+                    fontSize: 10, color: 'rgba(255,255,255,0.55)',
+                    padding: '2px 0', textDecoration: 'underline',
+                  }}
+                >
+                  Sign out
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => setShowAuthModal(true)}
+                style={{
+                  marginTop: 8, background: 'none', border: 'none', cursor: 'pointer',
+                  fontSize: 10, color: 'rgba(255,255,255,0.55)',
+                  padding: '2px 0', textDecoration: 'underline', textAlign: 'left',
+                }}
+              >
+                Sign in to sync visited pubs
+              </button>
+            )}
           </div>
 
           {/* Dark mode toggle — top right */}
@@ -495,6 +576,11 @@ function HomeContent() {
             }}>
               Tap any marker to explore a pub
             </div>
+          )}
+
+          {/* Auth modal — shown when unauthenticated user tries to mark visited */}
+          {showAuthModal && (
+            <AuthModal onClose={() => setShowAuthModal(false)} darkMode={darkMode} />
           )}
 
           {/* Map legend — bottom right, above zoom controls */}
