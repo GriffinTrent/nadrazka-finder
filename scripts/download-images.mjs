@@ -65,6 +65,7 @@ async function main() {
 
   let tasks = [];
   let alreadyLocal = 0;
+  let rewroteFromDisk = 0;
   let toDownload = 0;
 
   for (const pub of data) {
@@ -81,10 +82,10 @@ async function main() {
       const localPath = join(pubDir, `${i}.jpg`);
       const publicPath = `/images/${dirId}/${i}.jpg`;
 
-      // Already downloaded on disk
+      // Already downloaded on disk — rewrite the JSON to point at the local file
       if (existsSync(localPath) && statSync(localPath).size > 0) {
         img.imageUrl = publicPath;
-        alreadyLocal++;
+        rewroteFromDisk++;
         continue;
       }
 
@@ -105,23 +106,27 @@ async function main() {
     }
   }
 
-  console.log(`Already local: ${alreadyLocal} | To download: ${toDownload}`);
-  if (toDownload === 0) {
-    console.log('Nothing to download — JSON already uses local paths.');
-    return;
-  }
+  console.log(`Already local: ${alreadyLocal} | Rewritten from disk: ${rewroteFromDisk} | To download: ${toDownload}`);
 
   let done = 0, failed = 0;
-  const results = await processInBatches(tasks, CONCURRENCY);
-  for (const r of results) {
-    if (r === 'ok') done++;
-    else { failed++; }
-    if ((done + failed) % 50 === 0) {
-      process.stdout.write(`\r  ${done + failed}/${toDownload} (${done} ok, ${failed} failed)...`);
+  if (toDownload > 0) {
+    const results = await processInBatches(tasks, CONCURRENCY);
+    for (const r of results) {
+      if (r === 'ok') done++;
+      else { failed++; }
+      if ((done + failed) % 50 === 0) {
+        process.stdout.write(`\r  ${done + failed}/${toDownload} (${done} ok, ${failed} failed)...`);
+      }
     }
+    console.log(`\nDone. Downloaded: ${done} | Failed: ${failed} (URLs may be expired)`);
+    if (failed > 0) console.log('  Re-run after a fresh build-dataset.mjs to retry failed images.');
   }
-  console.log(`\nDone. Downloaded: ${done} | Failed: ${failed} (URLs may be expired)`);
-  if (failed > 0) console.log('  Re-run after a fresh build-dataset.mjs to retry failed images.');
+
+  // Persist if anything changed — including pure on-disk rewrites with no downloads.
+  if (rewroteFromDisk === 0 && done === 0) {
+    console.log('Nothing changed — JSON already uses local paths.');
+    return;
+  }
 
   writeFileSync(DATA_PATH, JSON.stringify(data, null, 2));
   console.log('Updated nadrazky.json with local image paths.');
