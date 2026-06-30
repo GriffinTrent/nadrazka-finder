@@ -83,13 +83,18 @@ function getPrimaryBeer(pub: Nadrazka): string | null {
   return primary ? primary.name : pub.beerMenu[0].name;
 }
 
+// Strip diacritics so accent-free typing ("Tabor") matches Czech data ("Tábor").
+function deburr(s: string): string {
+  return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+}
+
 function matchesPub(pub: Nadrazka, query: string): boolean {
-  const q = query.toLowerCase().trim();
+  const q = deburr(query).trim();
   if (!q) return true;
   return (
-    pub.name.toLowerCase().includes(q) ||
-    (pub.city?.toLowerCase().includes(q) ?? false) ||
-    (pub.stationName?.toLowerCase().includes(q) ?? false)
+    deburr(pub.name).includes(q) ||
+    (pub.city ? deburr(pub.city).includes(q) : false) ||
+    (pub.stationName ? deburr(pub.stationName).includes(q) : false)
   );
 }
 
