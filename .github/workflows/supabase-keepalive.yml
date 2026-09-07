@@ -4,18 +4,25 @@ name: Supabase keepalive
 # activity over the past week"; their docs say "a few user requests to the
 # database each day" is enough (supabase.com/docs/guides/platform/free-project-pausing).
 # History: a 401 edge ping every 2 days -> paused 2026-08-08. One real read
-# every 2 days -> paused again 2026-08-26. So now: 3 real reads, 3 times a day.
+# every 2 days -> paused again 2026-08-26. So now: one real read 4 times a day.
+# The margin is in runs per day because that is the axis Supabase measures.
+#
+# Public repo: GitHub disables this schedule after 60 days without a push
+# (it emails first). Any commit re-enables it.
+# Mirror of GriffinTrent/Troubador/.github/workflows/supabase-keepalive.yml —
+# only the table, cron minute, and project ref differ.
 
 on:
   schedule:
-    - cron: '0 */8 * * *' # 00:00, 08:00, 16:00 UTC
+    - cron: '23 */6 * * *' # 00:23, 06:23, 12:23, 18:23 UTC — off the hour, GitHub drops on-the-hour jobs under load
   workflow_dispatch: {}
 
 jobs:
   ping:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - name: Query a table a few times so the DB registers activity
+      - name: Query a table so the DB registers activity
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
@@ -23,20 +30,17 @@ jobs:
           set -euo pipefail
           : "${SUPABASE_URL:?Missing SUPABASE_URL secret}"
           : "${SUPABASE_ANON_KEY:?Missing SUPABASE_ANON_KEY secret}"
-          for i in 1 2 3; do
-            # `|| true` so a curl DNS failure (exit 6, paused project) reaches
-            # the check below instead of killing the script via set -e.
-            code=$(curl -s -o /tmp/body -w '%{http_code}' \
-              -H "apikey: ${SUPABASE_ANON_KEY}" \
-              -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
-              "${SUPABASE_URL}/rest/v1/visited_pubs?select=*&limit=1" || true)
-            echo "[$i/3] GET /rest/v1/visited_pubs -> HTTP ${code:-000}"
-            if [ "${code:-000}" != "200" ]; then
-              echo "Response body:"; cat /tmp/body 2>/dev/null || true; echo
-              echo "Keepalive FAILED. HTTP 000 means DNS is gone — the project is paused."
-              echo "Restore it at https://supabase.com/dashboard/project/whljrvgryplxxjcwkwuy"
-              exit 1
-            fi
-            sleep 5
-          done
-          echo "Keepalive OK — 3 real queries executed."
+          # `|| true` so a curl failure (exit 6 on a paused project's dead DNS)
+          # reaches the check below instead of killing the script via set -e.
+          code=$(curl -sS --max-time 20 -o /tmp/body -w '%{http_code}' \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+            "${SUPABASE_URL}/rest/v1/visited_pubs?select=*&limit=1" || true)
+          echo "GET /rest/v1/visited_pubs -> HTTP ${code:-000}"
+          if [ "${code:-000}" != "200" ]; then
+            echo "Response body:"; cat /tmp/body 2>/dev/null || true; echo
+            echo "Keepalive FAILED. HTTP 000 usually means the project is paused (DNS gone); it can also be a timeout."
+            echo "Restore: bash ~/Claude-base/scripts/supabase-restore.sh, or https://supabase.com/dashboard/project/whljrvgryplxxjcwkwuy"
+            exit 1
+          fi
+          echo "Keepalive OK — real query executed."
